@@ -1,0 +1,27 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/qtcApi"> qtcApi管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 更新qtcApi</a>
+</div>
+<form class="table-query-form" on-validated="update();" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="apiName" class="control-label">apiName：</label></td>
+			<td><input class="form-control" type="text" id="apiName" ng-model="data.apiName"/></td>
+			<td><label for="apiUrl" class="control-label">apiUrl：</label></td>
+			<td><input class="form-control" type="text" id="apiUrl" ng-model="data.apiUrl"/></td>
+		</tr>
+		<tr>
+			<td><label for="apiSysId" class="control-label">apiSysId：</label></td>
+			<td><input class="form-control" type="text" id="apiSysId" ng-model="data.apiSysId"/></td>
+			<td><label for="apiSystemName" class="control-label">apiSystemName：</label></td>
+			<td><input class="form-control" type="text" id="apiSystemName" ng-model="data.apiSystemName"/></td>
+		</tr>
+	</table>
+
+	<div class="text-right table-query-btn mt10">
+		<input type="submit" class="btn btn-sm btn-primary" value="保存">
+		<a href="#/qtcApi" class="btn btn-sm btn-success">返回</a>
+	</div>
+</form>

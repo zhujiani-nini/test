@@ -1,0 +1,31 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/lsi1440"> lsi1440管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 更新lsi1440</a>
+</div>
+<form class="table-query-form" on-validated="update();" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="date" class="control-label">date：</label></td>
+			<td><input class="form-control" type="text" id="date" ng-model="data.date"/></td>
+			<td><label for="indx" class="control-label">indx：</label></td>
+			<td><input class="form-control" type="text" id="indx" ng-model="data.indx"/></td>
+		</tr>
+		<tr>
+			<td><label for="info" class="control-label">info：</label></td>
+			<td><input class="form-control" type="text" id="info" ng-model="data.info"/></td>
+			<td><label for="longindx" class="control-label">longindx：</label></td>
+			<td><input class="form-control" type="text" id="longindx" ng-model="data.longindx"/></td>
+		</tr>
+		<tr>
+			<td><label for="shortindx" class="control-label">shortindx：</label></td>
+			<td><input class="form-control" type="text" id="shortindx" ng-model="data.shortindx"/></td>
+		</tr>
+	</table>
+
+	<div class="text-right table-query-btn mt10">
+		<input type="submit" class="btn btn-sm btn-primary" value="保存">
+		<a href="#/lsi1440" class="btn btn-sm btn-success">返回</a>
+	</div>
+</form>

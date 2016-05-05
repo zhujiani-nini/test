@@ -1,0 +1,77 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a> &gt; <a href="#/strInstanceRunningError" class="current"> strInstanceRunningError管理</a>
+</div>
+<div>
+	<div class="table-query">
+		<!-- Table Layout -->
+		<div class="basic_query">
+			<form class=" table-query-form" novalidate>
+				<table class="query_table">
+					<tr>
+						<td><label for="id" class="control-label">id：</label></td>
+						<td><input class="form-control" type="text" id="id" ng-model="searchParams.id"/></td>
+						<td><label for="strategyInstanceId" class="control-label">strategyInstanceId：</label></td>
+						<td><input class="form-control" type="text" id="strategyInstanceId" ng-model="searchParams.strategyInstanceId"/></td>
+						<td><label for="strategyEntityId" class="control-label">strategyEntityId：</label></td>
+						<td><input class="form-control" type="text" id="strategyEntityId" ng-model="searchParams.strategyEntityId"/></td>
+					</tr>
+					<tr>
+						<td><label for="errorType" class="control-label">errorType：</label></td>
+						<td><input class="form-control" type="text" id="errorType" ng-model="searchParams.errorType"/></td>
+						<td><label for="errorMsg" class="control-label">errorMsg：</label></td>
+						<td><input class="form-control" type="text" id="errorMsg" ng-model="searchParams.errorMsg"/></td>
+						<td><label for="errorTime" class="control-label">errorTime：</label></td>
+						<td><input class="form-control" type="text" id="errorTime" ng-model="searchParams.errorTime"/></td>
+					</tr>
+				</table>
+				<div class="text-right table-query-btn mt10">
+					<input type="submit" value="查询" ng-click="queryList()" class="btn btn-sm btn-primary">
+					<a href="#/strInstanceRunningError/add" class="btn btn-sm btn-danger">添加</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="table-result mt20">
+		<table class="table table-striped text-center" st-pipe="callServer" st-table="displayed">
+			<thead>
+				<tr>
+					<th st-sort="ID">id</th>
+					<th st-sort="STRATEGY_INSTANCE_ID">strategyInstanceId</th>
+					<th st-sort="STRATEGY_ENTITY_ID">strategyEntityId</th>
+					<th st-sort="ERROR_TYPE">errorType</th>
+					<th st-sort="ERROR_MSG">errorMsg</th>
+					<th st-sort="ERROR_TIME">errorTime</th>
+					<th>操作</th>
+                </tr>
+			</thead>
+			<tbody ng-show="!isLoading">
+				<tr ng-repeat="row in displayed">
+					<td>{{row.id}}</td>
+					<td>{{row.strategyInstanceId}}</td>
+					<td>{{row.strategyEntityId}}</td>
+					<td>{{row.errorType}}</td>
+					<td>{{row.errorMsg}}</td>
+					<td>{{row.errorTime}}</td>
+					<td>
+						<a class="btn-txt btn-txt-green" href="#/strInstanceRunningError/modify/{{row.id}}">修改</a>
+                        <a class="btn-txt btn-txt-red" ng-click="remove(row.id)">删除</a>
+					</td>
+                </tr>
+			</tbody>
+
+			<!-- TEMP end -->
+			<tbody ng-show="isLoading">
+				<tr>
+					<td colspan="7" class="text-center">Loading ... </td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="text-center" st-pagination="" st-items-by-page="20" colspan="7">
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>

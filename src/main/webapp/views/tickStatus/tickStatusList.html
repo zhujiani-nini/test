@@ -1,0 +1,153 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a> &gt; <a href="#/tickStatus" class="current"> tickStatus管理</a>
+</div>
+<div>
+	<div class="table-query">
+		<!-- Table Layout -->
+		<div class="basic_query">
+			<form class=" table-query-form" novalidate>
+				<table class="query_table">
+					<tr>
+						<td><label for="tickStatusId" class="control-label">tickStatusId：</label></td>
+						<td><input class="form-control" type="text" id="tickStatusId" ng-model="searchParams.tickStatusId"/></td>
+						<td><label for="tickInitStaId" class="control-label">tickInitStaId：</label></td>
+						<td><input class="form-control" type="text" id="tickInitStaId" ng-model="searchParams.tickInitStaId"/></td>
+						<td><label for="tickAmount" class="control-label">tickAmount：</label></td>
+						<td><input class="form-control" type="text" id="tickAmount" ng-model="searchParams.tickAmount"/></td>
+					</tr>
+					<tr>
+						<td><label for="askBid" class="control-label">askBid：</label></td>
+						<td><input class="form-control" type="text" id="askBid" ng-model="searchParams.askBid"/></td>
+						<td><label for="tickStatus" class="control-label">tickStatus：</label></td>
+						<td><input class="form-control" type="text" id="tickStatus" ng-model="searchParams.tickStatus"/></td>
+						<td><label for="tickPer" class="control-label">tickPer：</label></td>
+						<td><input class="form-control" type="text" id="tickPer" ng-model="searchParams.tickPer"/></td>
+					</tr>
+					<tr>
+						<td><label for="avgPrice" class="control-label">avgPrice：</label></td>
+						<td><input class="form-control" type="text" id="avgPrice" ng-model="searchParams.avgPrice"/></td>
+						<td><label for="accOrderId" class="control-label">accOrderId：</label></td>
+						<td><input class="form-control" type="text" id="accOrderId" ng-model="searchParams.accOrderId"/></td>
+						<td><label for="strOrderId" class="control-label">strOrderId：</label></td>
+						<td><input class="form-control" type="text" id="strOrderId" ng-model="searchParams.strOrderId"/></td>
+					</tr>
+					<tr>
+						<td><label for="strInstanceId" class="control-label">strInstanceId：</label></td>
+						<td><input class="form-control" type="text" id="strInstanceId" ng-model="searchParams.strInstanceId"/></td>
+						<td><label for="strEntityId" class="control-label">strEntityId：</label></td>
+						<td><input class="form-control" type="text" id="strEntityId" ng-model="searchParams.strEntityId"/></td>
+						<td><label for="strTempId" class="control-label">strTempId：</label></td>
+						<td><input class="form-control" type="text" id="strTempId" ng-model="searchParams.strTempId"/></td>
+					</tr>
+					<tr>
+						<td><label for="curPairId" class="control-label">curPairId：</label></td>
+						<td><input class="form-control" type="text" id="curPairId" ng-model="searchParams.curPairId"/></td>
+						<td><label for="curPairName" class="control-label">curPairName：</label></td>
+						<td><input class="form-control" type="text" id="curPairName" ng-model="searchParams.curPairName"/></td>
+						<td><label for="orderType" class="control-label">orderType：</label></td>
+						<td><input class="form-control" type="text" id="orderType" ng-model="searchParams.orderType"/></td>
+					</tr>
+					<tr>
+						<td><label for="contractType" class="control-label">contractType：</label></td>
+						<td><input class="form-control" type="text" id="contractType" ng-model="searchParams.contractType"/></td>
+						<td><label for="tcRetTickId" class="control-label">tcRetTickId：</label></td>
+						<td><input class="form-control" type="text" id="tcRetTickId" ng-model="searchParams.tcRetTickId"/></td>
+						<td><label for="tcId" class="control-label">tcId：</label></td>
+						<td><input class="form-control" type="text" id="tcId" ng-model="searchParams.tcId"/></td>
+					</tr>
+					<tr>
+						<td><label for="tcName" class="control-label">tcName：</label></td>
+						<td><input class="form-control" type="text" id="tcName" ng-model="searchParams.tcName"/></td>
+						<td><label for="userId" class="control-label">userId：</label></td>
+						<td><input class="form-control" type="text" id="userId" ng-model="searchParams.userId"/></td>
+						<td><label for="tickPrice" class="control-label">tickPrice：</label></td>
+						<td><input class="form-control" type="text" id="tickPrice" ng-model="searchParams.tickPrice"/></td>
+					</tr>
+					<tr>
+						<td><label for="tickQuantity" class="control-label">tickQuantity：</label></td>
+						<td><input class="form-control" type="text" id="tickQuantity" ng-model="searchParams.tickQuantity"/></td>
+					</tr>
+				</table>
+				<div class="text-right table-query-btn mt10">
+					<input type="submit" value="查询" ng-click="queryList()" class="btn btn-sm btn-primary">
+					<a href="#/tickStatus/add" class="btn btn-sm btn-danger">添加</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="table-result mt20">
+		<table class="table table-striped text-center" st-pipe="callServer" st-table="displayed">
+			<thead>
+				<tr>
+					<th st-sort="TICK_STATUS_ID">tickStatusId</th>
+					<th st-sort="TICK_INIT_STA_ID">tickInitStaId</th>
+					<th st-sort="TICK_AMOUNT">tickAmount</th>
+					<th st-sort="ASK_BID">askBid</th>
+					<th st-sort="TICK_STATUS">tickStatus</th>
+					<th st-sort="TICK_PER">tickPer</th>
+					<th st-sort="AVG_PRICE">avgPrice</th>
+					<th st-sort="ACC_ORDER_ID">accOrderId</th>
+					<th st-sort="STR_ORDER_ID">strOrderId</th>
+					<th st-sort="STR_INSTANCE_ID">strInstanceId</th>
+					<th st-sort="STR_ENTITY_ID">strEntityId</th>
+					<th st-sort="STR_TEMP_ID">strTempId</th>
+					<th st-sort="CUR_PAIR_ID">curPairId</th>
+					<th st-sort="CUR_PAIR_NAME">curPairName</th>
+					<th st-sort="ORDER_TYPE">orderType</th>
+					<th st-sort="CONTRACT_TYPE">contractType</th>
+					<th st-sort="TC_RET_TICK_ID">tcRetTickId</th>
+					<th st-sort="TC_ID">tcId</th>
+					<th st-sort="TC_NAME">tcName</th>
+					<th st-sort="USER_ID">userId</th>
+					<th st-sort="TICK_PRICE">tickPrice</th>
+					<th st-sort="TICK_QUANTITY">tickQuantity</th>
+					<th>操作</th>
+                </tr>
+			</thead>
+			<tbody ng-show="!isLoading">
+				<tr ng-repeat="row in displayed">
+					<td>{{row.tickStatusId}}</td>
+					<td>{{row.tickInitStaId}}</td>
+					<td>{{row.tickAmount}}</td>
+					<td>{{row.askBid}}</td>
+					<td>{{row.tickStatus}}</td>
+					<td>{{row.tickPer}}</td>
+					<td>{{row.avgPrice}}</td>
+					<td>{{row.accOrderId}}</td>
+					<td>{{row.strOrderId}}</td>
+					<td>{{row.strInstanceId}}</td>
+					<td>{{row.strEntityId}}</td>
+					<td>{{row.strTempId}}</td>
+					<td>{{row.curPairId}}</td>
+					<td>{{row.curPairName}}</td>
+					<td>{{row.orderType}}</td>
+					<td>{{row.contractType}}</td>
+					<td>{{row.tcRetTickId}}</td>
+					<td>{{row.tcId}}</td>
+					<td>{{row.tcName}}</td>
+					<td>{{row.userId}}</td>
+					<td>{{row.tickPrice}}</td>
+					<td>{{row.tickQuantity}}</td>
+					<td>
+						<a class="btn-txt btn-txt-green" href="#/tickStatus/modify/{{row.tickStatusId}}">修改</a>
+                        <a class="btn-txt btn-txt-red" ng-click="remove(row.tickStatusId)">删除</a>
+					</td>
+                </tr>
+			</tbody>
+
+			<!-- TEMP end -->
+			<tbody ng-show="isLoading">
+				<tr>
+					<td colspan="23" class="text-center">Loading ... </td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="text-center" st-pagination="" st-items-by-page="20" colspan="23">
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>

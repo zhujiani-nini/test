@@ -1,0 +1,85 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/trdStrInstance"> trdStrInstance管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 更新trdStrInstance</a>
+</div>
+<form class="table-query-form" on-validated="update();" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="threhold" class="control-label">threhold：</label></td>
+			<td><input class="form-control" type="text" id="threhold" ng-model="data.threhold"/></td>
+			<td><label for="threholdUnit" class="control-label">threholdUnit：</label></td>
+			<td><input class="form-control" type="text" id="threholdUnit" ng-model="data.threholdUnit"/></td>
+		</tr>
+		<tr>
+			<td><label for="timeGap" class="control-label">timeGap：</label></td>
+			<td><input class="form-control" type="text" id="timeGap" ng-model="data.timeGap"/></td>
+			<td><label for="trdStrEntityId" class="control-label">trdStrEntityId：</label></td>
+			<td><input class="form-control" type="text" id="trdStrEntityId" ng-model="data.trdStrEntityId"/></td>
+		</tr>
+		<tr>
+			<td><label for="trdStrModId" class="control-label">trdStrModId：</label></td>
+			<td><input class="form-control" type="text" id="trdStrModId" ng-model="data.trdStrModId"/></td>
+			<td><label for="instanceDistLimit" class="control-label">instanceDistLimit：</label></td>
+			<td><input class="form-control" type="text" id="instanceDistLimit" ng-model="data.instanceDistLimit"/></td>
+		</tr>
+		<tr>
+			<td><label for="tcId" class="control-label">tcId：</label></td>
+			<td><input class="form-control" type="text" id="tcId" ng-model="data.tcId"/></td>
+			<td><label for="tcName" class="control-label">tcName：</label></td>
+			<td><input class="form-control" type="text" id="tcName" ng-model="data.tcName"/></td>
+		</tr>
+		<tr>
+			<td><label for="fundPoolId" class="control-label">fundPoolId：</label></td>
+			<td><input class="form-control" type="text" id="fundPoolId" ng-model="data.fundPoolId"/></td>
+			<td><label for="curPairId" class="control-label">curPairId：</label></td>
+			<td><input class="form-control" type="text" id="curPairId" ng-model="data.curPairId"/></td>
+		</tr>
+		<tr>
+			<td><label for="curPairName" class="control-label">curPairName：</label></td>
+			<td><input class="form-control" type="text" id="curPairName" ng-model="data.curPairName"/></td>
+			<td><label for="commodityCurId" class="control-label">commodityCurId：</label></td>
+			<td><input class="form-control" type="text" id="commodityCurId" ng-model="data.commodityCurId"/></td>
+		</tr>
+		<tr>
+			<td><label for="commodityCurName" class="control-label">commodityCurName：</label></td>
+			<td><input class="form-control" type="text" id="commodityCurName" ng-model="data.commodityCurName"/></td>
+			<td><label for="settleCurId" class="control-label">settleCurId：</label></td>
+			<td><input class="form-control" type="text" id="settleCurId" ng-model="data.settleCurId"/></td>
+		</tr>
+		<tr>
+			<td><label for="settleCurName" class="control-label">settleCurName：</label></td>
+			<td><input class="form-control" type="text" id="settleCurName" ng-model="data.settleCurName"/></td>
+			<td><label for="contractTypeId" class="control-label">contractTypeId：</label></td>
+			<td><input class="form-control" type="text" id="contractTypeId" ng-model="data.contractTypeId"/></td>
+		</tr>
+		<tr>
+			<td><label for="contractTypeName" class="control-label">contractTypeName：</label></td>
+			<td><input class="form-control" type="text" id="contractTypeName" ng-model="data.contractTypeName"/></td>
+			<td><label for="userId" class="control-label">userId：</label></td>
+			<td><input class="form-control" type="text" id="userId" ng-model="data.userId"/></td>
+		</tr>
+		<tr>
+			<td><label for="instanceStatus" class="control-label">instanceStatus：</label></td>
+			<td><input class="form-control" type="text" id="instanceStatus" ng-model="data.instanceStatus"/></td>
+			<td><label for="instancePer" class="control-label">instancePer：</label></td>
+			<td><input class="form-control" type="text" id="instancePer" ng-model="data.instancePer"/></td>
+		</tr>
+		<tr>
+			<td><label for="instanceBalance" class="control-label">instanceBalance：</label></td>
+			<td><input class="form-control" type="text" id="instanceBalance" ng-model="data.instanceBalance"/></td>
+			<td><label for="lastDownTime" class="control-label">lastDownTime：</label></td>
+			<td><input class="form-control" type="text" id="lastDownTime" ng-model="data.lastDownTime"/></td>
+		</tr>
+		<tr>
+			<td><label for="lastStopTime" class="control-label">lastStopTime：</label></td>
+			<td><input class="form-control" type="text" id="lastStopTime" ng-model="data.lastStopTime"/></td>
+		</tr>
+	</table>
+
+	<div class="text-right table-query-btn mt10">
+		<input type="submit" class="btn btn-sm btn-primary" value="保存">
+		<a href="#/trdStrInstance" class="btn btn-sm btn-success">返回</a>
+	</div>
+</form>

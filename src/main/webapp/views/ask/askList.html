@@ -1,0 +1,87 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a> &gt; <a href="#/ask" class="current"> ask管理</a>
+</div>
+<div>
+	<div class="table-query">
+		<!-- Table Layout -->
+		<div class="basic_query">
+			<form class=" table-query-form" novalidate>
+				<table class="query_table">
+					<tr>
+						<td><label for="snapAskId" class="control-label">snapAskId：</label></td>
+						<td><input class="form-control" type="text" id="snapAskId" ng-model="searchParams.snapAskId"/></td>
+						<td><label for="snapId" class="control-label">snapId：</label></td>
+						<td><input class="form-control" type="text" id="snapId" ng-model="searchParams.snapId"/></td>
+						<td><label for="tcId" class="control-label">tcId：</label></td>
+						<td><input class="form-control" type="text" id="tcId" ng-model="searchParams.tcId"/></td>
+					</tr>
+					<tr>
+						<td><label for="price" class="control-label">price：</label></td>
+						<td><input class="form-control" type="text" id="price" ng-model="searchParams.price"/></td>
+						<td><label for="quantity" class="control-label">quantity：</label></td>
+						<td><input class="form-control" type="text" id="quantity" ng-model="searchParams.quantity"/></td>
+						<td><label for="date" class="control-label">date：</label></td>
+						<td><input class="form-control" type="text" id="date" ng-model="searchParams.date"/></td>
+					</tr>
+					<tr>
+						<td><label for="curId" class="control-label">curId：</label></td>
+						<td><input class="form-control" type="text" id="curId" ng-model="searchParams.curId"/></td>
+						<td><label for="curName" class="control-label">curName：</label></td>
+						<td><input class="form-control" type="text" id="curName" ng-model="searchParams.curName"/></td>
+					</tr>
+				</table>
+				<div class="text-right table-query-btn mt10">
+					<input type="submit" value="查询" ng-click="queryList()" class="btn btn-sm btn-primary">
+					<a href="#/ask/add" class="btn btn-sm btn-danger">添加</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="table-result mt20">
+		<table class="table table-striped text-center" st-pipe="callServer" st-table="displayed">
+			<thead>
+				<tr>
+					<th st-sort="SNAP_ASK_ID">snapAskId</th>
+					<th st-sort="SNAP_ID">snapId</th>
+					<th st-sort="TC_ID">tcId</th>
+					<th st-sort="PRICE">price</th>
+					<th st-sort="QUANTITY">quantity</th>
+					<th st-sort="DATE">date</th>
+					<th st-sort="CUR_ID">curId</th>
+					<th st-sort="CUR_NAME">curName</th>
+					<th>操作</th>
+                </tr>
+			</thead>
+			<tbody ng-show="!isLoading">
+				<tr ng-repeat="row in displayed">
+					<td>{{row.snapAskId}}</td>
+					<td>{{row.snapId}}</td>
+					<td>{{row.tcId}}</td>
+					<td>{{row.price}}</td>
+					<td>{{row.quantity}}</td>
+					<td>{{row.date}}</td>
+					<td>{{row.curId}}</td>
+					<td>{{row.curName}}</td>
+					<td>
+						<a class="btn-txt btn-txt-green" href="#/ask/modify/{{row.snapAskId}}">修改</a>
+                        <a class="btn-txt btn-txt-red" ng-click="remove(row.snapAskId)">删除</a>
+					</td>
+                </tr>
+			</tbody>
+
+			<!-- TEMP end -->
+			<tbody ng-show="isLoading">
+				<tr>
+					<td colspan="9" class="text-center">Loading ... </td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="text-center" st-pagination="" st-items-by-page="20" colspan="9">
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>

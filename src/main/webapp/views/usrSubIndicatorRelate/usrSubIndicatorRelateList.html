@@ -1,0 +1,59 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a> &gt; <a href="#/usrSubIndicatorRelate" class="current"> usrSubIndicatorRelate管理</a>
+</div>
+<div>
+	<div class="table-query">
+		<!-- Table Layout -->
+		<div class="basic_query">
+			<form class=" table-query-form" novalidate>
+				<table class="query_table">
+					<tr>
+						<td><label for="usrFatherIndicatorId" class="control-label">usrFatherIndicatorId：</label></td>
+						<td><input class="form-control" type="text" id="usrFatherIndicatorId" ng-model="searchParams.usrFatherIndicatorId"/></td>
+						<td><label for="usrSubIndicatorId" class="control-label">usrSubIndicatorId：</label></td>
+						<td><input class="form-control" type="text" id="usrSubIndicatorId" ng-model="searchParams.usrSubIndicatorId"/></td>
+					</tr>
+				</table>
+				<div class="text-right table-query-btn mt10">
+					<input type="submit" value="查询" ng-click="queryList()" class="btn btn-sm btn-primary">
+					<a href="#/usrSubIndicatorRelate/add" class="btn btn-sm btn-danger">添加</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="table-result mt20">
+		<table class="table table-striped text-center" st-pipe="callServer" st-table="displayed">
+			<thead>
+				<tr>
+					<th st-sort="USR_FATHER_INDICATOR_ID">usrFatherIndicatorId</th>
+					<th st-sort="USR_SUB_INDICATOR_ID">usrSubIndicatorId</th>
+					<th>操作</th>
+                </tr>
+			</thead>
+			<tbody ng-show="!isLoading">
+				<tr ng-repeat="row in displayed">
+					<td>{{row.usrFatherIndicatorId}}</td>
+					<td>{{row.usrSubIndicatorId}}</td>
+					<td>
+						<a class="btn-txt btn-txt-green" href="#/usrSubIndicatorRelate/modify/{{row.}}">修改</a>
+                        <a class="btn-txt btn-txt-red" ng-click="remove(row.)">删除</a>
+					</td>
+                </tr>
+			</tbody>
+
+			<!-- TEMP end -->
+			<tbody ng-show="isLoading">
+				<tr>
+					<td colspan="3" class="text-center">Loading ... </td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="text-center" st-pagination="" st-items-by-page="20" colspan="3">
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>

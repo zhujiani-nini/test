@@ -1,0 +1,101 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a> &gt; <a href="#/publicPoolList" class="current"> publicPoolList管理</a>
+</div>
+<div>
+	<div class="table-query">
+		<!-- Table Layout -->
+		<div class="basic_query">
+			<form class=" table-query-form" novalidate>
+				<table class="query_table">
+					<tr>
+						<td><label for="publicPoolListId" class="control-label">publicPoolListId：</label></td>
+						<td><input class="form-control" type="text" id="publicPoolListId" ng-model="searchParams.publicPoolListId"/></td>
+						<td><label for="fundPoolListId" class="control-label">fundPoolListId：</label></td>
+						<td><input class="form-control" type="text" id="fundPoolListId" ng-model="searchParams.fundPoolListId"/></td>
+						<td><label for="publicPoolId" class="control-label">publicPoolId：</label></td>
+						<td><input class="form-control" type="text" id="publicPoolId" ng-model="searchParams.publicPoolId"/></td>
+					</tr>
+					<tr>
+						<td><label for="fundPoolId" class="control-label">fundPoolId：</label></td>
+						<td><input class="form-control" type="text" id="fundPoolId" ng-model="searchParams.fundPoolId"/></td>
+						<td><label for="depOrWit" class="control-label">depOrWit：</label></td>
+						<td><input class="form-control" type="text" id="depOrWit" ng-model="searchParams.depOrWit"/></td>
+						<td><label for="trdAccOpListId" class="control-label">trdAccOpListId：</label></td>
+						<td><input class="form-control" type="text" id="trdAccOpListId" ng-model="searchParams.trdAccOpListId"/></td>
+					</tr>
+					<tr>
+						<td><label for="befAmt" class="control-label">befAmt：</label></td>
+						<td><input class="form-control" type="text" id="befAmt" ng-model="searchParams.befAmt"/></td>
+						<td><label for="aftAmt" class="control-label">aftAmt：</label></td>
+						<td><input class="form-control" type="text" id="aftAmt" ng-model="searchParams.aftAmt"/></td>
+						<td><label for="type" class="control-label">type：</label></td>
+						<td><input class="form-control" type="text" id="type" ng-model="searchParams.type"/></td>
+					</tr>
+					<tr>
+						<td><label for="userId" class="control-label">userId：</label></td>
+						<td><input class="form-control" type="text" id="userId" ng-model="searchParams.userId"/></td>
+						<td><label for="curAmt" class="control-label">curAmt：</label></td>
+						<td><input class="form-control" type="text" id="curAmt" ng-model="searchParams.curAmt"/></td>
+					</tr>
+				</table>
+				<div class="text-right table-query-btn mt10">
+					<input type="submit" value="查询" ng-click="queryList()" class="btn btn-sm btn-primary">
+					<a href="#/publicPoolList/add" class="btn btn-sm btn-danger">添加</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="table-result mt20">
+		<table class="table table-striped text-center" st-pipe="callServer" st-table="displayed">
+			<thead>
+				<tr>
+					<th st-sort="PUBLIC_POOL_LIST_ID">publicPoolListId</th>
+					<th st-sort="FUND_POOL_LIST_ID">fundPoolListId</th>
+					<th st-sort="PUBLIC_POOL_ID">publicPoolId</th>
+					<th st-sort="FUND_POOL_ID">fundPoolId</th>
+					<th st-sort="DEP_OR_WIT">depOrWit</th>
+					<th st-sort="TRD_ACC_OP_LIST_ID">trdAccOpListId</th>
+					<th st-sort="BEF_AMT">befAmt</th>
+					<th st-sort="AFT_AMT">aftAmt</th>
+					<th st-sort="TYPE">type</th>
+					<th st-sort="USER_ID">userId</th>
+					<th st-sort="CUR_AMT">curAmt</th>
+					<th>操作</th>
+                </tr>
+			</thead>
+			<tbody ng-show="!isLoading">
+				<tr ng-repeat="row in displayed">
+					<td>{{row.publicPoolListId}}</td>
+					<td>{{row.fundPoolListId}}</td>
+					<td>{{row.publicPoolId}}</td>
+					<td>{{row.fundPoolId}}</td>
+					<td>{{row.depOrWit}}</td>
+					<td>{{row.trdAccOpListId}}</td>
+					<td>{{row.befAmt}}</td>
+					<td>{{row.aftAmt}}</td>
+					<td>{{row.type}}</td>
+					<td>{{row.userId}}</td>
+					<td>{{row.curAmt}}</td>
+					<td>
+						<a class="btn-txt btn-txt-green" href="#/publicPoolList/modify/{{row.publicPoolListId}}">修改</a>
+                        <a class="btn-txt btn-txt-red" ng-click="remove(row.publicPoolListId)">删除</a>
+					</td>
+                </tr>
+			</tbody>
+
+			<!-- TEMP end -->
+			<tbody ng-show="isLoading">
+				<tr>
+					<td colspan="12" class="text-center">Loading ... </td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="text-center" st-pagination="" st-items-by-page="20" colspan="12">
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>

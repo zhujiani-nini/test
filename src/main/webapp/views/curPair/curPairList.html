@@ -1,0 +1,83 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a> &gt; <a href="#/curPair" class="current"> curPair管理</a>
+</div>
+<div>
+	<div class="table-query">
+		<!-- Table Layout -->
+		<div class="basic_query">
+			<form class=" table-query-form" novalidate>
+				<table class="query_table">
+					<tr>
+						<td><label for="curPairId" class="control-label">curPairId：</label></td>
+						<td><input class="form-control" type="text" id="curPairId" ng-model="searchParams.curPairId"/></td>
+						<td><label for="settleCurId" class="control-label">settleCurId：</label></td>
+						<td><input class="form-control" type="text" id="settleCurId" ng-model="searchParams.settleCurId"/></td>
+						<td><label for="commodityCurId" class="control-label">commodityCurId：</label></td>
+						<td><input class="form-control" type="text" id="commodityCurId" ng-model="searchParams.commodityCurId"/></td>
+					</tr>
+					<tr>
+						<td><label for="contractTypeId" class="control-label">contractTypeId：</label></td>
+						<td><input class="form-control" type="text" id="contractTypeId" ng-model="searchParams.contractTypeId"/></td>
+						<td><label for="contractTypeName" class="control-label">contractTypeName：</label></td>
+						<td><input class="form-control" type="text" id="contractTypeName" ng-model="searchParams.contractTypeName"/></td>
+						<td><label for="curPairCode" class="control-label">curPairCode：</label></td>
+						<td><input class="form-control" type="text" id="curPairCode" ng-model="searchParams.curPairCode"/></td>
+					</tr>
+					<tr>
+						<td><label for="curPairDesc" class="control-label">curPairDesc：</label></td>
+						<td><input class="form-control" type="text" id="curPairDesc" ng-model="searchParams.curPairDesc"/></td>
+					</tr>
+				</table>
+				<div class="text-right table-query-btn mt10">
+					<input type="submit" value="查询" ng-click="queryList()" class="btn btn-sm btn-primary">
+					<a href="#/curPair/add" class="btn btn-sm btn-danger">添加</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="table-result mt20">
+		<table class="table table-striped text-center" st-pipe="callServer" st-table="displayed">
+			<thead>
+				<tr>
+					<th st-sort="CUR_PAIR_ID">curPairId</th>
+					<th st-sort="SETTLE_CUR_ID">settleCurId</th>
+					<th st-sort="COMMODITY_CUR_ID">commodityCurId</th>
+					<th st-sort="CONTRACT_TYPE_ID">contractTypeId</th>
+					<th st-sort="CONTRACT_TYPE_NAME">contractTypeName</th>
+					<th st-sort="CUR_PAIR_CODE">curPairCode</th>
+					<th st-sort="CUR_PAIR_DESC">curPairDesc</th>
+					<th>操作</th>
+                </tr>
+			</thead>
+			<tbody ng-show="!isLoading">
+				<tr ng-repeat="row in displayed">
+					<td>{{row.curPairId}}</td>
+					<td>{{row.settleCurId}}</td>
+					<td>{{row.commodityCurId}}</td>
+					<td>{{row.contractTypeId}}</td>
+					<td>{{row.contractTypeName}}</td>
+					<td>{{row.curPairCode}}</td>
+					<td>{{row.curPairDesc}}</td>
+					<td>
+						<a class="btn-txt btn-txt-green" href="#/curPair/modify/{{row.curPairId}}">修改</a>
+                        <a class="btn-txt btn-txt-red" ng-click="remove(row.curPairId)">删除</a>
+					</td>
+                </tr>
+			</tbody>
+
+			<!-- TEMP end -->
+			<tbody ng-show="isLoading">
+				<tr>
+					<td colspan="8" class="text-center">Loading ... </td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="text-center" st-pagination="" st-items-by-page="20" colspan="8">
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>

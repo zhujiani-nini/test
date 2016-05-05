@@ -1,0 +1,34 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/strInstanceRunningError"> strInstanceRunningError管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 添加strInstanceRunningError</a>
+</div>
+<form class="table-query-form" on-validated="add()" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="strategyInstanceId" class="control-label">strategyInstanceId：</label></td>
+			<td><input class="form-control" type="text" id="strategyInstanceId" ng-model="data.strategyInstanceId"/></td>
+			<td><label for="strategyEntityId" class="control-label">strategyEntityId：</label></td>
+			<td><input class="form-control" type="text" id="strategyEntityId" ng-model="data.strategyEntityId"/></td>
+		</tr>
+		<tr>
+			<td><label for="errorType" class="control-label">errorType：</label></td>
+			<td><input class="form-control" type="text" id="errorType" ng-model="data.errorType"/></td>
+			<td><label for="errorMsg" class="control-label">errorMsg：</label></td>
+			<td><input class="form-control" type="text" id="errorMsg" ng-model="data.errorMsg"/></td>
+		</tr>
+		<tr>
+			<td><label for="errorTime" class="control-label">errorTime：</label></td>
+			<td><input class="form-control" type="text" id="errorTime" ng-model="data.errorTime"/></td>
+		</tr>
+	</table>
+
+    <div class="text-right table-query-btn mt10">
+        <input type="submit" class="btn btn-sm btn-primary" value="保存">
+        <a href="#/strInstanceRunningError" class="btn btn-sm btn-success">返回</a>
+    </div>
+</form>
+
+
+

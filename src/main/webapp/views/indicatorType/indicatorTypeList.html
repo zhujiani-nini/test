@@ -1,0 +1,59 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a> &gt; <a href="#/indicatorType" class="current"> indicatorType管理</a>
+</div>
+<div>
+	<div class="table-query">
+		<!-- Table Layout -->
+		<div class="basic_query">
+			<form class=" table-query-form" novalidate>
+				<table class="query_table">
+					<tr>
+						<td><label for="indicatorTypeId" class="control-label">indicatorTypeId：</label></td>
+						<td><input class="form-control" type="text" id="indicatorTypeId" ng-model="searchParams.indicatorTypeId"/></td>
+						<td><label for="indicatorTypeName" class="control-label">indicatorTypeName：</label></td>
+						<td><input class="form-control" type="text" id="indicatorTypeName" ng-model="searchParams.indicatorTypeName"/></td>
+					</tr>
+				</table>
+				<div class="text-right table-query-btn mt10">
+					<input type="submit" value="查询" ng-click="queryList()" class="btn btn-sm btn-primary">
+					<a href="#/indicatorType/add" class="btn btn-sm btn-danger">添加</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="table-result mt20">
+		<table class="table table-striped text-center" st-pipe="callServer" st-table="displayed">
+			<thead>
+				<tr>
+					<th st-sort="INDICATOR_TYPE_ID">indicatorTypeId</th>
+					<th st-sort="INDICATOR_TYPE_NAME">indicatorTypeName</th>
+					<th>操作</th>
+                </tr>
+			</thead>
+			<tbody ng-show="!isLoading">
+				<tr ng-repeat="row in displayed">
+					<td>{{row.indicatorTypeId}}</td>
+					<td>{{row.indicatorTypeName}}</td>
+					<td>
+						<a class="btn-txt btn-txt-green" href="#/indicatorType/modify/{{row.indicatorTypeId}}">修改</a>
+                        <a class="btn-txt btn-txt-red" ng-click="remove(row.indicatorTypeId)">删除</a>
+					</td>
+                </tr>
+			</tbody>
+
+			<!-- TEMP end -->
+			<tbody ng-show="isLoading">
+				<tr>
+					<td colspan="3" class="text-center">Loading ... </td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="text-center" st-pagination="" st-items-by-page="20" colspan="3">
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>

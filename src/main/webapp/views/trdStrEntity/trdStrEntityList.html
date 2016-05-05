@@ -1,0 +1,133 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a> &gt; <a href="#/trdStrEntity" class="current"> trdStrEntity管理</a>
+</div>
+<div>
+	<div class="table-query">
+		<!-- Table Layout -->
+		<div class="basic_query">
+			<form class=" table-query-form" novalidate>
+				<table class="query_table">
+					<tr>
+						<td><label for="entityId" class="control-label">entityId：</label></td>
+						<td><input class="form-control" type="text" id="entityId" ng-model="searchParams.entityId"/></td>
+						<td><label for="entityName" class="control-label">entityName：</label></td>
+						<td><input class="form-control" type="text" id="entityName" ng-model="searchParams.entityName"/></td>
+						<td><label for="entityType" class="control-label">entityType：</label></td>
+						<td><input class="form-control" type="text" id="entityType" ng-model="searchParams.entityType"/></td>
+					</tr>
+					<tr>
+						<td><label for="entityStatus" class="control-label">entityStatus：</label></td>
+						<td><input class="form-control" type="text" id="entityStatus" ng-model="searchParams.entityStatus"/></td>
+						<td><label for="trdStrModId" class="control-label">trdStrModId：</label></td>
+						<td><input class="form-control" type="text" id="trdStrModId" ng-model="searchParams.trdStrModId"/></td>
+						<td><label for="entityRecLvl" class="control-label">entityRecLvl：</label></td>
+						<td><input class="form-control" type="text" id="entityRecLvl" ng-model="searchParams.entityRecLvl"/></td>
+					</tr>
+					<tr>
+						<td><label for="limitMax" class="control-label">limitMax：</label></td>
+						<td><input class="form-control" type="text" id="limitMax" ng-model="searchParams.limitMax"/></td>
+						<td><label for="limitMin" class="control-label">limitMin：</label></td>
+						<td><input class="form-control" type="text" id="limitMin" ng-model="searchParams.limitMin"/></td>
+						<td><label for="className" class="control-label">className：</label></td>
+						<td><input class="form-control" type="text" id="className" ng-model="searchParams.className"/></td>
+					</tr>
+					<tr>
+						<td><label for="defThrehold" class="control-label">defThrehold：</label></td>
+						<td><input class="form-control" type="text" id="defThrehold" ng-model="searchParams.defThrehold"/></td>
+						<td><label for="defThreholdUnit" class="control-label">defThreholdUnit：</label></td>
+						<td><input class="form-control" type="text" id="defThreholdUnit" ng-model="searchParams.defThreholdUnit"/></td>
+						<td><label for="defTimeGap" class="control-label">defTimeGap：</label></td>
+						<td><input class="form-control" type="text" id="defTimeGap" ng-model="searchParams.defTimeGap"/></td>
+					</tr>
+					<tr>
+						<td><label for="userId" class="control-label">userId：</label></td>
+						<td><input class="form-control" type="text" id="userId" ng-model="searchParams.userId"/></td>
+						<td><label for="isPublished" class="control-label">isPublished：</label></td>
+						<td><input class="form-control" type="text" id="isPublished" ng-model="searchParams.isPublished"/></td>
+						<td><label for="isShared" class="control-label">isShared：</label></td>
+						<td><input class="form-control" type="text" id="isShared" ng-model="searchParams.isShared"/></td>
+					</tr>
+					<tr>
+						<td><label for="isDefault" class="control-label">isDefault：</label></td>
+						<td><input class="form-control" type="text" id="isDefault" ng-model="searchParams.isDefault"/></td>
+						<td><label for="identifyCode" class="control-label">identifyCode：</label></td>
+						<td><input class="form-control" type="text" id="identifyCode" ng-model="searchParams.identifyCode"/></td>
+						<td><label for="description" class="control-label">description：</label></td>
+						<td><input class="form-control" type="text" id="description" ng-model="searchParams.description"/></td>
+					</tr>
+				</table>
+				<div class="text-right table-query-btn mt10">
+					<input type="submit" value="查询" ng-click="queryList()" class="btn btn-sm btn-primary">
+					<a href="#/trdStrEntity/add" class="btn btn-sm btn-danger">添加</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="table-result mt20">
+		<table class="table table-striped text-center" st-pipe="callServer" st-table="displayed">
+			<thead>
+				<tr>
+					<th st-sort="ENTITY_ID">entityId</th>
+					<th st-sort="ENTITY_NAME">entityName</th>
+					<th st-sort="ENTITY_TYPE">entityType</th>
+					<th st-sort="ENTITY_STATUS">entityStatus</th>
+					<th st-sort="TRD_STR_MOD_ID">trdStrModId</th>
+					<th st-sort="ENTITY_REC_LVL">entityRecLvl</th>
+					<th st-sort="LIMIT_MAX">limitMax</th>
+					<th st-sort="LIMIT_MIN">limitMin</th>
+					<th st-sort="CLASS_NAME">className</th>
+					<th st-sort="DEF_THREHOLD">defThrehold</th>
+					<th st-sort="DEF_THREHOLD_UNIT">defThreholdUnit</th>
+					<th st-sort="DEF_TIME_GAP">defTimeGap</th>
+					<th st-sort="USER_ID">userId</th>
+					<th st-sort="IS_PUBLISHED">isPublished</th>
+					<th st-sort="IS_SHARED">isShared</th>
+					<th st-sort="IS_DEFAULT">isDefault</th>
+					<th st-sort="IDENTIFY_CODE">identifyCode</th>
+					<th st-sort="DESCRIPTION">description</th>
+					<th>操作</th>
+                </tr>
+			</thead>
+			<tbody ng-show="!isLoading">
+				<tr ng-repeat="row in displayed">
+					<td>{{row.entityId}}</td>
+					<td>{{row.entityName}}</td>
+					<td>{{row.entityType}}</td>
+					<td>{{row.entityStatus}}</td>
+					<td>{{row.trdStrModId}}</td>
+					<td>{{row.entityRecLvl}}</td>
+					<td>{{row.limitMax}}</td>
+					<td>{{row.limitMin}}</td>
+					<td>{{row.className}}</td>
+					<td>{{row.defThrehold}}</td>
+					<td>{{row.defThreholdUnit}}</td>
+					<td>{{row.defTimeGap}}</td>
+					<td>{{row.userId}}</td>
+					<td>{{row.isPublished}}</td>
+					<td>{{row.isShared}}</td>
+					<td>{{row.isDefault}}</td>
+					<td>{{row.identifyCode}}</td>
+					<td>{{row.description}}</td>
+					<td>
+						<a class="btn-txt btn-txt-green" href="#/trdStrEntity/modify/{{row.entityId}}">修改</a>
+                        <a class="btn-txt btn-txt-red" ng-click="remove(row.entityId)">删除</a>
+					</td>
+                </tr>
+			</tbody>
+
+			<!-- TEMP end -->
+			<tbody ng-show="isLoading">
+				<tr>
+					<td colspan="19" class="text-center">Loading ... </td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="text-center" st-pagination="" st-items-by-page="20" colspan="19">
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,83 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a> &gt; <a href="#/publicPool" class="current"> publicPool管理</a>
+</div>
+<div>
+	<div class="table-query">
+		<!-- Table Layout -->
+		<div class="basic_query">
+			<form class=" table-query-form" novalidate>
+				<table class="query_table">
+					<tr>
+						<td><label for="publicPoolId" class="control-label">publicPoolId：</label></td>
+						<td><input class="form-control" type="text" id="publicPoolId" ng-model="searchParams.publicPoolId"/></td>
+						<td><label for="publicPoolName" class="control-label">publicPoolName：</label></td>
+						<td><input class="form-control" type="text" id="publicPoolName" ng-model="searchParams.publicPoolName"/></td>
+						<td><label for="curTypeId" class="control-label">curTypeId：</label></td>
+						<td><input class="form-control" type="text" id="curTypeId" ng-model="searchParams.curTypeId"/></td>
+					</tr>
+					<tr>
+						<td><label for="isShared" class="control-label">isShared：</label></td>
+						<td><input class="form-control" type="text" id="isShared" ng-model="searchParams.isShared"/></td>
+						<td><label for="publicPoolTypeId" class="control-label">publicPoolTypeId：</label></td>
+						<td><input class="form-control" type="text" id="publicPoolTypeId" ng-model="searchParams.publicPoolTypeId"/></td>
+						<td><label for="amount" class="control-label">amount：</label></td>
+						<td><input class="form-control" type="text" id="amount" ng-model="searchParams.amount"/></td>
+					</tr>
+					<tr>
+						<td><label for="lastAmt" class="control-label">lastAmt：</label></td>
+						<td><input class="form-control" type="text" id="lastAmt" ng-model="searchParams.lastAmt"/></td>
+					</tr>
+				</table>
+				<div class="text-right table-query-btn mt10">
+					<input type="submit" value="查询" ng-click="queryList()" class="btn btn-sm btn-primary">
+					<a href="#/publicPool/add" class="btn btn-sm btn-danger">添加</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="table-result mt20">
+		<table class="table table-striped text-center" st-pipe="callServer" st-table="displayed">
+			<thead>
+				<tr>
+					<th st-sort="PUBLIC_POOL_ID">publicPoolId</th>
+					<th st-sort="PUBLIC_POOL_NAME">publicPoolName</th>
+					<th st-sort="CUR_TYPE_ID">curTypeId</th>
+					<th st-sort="IS_SHARED">isShared</th>
+					<th st-sort="PUBLIC_POOL_TYPE_ID">publicPoolTypeId</th>
+					<th st-sort="AMOUNT">amount</th>
+					<th st-sort="LAST_AMT">lastAmt</th>
+					<th>操作</th>
+                </tr>
+			</thead>
+			<tbody ng-show="!isLoading">
+				<tr ng-repeat="row in displayed">
+					<td>{{row.publicPoolId}}</td>
+					<td>{{row.publicPoolName}}</td>
+					<td>{{row.curTypeId}}</td>
+					<td>{{row.isShared}}</td>
+					<td>{{row.publicPoolTypeId}}</td>
+					<td>{{row.amount}}</td>
+					<td>{{row.lastAmt}}</td>
+					<td>
+						<a class="btn-txt btn-txt-green" href="#/publicPool/modify/{{row.publicPoolId}}">修改</a>
+                        <a class="btn-txt btn-txt-red" ng-click="remove(row.publicPoolId)">删除</a>
+					</td>
+                </tr>
+			</tbody>
+
+			<!-- TEMP end -->
+			<tbody ng-show="isLoading">
+				<tr>
+					<td colspan="8" class="text-center">Loading ... </td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="text-center" st-pagination="" st-items-by-page="20" colspan="8">
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>

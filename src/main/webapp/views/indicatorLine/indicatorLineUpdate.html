@@ -1,0 +1,33 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/indicatorLine"> indicatorLine管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 更新indicatorLine</a>
+</div>
+<form class="table-query-form" on-validated="update();" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="indicatorLineName" class="control-label">indicatorLineName：</label></td>
+			<td><input class="form-control" type="text" id="indicatorLineName" ng-model="data.indicatorLineName"/></td>
+			<td><label for="indicatorId" class="control-label">indicatorId：</label></td>
+			<td><input class="form-control" type="text" id="indicatorId" ng-model="data.indicatorId"/></td>
+		</tr>
+		<tr>
+			<td><label for="indicatorName" class="control-label">indicatorName：</label></td>
+			<td><input class="form-control" type="text" id="indicatorName" ng-model="data.indicatorName"/></td>
+			<td><label for="indicatorLineColor" class="control-label">indicatorLineColor：</label></td>
+			<td><input class="form-control" type="text" id="indicatorLineColor" ng-model="data.indicatorLineColor"/></td>
+		</tr>
+		<tr>
+			<td><label for="indicatorLinePeriod" class="control-label">indicatorLinePeriod：</label></td>
+			<td><input class="form-control" type="text" id="indicatorLinePeriod" ng-model="data.indicatorLinePeriod"/></td>
+			<td><label for="indicatorColorPlanId" class="control-label">indicatorColorPlanId：</label></td>
+			<td><input class="form-control" type="text" id="indicatorColorPlanId" ng-model="data.indicatorColorPlanId"/></td>
+		</tr>
+	</table>
+
+	<div class="text-right table-query-btn mt10">
+		<input type="submit" class="btn btn-sm btn-primary" value="保存">
+		<a href="#/indicatorLine" class="btn btn-sm btn-success">返回</a>
+	</div>
+</form>

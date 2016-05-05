@@ -1,0 +1,72 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/fundPoolList"> fundPoolList管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 添加fundPoolList</a>
+</div>
+<form class="table-query-form" on-validated="add()" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="publicPoolListId" class="control-label">publicPoolListId：</label></td>
+			<td><input class="form-control" type="text" id="publicPoolListId" ng-model="data.publicPoolListId"/></td>
+			<td><label for="fundPoolId" class="control-label">fundPoolId：</label></td>
+			<td><input class="form-control" type="text" id="fundPoolId" ng-model="data.fundPoolId"/></td>
+		</tr>
+		<tr>
+			<td><label for="publicPoolId" class="control-label">publicPoolId：</label></td>
+			<td><input class="form-control" type="text" id="publicPoolId" ng-model="data.publicPoolId"/></td>
+			<td><label for="depOrWit" class="control-label">depOrWit：</label></td>
+			<td><input class="form-control" type="text" id="depOrWit" ng-model="data.depOrWit"/></td>
+		</tr>
+		<tr>
+			<td><label for="trdAccOpListId" class="control-label">trdAccOpListId：</label></td>
+			<td><input class="form-control" type="text" id="trdAccOpListId" ng-model="data.trdAccOpListId"/></td>
+			<td><label for="befAmt" class="control-label">befAmt：</label></td>
+			<td><input class="form-control" type="text" id="befAmt" ng-model="data.befAmt"/></td>
+		</tr>
+		<tr>
+			<td><label for="aftAmt" class="control-label">aftAmt：</label></td>
+			<td><input class="form-control" type="text" id="aftAmt" ng-model="data.aftAmt"/></td>
+			<td><label for="curAmt" class="control-label">curAmt：</label></td>
+			<td><input class="form-control" type="text" id="curAmt" ng-model="data.curAmt"/></td>
+		</tr>
+		<tr>
+			<td><label for="type" class="control-label">type：</label></td>
+			<td><input class="form-control" type="text" id="type" ng-model="data.type"/></td>
+			<td><label for="bankAccount" class="control-label">bankAccount：</label></td>
+			<td><input class="form-control" type="text" id="bankAccount" ng-model="data.bankAccount"/></td>
+		</tr>
+		<tr>
+			<td><label for="photoRoute" class="control-label">photoRoute：</label></td>
+			<td><input class="form-control" type="text" id="photoRoute" ng-model="data.photoRoute"/></td>
+			<td><label for="proofId" class="control-label">proofId：</label></td>
+			<td><input class="form-control" type="text" id="proofId" ng-model="data.proofId"/></td>
+		</tr>
+		<tr>
+			<td><label for="proofRoute" class="control-label">proofRoute：</label></td>
+			<td><input class="form-control" type="text" id="proofRoute" ng-model="data.proofRoute"/></td>
+			<td><label for="userId" class="control-label">userId：</label></td>
+			<td><input class="form-control" type="text" id="userId" ng-model="data.userId"/></td>
+		</tr>
+		<tr>
+			<td><label for="trdStrInstanceId" class="control-label">trdStrInstanceId：</label></td>
+			<td><input class="form-control" type="text" id="trdStrInstanceId" ng-model="data.trdStrInstanceId"/></td>
+			<td><label for="trdStrOrderId" class="control-label">trdStrOrderId：</label></td>
+			<td><input class="form-control" type="text" id="trdStrOrderId" ng-model="data.trdStrOrderId"/></td>
+		</tr>
+		<tr>
+			<td><label for="trdStrAccOrderId" class="control-label">trdStrAccOrderId：</label></td>
+			<td><input class="form-control" type="text" id="trdStrAccOrderId" ng-model="data.trdStrAccOrderId"/></td>
+			<td><label for="description" class="control-label">description：</label></td>
+			<td><input class="form-control" type="text" id="description" ng-model="data.description"/></td>
+		</tr>
+	</table>
+
+    <div class="text-right table-query-btn mt10">
+        <input type="submit" class="btn btn-sm btn-primary" value="保存">
+        <a href="#/fundPoolList" class="btn btn-sm btn-success">返回</a>
+    </div>
+</form>
+
+
+

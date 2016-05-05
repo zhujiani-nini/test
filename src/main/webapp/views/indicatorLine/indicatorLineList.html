@@ -1,0 +1,83 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a> &gt; <a href="#/indicatorLine" class="current"> indicatorLine管理</a>
+</div>
+<div>
+	<div class="table-query">
+		<!-- Table Layout -->
+		<div class="basic_query">
+			<form class=" table-query-form" novalidate>
+				<table class="query_table">
+					<tr>
+						<td><label for="indicatorLineId" class="control-label">indicatorLineId：</label></td>
+						<td><input class="form-control" type="text" id="indicatorLineId" ng-model="searchParams.indicatorLineId"/></td>
+						<td><label for="indicatorLineName" class="control-label">indicatorLineName：</label></td>
+						<td><input class="form-control" type="text" id="indicatorLineName" ng-model="searchParams.indicatorLineName"/></td>
+						<td><label for="indicatorId" class="control-label">indicatorId：</label></td>
+						<td><input class="form-control" type="text" id="indicatorId" ng-model="searchParams.indicatorId"/></td>
+					</tr>
+					<tr>
+						<td><label for="indicatorName" class="control-label">indicatorName：</label></td>
+						<td><input class="form-control" type="text" id="indicatorName" ng-model="searchParams.indicatorName"/></td>
+						<td><label for="indicatorLineColor" class="control-label">indicatorLineColor：</label></td>
+						<td><input class="form-control" type="text" id="indicatorLineColor" ng-model="searchParams.indicatorLineColor"/></td>
+						<td><label for="indicatorLinePeriod" class="control-label">indicatorLinePeriod：</label></td>
+						<td><input class="form-control" type="text" id="indicatorLinePeriod" ng-model="searchParams.indicatorLinePeriod"/></td>
+					</tr>
+					<tr>
+						<td><label for="indicatorColorPlanId" class="control-label">indicatorColorPlanId：</label></td>
+						<td><input class="form-control" type="text" id="indicatorColorPlanId" ng-model="searchParams.indicatorColorPlanId"/></td>
+					</tr>
+				</table>
+				<div class="text-right table-query-btn mt10">
+					<input type="submit" value="查询" ng-click="queryList()" class="btn btn-sm btn-primary">
+					<a href="#/indicatorLine/add" class="btn btn-sm btn-danger">添加</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="table-result mt20">
+		<table class="table table-striped text-center" st-pipe="callServer" st-table="displayed">
+			<thead>
+				<tr>
+					<th st-sort="INDICATOR_LINE_ID">indicatorLineId</th>
+					<th st-sort="INDICATOR_LINE_NAME">indicatorLineName</th>
+					<th st-sort="INDICATOR_ID">indicatorId</th>
+					<th st-sort="INDICATOR_NAME">indicatorName</th>
+					<th st-sort="INDICATOR_LINE_COLOR">indicatorLineColor</th>
+					<th st-sort="INDICATOR_LINE_PERIOD">indicatorLinePeriod</th>
+					<th st-sort="INDICATOR_COLOR_PLAN_ID">indicatorColorPlanId</th>
+					<th>操作</th>
+                </tr>
+			</thead>
+			<tbody ng-show="!isLoading">
+				<tr ng-repeat="row in displayed">
+					<td>{{row.indicatorLineId}}</td>
+					<td>{{row.indicatorLineName}}</td>
+					<td>{{row.indicatorId}}</td>
+					<td>{{row.indicatorName}}</td>
+					<td>{{row.indicatorLineColor}}</td>
+					<td>{{row.indicatorLinePeriod}}</td>
+					<td>{{row.indicatorColorPlanId}}</td>
+					<td>
+						<a class="btn-txt btn-txt-green" href="#/indicatorLine/modify/{{row.indicatorLineId}}">修改</a>
+                        <a class="btn-txt btn-txt-red" ng-click="remove(row.indicatorLineId)">删除</a>
+					</td>
+                </tr>
+			</tbody>
+
+			<!-- TEMP end -->
+			<tbody ng-show="isLoading">
+				<tr>
+					<td colspan="8" class="text-center">Loading ... </td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="text-center" st-pagination="" st-items-by-page="20" colspan="8">
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,84 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/arbStrOrder"> arbStrOrder管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 添加arbStrOrder</a>
+</div>
+<form class="table-query-form" on-validated="add()" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="trdStrInstanceId" class="control-label">trdStrInstanceId：</label></td>
+			<td><input class="form-control" type="text" id="trdStrInstanceId" ng-model="data.trdStrInstanceId"/></td>
+			<td><label for="trdStrEntityId" class="control-label">trdStrEntityId：</label></td>
+			<td><input class="form-control" type="text" id="trdStrEntityId" ng-model="data.trdStrEntityId"/></td>
+		</tr>
+		<tr>
+			<td><label for="trdStrModId" class="control-label">trdStrModId：</label></td>
+			<td><input class="form-control" type="text" id="trdStrModId" ng-model="data.trdStrModId"/></td>
+			<td><label for="tcId" class="control-label">tcId：</label></td>
+			<td><input class="form-control" type="text" id="tcId" ng-model="data.tcId"/></td>
+		</tr>
+		<tr>
+			<td><label for="tcName" class="control-label">tcName：</label></td>
+			<td><input class="form-control" type="text" id="tcName" ng-model="data.tcName"/></td>
+			<td><label for="curPairId" class="control-label">curPairId：</label></td>
+			<td><input class="form-control" type="text" id="curPairId" ng-model="data.curPairId"/></td>
+		</tr>
+		<tr>
+			<td><label for="curPairName" class="control-label">curPairName：</label></td>
+			<td><input class="form-control" type="text" id="curPairName" ng-model="data.curPairName"/></td>
+			<td><label for="contractTypeName" class="control-label">contractTypeName：</label></td>
+			<td><input class="form-control" type="text" id="contractTypeName" ng-model="data.contractTypeName"/></td>
+		</tr>
+		<tr>
+			<td><label for="strOrderType" class="control-label">strOrderType：</label></td>
+			<td><input class="form-control" type="text" id="strOrderType" ng-model="data.strOrderType"/></td>
+			<td><label for="userId" class="control-label">userId：</label></td>
+			<td><input class="form-control" type="text" id="userId" ng-model="data.userId"/></td>
+		</tr>
+		<tr>
+			<td><label for="tradeDirection" class="control-label">tradeDirection：</label></td>
+			<td><input class="form-control" type="text" id="tradeDirection" ng-model="data.tradeDirection"/></td>
+			<td><label for="tradeType" class="control-label">tradeType：</label></td>
+			<td><input class="form-control" type="text" id="tradeType" ng-model="data.tradeType"/></td>
+		</tr>
+		<tr>
+			<td><label for="price" class="control-label">price：</label></td>
+			<td><input class="form-control" type="text" id="price" ng-model="data.price"/></td>
+			<td><label for="quantity" class="control-label">quantity：</label></td>
+			<td><input class="form-control" type="text" id="quantity" ng-model="data.quantity"/></td>
+		</tr>
+		<tr>
+			<td><label for="arbStrOrderStatus" class="control-label">arbStrOrderStatus：</label></td>
+			<td><input class="form-control" type="text" id="arbStrOrderStatus" ng-model="data.arbStrOrderStatus"/></td>
+			<td><label for="dealAmount" class="control-label">dealAmount：</label></td>
+			<td><input class="form-control" type="text" id="dealAmount" ng-model="data.dealAmount"/></td>
+		</tr>
+		<tr>
+			<td><label for="orderBalance" class="control-label">orderBalance：</label></td>
+			<td><input class="form-control" type="text" id="orderBalance" ng-model="data.orderBalance"/></td>
+			<td><label for="closeOutStatus" class="control-label">closeOutStatus：</label></td>
+			<td><input class="form-control" type="text" id="closeOutStatus" ng-model="data.closeOutStatus"/></td>
+		</tr>
+		<tr>
+			<td><label for="closeOrderReason" class="control-label">closeOrderReason：</label></td>
+			<td><input class="form-control" type="text" id="closeOrderReason" ng-model="data.closeOrderReason"/></td>
+			<td><label for="closeoutForCloseout" class="control-label">closeoutForCloseout：</label></td>
+			<td><input class="form-control" type="text" id="closeoutForCloseout" ng-model="data.closeoutForCloseout"/></td>
+		</tr>
+		<tr>
+			<td><label for="isCloseOut" class="control-label">isCloseOut：</label></td>
+			<td><input class="form-control" type="text" id="isCloseOut" ng-model="data.isCloseOut"/></td>
+			<td><label for="avgPrice" class="control-label">avgPrice：</label></td>
+			<td><input class="form-control" type="text" id="avgPrice" ng-model="data.avgPrice"/></td>
+		</tr>
+	</table>
+
+    <div class="text-right table-query-btn mt10">
+        <input type="submit" class="btn btn-sm btn-primary" value="保存">
+        <a href="#/arbStrOrder" class="btn btn-sm btn-success">返回</a>
+    </div>
+</form>
+
+
+

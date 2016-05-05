@@ -1,0 +1,3 @@
+2016-04-19 17:01:34.359 ERROR [main][DbHelper.java:365] - com.radarwin.framework.orm.TableMetaData primary key is null
+ 2016-04-19 17:07:00.594 INFO [main][Bti15ServiceImpl.java:65] - bti15 =====> [ 新增了0条数据 ]
+ 

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/tx
+			http://www.springframework.org/schema/tx/spring-tx.xsd
+            http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop.xsd
+            http://www.springframework.org/schema/task
+            http://www.springframework.org/schema/task/spring-task-3.1.xsd">
+    <task:annotation-driven />
+    <context:annotation-config/>
+
+    <context:component-scan base-package="com.radarwin.bifu.*"/>
+    <!--<context:component-scan base-package="com.radarwin.*" use-default-filters="false">-->
+    <!--<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>-->
+    <!--<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>-->
+    <!--<context:include-filter type="annotation" expression="com.radarwin.dqtp.job.task.base.Task"/>-->
+    <!--</context:component-scan>-->
+
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+    <!--  @Controller 声明Action组件
+  @Service    声明Service组件    @Service("myMovieLister")
+  @Repository 声明Dao组件
+  @Component   泛指组件, 当不好归类时.
+  @RequestMapping("/menu")  请求映射
+  @Resource  用于注入，( j2ee提供的 ) 默认按名称装配，@Resource(name="beanName")
+  @Autowired 用于注入，(spring提供的) 默认按类型装配
+  @Transactional( rollbackFor={Exception.class}) 事务管理
+  @ResponseBody
+  @Scope("prototype")   设定bean的作用域 -->
+
+    <bean id="configProperties"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath*:config/*.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <aop:config>
+        <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.*.*.service.*Service.*(..))"/>
+    </aop:config>
+
+    <!-- 实现类需要有接口，针对接口的方法 -->
+    <!--定义@Transactionl注解的实现类可以不需要接口 -->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="save*" propagation="REQUIRED"/>
+            <tx:method name="update*" propagation="REQUIRED"/>
+            <tx:method name="delete*" propagation="REQUIRED"/>
+            <tx:method name="logicDelete*" propagation="REQUIRED"/>
+            <tx:method name="batchDelete*" propagation="REQUIRED"/>
+            <tx:method name="batchLogicDelete*" propagation="REQUIRED"/>
+
+        </tx:attributes>
+    </tx:advice>
+
+    <bean id="contextUtil" class="com.radarwin.framework.util.ContextUtil" lazy-init="false"/>
+
+    <!--<bean id="currentUser" class="com.radarwin.dqtp.job.CurrentUser"/>-->
+
+    <!--<bean id="authImageService" class="com.radarwin.framework.security.DefaultAuthImageServiceImpl">-->
+
+        <!--&lt;!&ndash; 不同的应用设置为不同的值 &ndash;&gt;-->
+        <!--<property name="authImageKeyPrefix" value="cfbm_authImage"/>-->
+    <!--</bean>-->
+
+    <bean id="httpServletRequest" class="org.springframework.mock.web.MockHttpServletRequest"/>
+    <bean id="httpServletResponse" class="org.springframework.mock.web.MockHttpServletResponse"/>
+</beans>

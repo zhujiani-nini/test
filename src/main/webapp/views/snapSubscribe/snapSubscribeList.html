@@ -1,0 +1,73 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a> &gt; <a href="#/snapSubscribe" class="current"> snapSubscribe管理</a>
+</div>
+<div>
+	<div class="table-query">
+		<!-- Table Layout -->
+		<div class="basic_query">
+			<form class=" table-query-form" novalidate>
+				<table class="query_table">
+					<tr>
+						<td><label for="trdStrInstanceId" class="control-label">trdStrInstanceId：</label></td>
+						<td><input class="form-control" type="text" id="trdStrInstanceId" ng-model="searchParams.trdStrInstanceId"/></td>
+						<td><label for="trdStrEntityId" class="control-label">trdStrEntityId：</label></td>
+						<td><input class="form-control" type="text" id="trdStrEntityId" ng-model="searchParams.trdStrEntityId"/></td>
+						<td><label for="snapEntityId" class="control-label">snapEntityId：</label></td>
+						<td><input class="form-control" type="text" id="snapEntityId" ng-model="searchParams.snapEntityId"/></td>
+					</tr>
+					<tr>
+						<td><label for="exchangerQueueName" class="control-label">exchangerQueueName：</label></td>
+						<td><input class="form-control" type="text" id="exchangerQueueName" ng-model="searchParams.exchangerQueueName"/></td>
+						<td><label for="subTime" class="control-label">subTime：</label></td>
+						<td><input class="form-control" type="text" id="subTime" ng-model="searchParams.subTime"/></td>
+					</tr>
+				</table>
+				<div class="text-right table-query-btn mt10">
+					<input type="submit" value="查询" ng-click="queryList()" class="btn btn-sm btn-primary">
+					<a href="#/snapSubscribe/add" class="btn btn-sm btn-danger">添加</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="table-result mt20">
+		<table class="table table-striped text-center" st-pipe="callServer" st-table="displayed">
+			<thead>
+				<tr>
+					<th st-sort="TRD_STR_INSTANCE_ID">trdStrInstanceId</th>
+					<th st-sort="TRD_STR_ENTITY_ID">trdStrEntityId</th>
+					<th st-sort="SNAP_ENTITY_ID">snapEntityId</th>
+					<th st-sort="EXCHANGER_QUEUE_NAME">exchangerQueueName</th>
+					<th st-sort="SUB_TIME">subTime</th>
+					<th>操作</th>
+                </tr>
+			</thead>
+			<tbody ng-show="!isLoading">
+				<tr ng-repeat="row in displayed">
+					<td>{{row.trdStrInstanceId}}</td>
+					<td>{{row.trdStrEntityId}}</td>
+					<td>{{row.snapEntityId}}</td>
+					<td>{{row.exchangerQueueName}}</td>
+					<td>{{row.subTime}}</td>
+					<td>
+						<a class="btn-txt btn-txt-green" href="#/snapSubscribe/modify/{{row.}}">修改</a>
+                        <a class="btn-txt btn-txt-red" ng-click="remove(row.)">删除</a>
+					</td>
+                </tr>
+			</tbody>
+
+			<!-- TEMP end -->
+			<tbody ng-show="isLoading">
+				<tr>
+					<td colspan="6" class="text-center">Loading ... </td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="text-center" st-pagination="" st-items-by-page="20" colspan="6">
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>

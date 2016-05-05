@@ -1,0 +1,36 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/limitApplication"> limitApplication管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 添加limitApplication</a>
+</div>
+<form class="table-query-form" on-validated="add()" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="userId" class="control-label">userId：</label></td>
+			<td><input class="form-control" type="text" id="userId" ng-model="data.userId"/></td>
+			<td><label for="fundPoolId" class="control-label">fundPoolId：</label></td>
+			<td><input class="form-control" type="text" id="fundPoolId" ng-model="data.fundPoolId"/></td>
+		</tr>
+		<tr>
+			<td><label for="limitAppAmt" class="control-label">limitAppAmt：</label></td>
+			<td><input class="form-control" type="text" id="limitAppAmt" ng-model="data.limitAppAmt"/></td>
+			<td><label for="appStatus" class="control-label">appStatus：</label></td>
+			<td><input class="form-control" type="text" id="appStatus" ng-model="data.appStatus"/></td>
+		</tr>
+		<tr>
+			<td><label for="appType" class="control-label">appType：</label></td>
+			<td><input class="form-control" type="text" id="appType" ng-model="data.appType"/></td>
+			<td><label for="appDesc" class="control-label">appDesc：</label></td>
+			<td><input class="form-control" type="text" id="appDesc" ng-model="data.appDesc"/></td>
+		</tr>
+	</table>
+
+    <div class="text-right table-query-btn mt10">
+        <input type="submit" class="btn btn-sm btn-primary" value="保存">
+        <a href="#/limitApplication" class="btn btn-sm btn-success">返回</a>
+    </div>
+</form>
+
+
+

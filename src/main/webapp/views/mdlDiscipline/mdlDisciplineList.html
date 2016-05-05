@@ -1,0 +1,83 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a> &gt; <a href="#/mdlDiscipline" class="current"> mdlDiscipline管理</a>
+</div>
+<div>
+	<div class="table-query">
+		<!-- Table Layout -->
+		<div class="basic_query">
+			<form class=" table-query-form" novalidate>
+				<table class="query_table">
+					<tr>
+						<td><label for="id" class="control-label">id：</label></td>
+						<td><input class="form-control" type="text" id="id" ng-model="searchParams.id"/></td>
+						<td><label for="trdStrMdlId" class="control-label">trdStrMdlId：</label></td>
+						<td><input class="form-control" type="text" id="trdStrMdlId" ng-model="searchParams.trdStrMdlId"/></td>
+						<td><label for="requestType" class="control-label">requestType：</label></td>
+						<td><input class="form-control" type="text" id="requestType" ng-model="searchParams.requestType"/></td>
+					</tr>
+					<tr>
+						<td><label for="tempTcName" class="control-label">tempTcName：</label></td>
+						<td><input class="form-control" type="text" id="tempTcName" ng-model="searchParams.tempTcName"/></td>
+						<td><label for="tempCommodityType" class="control-label">tempCommodityType：</label></td>
+						<td><input class="form-control" type="text" id="tempCommodityType" ng-model="searchParams.tempCommodityType"/></td>
+						<td><label for="tempCurPair" class="control-label">tempCurPair：</label></td>
+						<td><input class="form-control" type="text" id="tempCurPair" ng-model="searchParams.tempCurPair"/></td>
+					</tr>
+					<tr>
+						<td><label for="snapStrategyId" class="control-label">snapStrategyId：</label></td>
+						<td><input class="form-control" type="text" id="snapStrategyId" ng-model="searchParams.snapStrategyId"/></td>
+					</tr>
+				</table>
+				<div class="text-right table-query-btn mt10">
+					<input type="submit" value="查询" ng-click="queryList()" class="btn btn-sm btn-primary">
+					<a href="#/mdlDiscipline/add" class="btn btn-sm btn-danger">添加</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="table-result mt20">
+		<table class="table table-striped text-center" st-pipe="callServer" st-table="displayed">
+			<thead>
+				<tr>
+					<th st-sort="ID">id</th>
+					<th st-sort="TRD_STR_MDL_ID">trdStrMdlId</th>
+					<th st-sort="REQUEST_TYPE">requestType</th>
+					<th st-sort="TEMP_TC_NAME">tempTcName</th>
+					<th st-sort="TEMP_COMMODITY_TYPE">tempCommodityType</th>
+					<th st-sort="TEMP_CUR_PAIR">tempCurPair</th>
+					<th st-sort="SNAP_STRATEGY_ID">snapStrategyId</th>
+					<th>操作</th>
+                </tr>
+			</thead>
+			<tbody ng-show="!isLoading">
+				<tr ng-repeat="row in displayed">
+					<td>{{row.id}}</td>
+					<td>{{row.trdStrMdlId}}</td>
+					<td>{{row.requestType}}</td>
+					<td>{{row.tempTcName}}</td>
+					<td>{{row.tempCommodityType}}</td>
+					<td>{{row.tempCurPair}}</td>
+					<td>{{row.snapStrategyId}}</td>
+					<td>
+						<a class="btn-txt btn-txt-green" href="#/mdlDiscipline/modify/{{row.id}}">修改</a>
+                        <a class="btn-txt btn-txt-red" ng-click="remove(row.id)">删除</a>
+					</td>
+                </tr>
+			</tbody>
+
+			<!-- TEMP end -->
+			<tbody ng-show="isLoading">
+				<tr>
+					<td colspan="8" class="text-center">Loading ... </td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="text-center" st-pagination="" st-items-by-page="20" colspan="8">
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>

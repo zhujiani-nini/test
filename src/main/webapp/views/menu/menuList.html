@@ -1,0 +1,87 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a> &gt; <a href="#/menu" class="current"> menu管理</a>
+</div>
+<div>
+	<div class="table-query">
+		<!-- Table Layout -->
+		<div class="basic_query">
+			<form class=" table-query-form" novalidate>
+				<table class="query_table">
+					<tr>
+						<td><label for="menuId" class="control-label">menuId：</label></td>
+						<td><input class="form-control" type="text" id="menuId" ng-model="searchParams.menuId"/></td>
+						<td><label for="menuName" class="control-label">menuName：</label></td>
+						<td><input class="form-control" type="text" id="menuName" ng-model="searchParams.menuName"/></td>
+						<td><label for="menuDesc" class="control-label">menuDesc：</label></td>
+						<td><input class="form-control" type="text" id="menuDesc" ng-model="searchParams.menuDesc"/></td>
+					</tr>
+					<tr>
+						<td><label for="menuLink" class="control-label">menuLink：</label></td>
+						<td><input class="form-control" type="text" id="menuLink" ng-model="searchParams.menuLink"/></td>
+						<td><label for="parentId" class="control-label">parentId：</label></td>
+						<td><input class="form-control" type="text" id="parentId" ng-model="searchParams.parentId"/></td>
+						<td><label for="menuLayer" class="control-label">menuLayer：</label></td>
+						<td><input class="form-control" type="text" id="menuLayer" ng-model="searchParams.menuLayer"/></td>
+					</tr>
+					<tr>
+						<td><label for="menuStyle" class="control-label">menuStyle：</label></td>
+						<td><input class="form-control" type="text" id="menuStyle" ng-model="searchParams.menuStyle"/></td>
+						<td><label for="menuOrder" class="control-label">menuOrder：</label></td>
+						<td><input class="form-control" type="text" id="menuOrder" ng-model="searchParams.menuOrder"/></td>
+					</tr>
+				</table>
+				<div class="text-right table-query-btn mt10">
+					<input type="submit" value="查询" ng-click="queryList()" class="btn btn-sm btn-primary">
+					<a href="#/menu/add" class="btn btn-sm btn-danger">添加</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="table-result mt20">
+		<table class="table table-striped text-center" st-pipe="callServer" st-table="displayed">
+			<thead>
+				<tr>
+					<th st-sort="MENU_ID">menuId</th>
+					<th st-sort="MENU_NAME">menuName</th>
+					<th st-sort="MENU_DESC">menuDesc</th>
+					<th st-sort="MENU_LINK">menuLink</th>
+					<th st-sort="PARENT_ID">parentId</th>
+					<th st-sort="MENU_LAYER">menuLayer</th>
+					<th st-sort="MENU_STYLE">menuStyle</th>
+					<th st-sort="MENU_ORDER">menuOrder</th>
+					<th>操作</th>
+                </tr>
+			</thead>
+			<tbody ng-show="!isLoading">
+				<tr ng-repeat="row in displayed">
+					<td>{{row.menuId}}</td>
+					<td>{{row.menuName}}</td>
+					<td>{{row.menuDesc}}</td>
+					<td>{{row.menuLink}}</td>
+					<td>{{row.parentId}}</td>
+					<td>{{row.menuLayer}}</td>
+					<td>{{row.menuStyle}}</td>
+					<td>{{row.menuOrder}}</td>
+					<td>
+						<a class="btn-txt btn-txt-green" href="#/menu/modify/{{row.menuId}}">修改</a>
+                        <a class="btn-txt btn-txt-red" ng-click="remove(row.menuId)">删除</a>
+					</td>
+                </tr>
+			</tbody>
+
+			<!-- TEMP end -->
+			<tbody ng-show="isLoading">
+				<tr>
+					<td colspan="9" class="text-center">Loading ... </td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="text-center" st-pagination="" st-items-by-page="20" colspan="9">
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>

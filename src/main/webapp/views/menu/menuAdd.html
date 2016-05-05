@@ -1,0 +1,40 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/menu"> menu管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 添加menu</a>
+</div>
+<form class="table-query-form" on-validated="add()" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="menuName" class="control-label">menuName：</label></td>
+			<td><input class="form-control" type="text" id="menuName" ng-model="data.menuName"/></td>
+			<td><label for="menuDesc" class="control-label">menuDesc：</label></td>
+			<td><input class="form-control" type="text" id="menuDesc" ng-model="data.menuDesc"/></td>
+		</tr>
+		<tr>
+			<td><label for="menuLink" class="control-label">menuLink：</label></td>
+			<td><input class="form-control" type="text" id="menuLink" ng-model="data.menuLink"/></td>
+			<td><label for="parentId" class="control-label">parentId：</label></td>
+			<td><input class="form-control" type="text" id="parentId" ng-model="data.parentId"/></td>
+		</tr>
+		<tr>
+			<td><label for="menuLayer" class="control-label">menuLayer：</label></td>
+			<td><input class="form-control" type="text" id="menuLayer" ng-model="data.menuLayer"/></td>
+			<td><label for="menuStyle" class="control-label">menuStyle：</label></td>
+			<td><input class="form-control" type="text" id="menuStyle" ng-model="data.menuStyle"/></td>
+		</tr>
+		<tr>
+			<td><label for="menuOrder" class="control-label">menuOrder：</label></td>
+			<td><input class="form-control" type="text" id="menuOrder" ng-model="data.menuOrder"/></td>
+		</tr>
+	</table>
+
+    <div class="text-right table-query-btn mt10">
+        <input type="submit" class="btn btn-sm btn-primary" value="保存">
+        <a href="#/menu" class="btn btn-sm btn-success">返回</a>
+    </div>
+</form>
+
+
+

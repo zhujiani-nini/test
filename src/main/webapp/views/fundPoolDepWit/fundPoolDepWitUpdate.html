@@ -1,0 +1,45 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/fundPoolDepWit"> fundPoolDepWit管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 更新fundPoolDepWit</a>
+</div>
+<form class="table-query-form" on-validated="update();" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="fundPoolId" class="control-label">fundPoolId：</label></td>
+			<td><input class="form-control" type="text" id="fundPoolId" ng-model="data.fundPoolId"/></td>
+			<td><label for="curId" class="control-label">curId：</label></td>
+			<td><input class="form-control" type="text" id="curId" ng-model="data.curId"/></td>
+		</tr>
+		<tr>
+			<td><label for="depOrWit" class="control-label">depOrWit：</label></td>
+			<td><input class="form-control" type="text" id="depOrWit" ng-model="data.depOrWit"/></td>
+			<td><label for="bankAccount" class="control-label">bankAccount：</label></td>
+			<td><input class="form-control" type="text" id="bankAccount" ng-model="data.bankAccount"/></td>
+		</tr>
+		<tr>
+			<td><label for="photoRoute" class="control-label">photoRoute：</label></td>
+			<td><input class="form-control" type="text" id="photoRoute" ng-model="data.photoRoute"/></td>
+			<td><label for="proofId" class="control-label">proofId：</label></td>
+			<td><input class="form-control" type="text" id="proofId" ng-model="data.proofId"/></td>
+		</tr>
+		<tr>
+			<td><label for="curAmt" class="control-label">curAmt：</label></td>
+			<td><input class="form-control" type="text" id="curAmt" ng-model="data.curAmt"/></td>
+			<td><label for="proofRoute" class="control-label">proofRoute：</label></td>
+			<td><input class="form-control" type="text" id="proofRoute" ng-model="data.proofRoute"/></td>
+		</tr>
+		<tr>
+			<td><label for="log" class="control-label">log：</label></td>
+			<td><input class="form-control" type="text" id="log" ng-model="data.log"/></td>
+			<td><label for="userId" class="control-label">userId：</label></td>
+			<td><input class="form-control" type="text" id="userId" ng-model="data.userId"/></td>
+		</tr>
+	</table>
+
+	<div class="text-right table-query-btn mt10">
+		<input type="submit" class="btn btn-sm btn-primary" value="保存">
+		<a href="#/fundPoolDepWit" class="btn btn-sm btn-success">返回</a>
+	</div>
+</form>

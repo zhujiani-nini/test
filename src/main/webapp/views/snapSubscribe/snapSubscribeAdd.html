@@ -1,0 +1,34 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/snapSubscribe"> snapSubscribe管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 添加snapSubscribe</a>
+</div>
+<form class="table-query-form" on-validated="add()" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="trdStrInstanceId" class="control-label">trdStrInstanceId：</label></td>
+			<td><input class="form-control" type="text" id="trdStrInstanceId" ng-model="data.trdStrInstanceId"/></td>
+			<td><label for="trdStrEntityId" class="control-label">trdStrEntityId：</label></td>
+			<td><input class="form-control" type="text" id="trdStrEntityId" ng-model="data.trdStrEntityId"/></td>
+		</tr>
+		<tr>
+			<td><label for="snapEntityId" class="control-label">snapEntityId：</label></td>
+			<td><input class="form-control" type="text" id="snapEntityId" ng-model="data.snapEntityId"/></td>
+			<td><label for="exchangerQueueName" class="control-label">exchangerQueueName：</label></td>
+			<td><input class="form-control" type="text" id="exchangerQueueName" ng-model="data.exchangerQueueName"/></td>
+		</tr>
+		<tr>
+			<td><label for="subTime" class="control-label">subTime：</label></td>
+			<td><input class="form-control" type="text" id="subTime" ng-model="data.subTime"/></td>
+		</tr>
+	</table>
+
+    <div class="text-right table-query-btn mt10">
+        <input type="submit" class="btn btn-sm btn-primary" value="保存">
+        <a href="#/snapSubscribe" class="btn btn-sm btn-success">返回</a>
+    </div>
+</form>
+
+
+

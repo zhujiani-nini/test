@@ -1,0 +1,157 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a> &gt; <a href="#/arbStrOrder" class="current"> arbStrOrder管理</a>
+</div>
+<div>
+	<div class="table-query">
+		<!-- Table Layout -->
+		<div class="basic_query">
+			<form class=" table-query-form" novalidate>
+				<table class="query_table">
+					<tr>
+						<td><label for="orderId" class="control-label">orderId：</label></td>
+						<td><input class="form-control" type="text" id="orderId" ng-model="searchParams.orderId"/></td>
+						<td><label for="trdStrInstanceId" class="control-label">trdStrInstanceId：</label></td>
+						<td><input class="form-control" type="text" id="trdStrInstanceId" ng-model="searchParams.trdStrInstanceId"/></td>
+						<td><label for="trdStrEntityId" class="control-label">trdStrEntityId：</label></td>
+						<td><input class="form-control" type="text" id="trdStrEntityId" ng-model="searchParams.trdStrEntityId"/></td>
+					</tr>
+					<tr>
+						<td><label for="trdStrModId" class="control-label">trdStrModId：</label></td>
+						<td><input class="form-control" type="text" id="trdStrModId" ng-model="searchParams.trdStrModId"/></td>
+						<td><label for="tcId" class="control-label">tcId：</label></td>
+						<td><input class="form-control" type="text" id="tcId" ng-model="searchParams.tcId"/></td>
+						<td><label for="tcName" class="control-label">tcName：</label></td>
+						<td><input class="form-control" type="text" id="tcName" ng-model="searchParams.tcName"/></td>
+					</tr>
+					<tr>
+						<td><label for="curPairId" class="control-label">curPairId：</label></td>
+						<td><input class="form-control" type="text" id="curPairId" ng-model="searchParams.curPairId"/></td>
+						<td><label for="curPairName" class="control-label">curPairName：</label></td>
+						<td><input class="form-control" type="text" id="curPairName" ng-model="searchParams.curPairName"/></td>
+						<td><label for="contractTypeName" class="control-label">contractTypeName：</label></td>
+						<td><input class="form-control" type="text" id="contractTypeName" ng-model="searchParams.contractTypeName"/></td>
+					</tr>
+					<tr>
+						<td><label for="strOrderType" class="control-label">strOrderType：</label></td>
+						<td><input class="form-control" type="text" id="strOrderType" ng-model="searchParams.strOrderType"/></td>
+						<td><label for="userId" class="control-label">userId：</label></td>
+						<td><input class="form-control" type="text" id="userId" ng-model="searchParams.userId"/></td>
+						<td><label for="tradeDirection" class="control-label">tradeDirection：</label></td>
+						<td><input class="form-control" type="text" id="tradeDirection" ng-model="searchParams.tradeDirection"/></td>
+					</tr>
+					<tr>
+						<td><label for="tradeType" class="control-label">tradeType：</label></td>
+						<td><input class="form-control" type="text" id="tradeType" ng-model="searchParams.tradeType"/></td>
+						<td><label for="price" class="control-label">price：</label></td>
+						<td><input class="form-control" type="text" id="price" ng-model="searchParams.price"/></td>
+						<td><label for="quantity" class="control-label">quantity：</label></td>
+						<td><input class="form-control" type="text" id="quantity" ng-model="searchParams.quantity"/></td>
+					</tr>
+					<tr>
+						<td><label for="arbStrOrderStatus" class="control-label">arbStrOrderStatus：</label></td>
+						<td><input class="form-control" type="text" id="arbStrOrderStatus" ng-model="searchParams.arbStrOrderStatus"/></td>
+						<td><label for="dealAmount" class="control-label">dealAmount：</label></td>
+						<td><input class="form-control" type="text" id="dealAmount" ng-model="searchParams.dealAmount"/></td>
+						<td><label for="orderBalance" class="control-label">orderBalance：</label></td>
+						<td><input class="form-control" type="text" id="orderBalance" ng-model="searchParams.orderBalance"/></td>
+					</tr>
+					<tr>
+						<td><label for="closeOutStatus" class="control-label">closeOutStatus：</label></td>
+						<td><input class="form-control" type="text" id="closeOutStatus" ng-model="searchParams.closeOutStatus"/></td>
+						<td><label for="closeOrderReason" class="control-label">closeOrderReason：</label></td>
+						<td><input class="form-control" type="text" id="closeOrderReason" ng-model="searchParams.closeOrderReason"/></td>
+						<td><label for="closeoutForCloseout" class="control-label">closeoutForCloseout：</label></td>
+						<td><input class="form-control" type="text" id="closeoutForCloseout" ng-model="searchParams.closeoutForCloseout"/></td>
+					</tr>
+					<tr>
+						<td><label for="isCloseOut" class="control-label">isCloseOut：</label></td>
+						<td><input class="form-control" type="text" id="isCloseOut" ng-model="searchParams.isCloseOut"/></td>
+						<td><label for="avgPrice" class="control-label">avgPrice：</label></td>
+						<td><input class="form-control" type="text" id="avgPrice" ng-model="searchParams.avgPrice"/></td>
+					</tr>
+				</table>
+				<div class="text-right table-query-btn mt10">
+					<input type="submit" value="查询" ng-click="queryList()" class="btn btn-sm btn-primary">
+					<a href="#/arbStrOrder/add" class="btn btn-sm btn-danger">添加</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="table-result mt20">
+		<table class="table table-striped text-center" st-pipe="callServer" st-table="displayed">
+			<thead>
+				<tr>
+					<th st-sort="ORDER_ID">orderId</th>
+					<th st-sort="TRD_STR_INSTANCE_ID">trdStrInstanceId</th>
+					<th st-sort="TRD_STR_ENTITY_ID">trdStrEntityId</th>
+					<th st-sort="TRD_STR_MOD_ID">trdStrModId</th>
+					<th st-sort="TC_ID">tcId</th>
+					<th st-sort="TC_NAME">tcName</th>
+					<th st-sort="CUR_PAIR_ID">curPairId</th>
+					<th st-sort="CUR_PAIR_NAME">curPairName</th>
+					<th st-sort="CONTRACT_TYPE_NAME">contractTypeName</th>
+					<th st-sort="STR_ORDER_TYPE">strOrderType</th>
+					<th st-sort="USER_ID">userId</th>
+					<th st-sort="TRADE_DIRECTION">tradeDirection</th>
+					<th st-sort="TRADE_TYPE">tradeType</th>
+					<th st-sort="PRICE">price</th>
+					<th st-sort="QUANTITY">quantity</th>
+					<th st-sort="ARB_STR_ORDER_STATUS">arbStrOrderStatus</th>
+					<th st-sort="DEAL_AMOUNT">dealAmount</th>
+					<th st-sort="ORDER_BALANCE">orderBalance</th>
+					<th st-sort="CLOSE_OUT_STATUS">closeOutStatus</th>
+					<th st-sort="CLOSE_ORDER_REASON">closeOrderReason</th>
+					<th st-sort="CLOSEOUT_FOR_CLOSEOUT">closeoutForCloseout</th>
+					<th st-sort="IS_CLOSE_OUT">isCloseOut</th>
+					<th st-sort="AVG_PRICE">avgPrice</th>
+					<th>操作</th>
+                </tr>
+			</thead>
+			<tbody ng-show="!isLoading">
+				<tr ng-repeat="row in displayed">
+					<td>{{row.orderId}}</td>
+					<td>{{row.trdStrInstanceId}}</td>
+					<td>{{row.trdStrEntityId}}</td>
+					<td>{{row.trdStrModId}}</td>
+					<td>{{row.tcId}}</td>
+					<td>{{row.tcName}}</td>
+					<td>{{row.curPairId}}</td>
+					<td>{{row.curPairName}}</td>
+					<td>{{row.contractTypeName}}</td>
+					<td>{{row.strOrderType}}</td>
+					<td>{{row.userId}}</td>
+					<td>{{row.tradeDirection}}</td>
+					<td>{{row.tradeType}}</td>
+					<td>{{row.price}}</td>
+					<td>{{row.quantity}}</td>
+					<td>{{row.arbStrOrderStatus}}</td>
+					<td>{{row.dealAmount}}</td>
+					<td>{{row.orderBalance}}</td>
+					<td>{{row.closeOutStatus}}</td>
+					<td>{{row.closeOrderReason}}</td>
+					<td>{{row.closeoutForCloseout}}</td>
+					<td>{{row.isCloseOut}}</td>
+					<td>{{row.avgPrice}}</td>
+					<td>
+						<a class="btn-txt btn-txt-green" href="#/arbStrOrder/modify/{{row.orderId}}">修改</a>
+                        <a class="btn-txt btn-txt-red" ng-click="remove(row.orderId)">删除</a>
+					</td>
+                </tr>
+			</tbody>
+
+			<!-- TEMP end -->
+			<tbody ng-show="isLoading">
+				<tr>
+					<td colspan="24" class="text-center">Loading ... </td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="text-center" st-pagination="" st-items-by-page="20" colspan="24">
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,45 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/publicPoolList"> publicPoolList管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 更新publicPoolList</a>
+</div>
+<form class="table-query-form" on-validated="update();" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="fundPoolListId" class="control-label">fundPoolListId：</label></td>
+			<td><input class="form-control" type="text" id="fundPoolListId" ng-model="data.fundPoolListId"/></td>
+			<td><label for="publicPoolId" class="control-label">publicPoolId：</label></td>
+			<td><input class="form-control" type="text" id="publicPoolId" ng-model="data.publicPoolId"/></td>
+		</tr>
+		<tr>
+			<td><label for="fundPoolId" class="control-label">fundPoolId：</label></td>
+			<td><input class="form-control" type="text" id="fundPoolId" ng-model="data.fundPoolId"/></td>
+			<td><label for="depOrWit" class="control-label">depOrWit：</label></td>
+			<td><input class="form-control" type="text" id="depOrWit" ng-model="data.depOrWit"/></td>
+		</tr>
+		<tr>
+			<td><label for="trdAccOpListId" class="control-label">trdAccOpListId：</label></td>
+			<td><input class="form-control" type="text" id="trdAccOpListId" ng-model="data.trdAccOpListId"/></td>
+			<td><label for="befAmt" class="control-label">befAmt：</label></td>
+			<td><input class="form-control" type="text" id="befAmt" ng-model="data.befAmt"/></td>
+		</tr>
+		<tr>
+			<td><label for="aftAmt" class="control-label">aftAmt：</label></td>
+			<td><input class="form-control" type="text" id="aftAmt" ng-model="data.aftAmt"/></td>
+			<td><label for="type" class="control-label">type：</label></td>
+			<td><input class="form-control" type="text" id="type" ng-model="data.type"/></td>
+		</tr>
+		<tr>
+			<td><label for="userId" class="control-label">userId：</label></td>
+			<td><input class="form-control" type="text" id="userId" ng-model="data.userId"/></td>
+			<td><label for="curAmt" class="control-label">curAmt：</label></td>
+			<td><input class="form-control" type="text" id="curAmt" ng-model="data.curAmt"/></td>
+		</tr>
+	</table>
+
+	<div class="text-right table-query-btn mt10">
+		<input type="submit" class="btn btn-sm btn-primary" value="保存">
+		<a href="#/publicPoolList" class="btn btn-sm btn-success">返回</a>
+	</div>
+</form>

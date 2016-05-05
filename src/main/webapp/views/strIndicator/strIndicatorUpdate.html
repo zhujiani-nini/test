@@ -1,0 +1,31 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/strIndicator"> strIndicator管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 更新strIndicator</a>
+</div>
+<form class="table-query-form" on-validated="update();" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="sysIndexName" class="control-label">sysIndexName：</label></td>
+			<td><input class="form-control" type="text" id="sysIndexName" ng-model="data.sysIndexName"/></td>
+			<td><label for="indicatorTypeCode" class="control-label">indicatorTypeCode：</label></td>
+			<td><input class="form-control" type="text" id="indicatorTypeCode" ng-model="data.indicatorTypeCode"/></td>
+		</tr>
+		<tr>
+			<td><label for="indicatorFomula" class="control-label">indicatorFomula：</label></td>
+			<td><input class="form-control" type="text" id="indicatorFomula" ng-model="data.indicatorFomula"/></td>
+			<td><label for="indicatorDesc" class="control-label">indicatorDesc：</label></td>
+			<td><input class="form-control" type="text" id="indicatorDesc" ng-model="data.indicatorDesc"/></td>
+		</tr>
+		<tr>
+			<td><label for="isMainIndicator" class="control-label">isMainIndicator：</label></td>
+			<td><input class="form-control" type="text" id="isMainIndicator" ng-model="data.isMainIndicator"/></td>
+		</tr>
+	</table>
+
+	<div class="text-right table-query-btn mt10">
+		<input type="submit" class="btn btn-sm btn-primary" value="保存">
+		<a href="#/strIndicator" class="btn btn-sm btn-success">返回</a>
+	</div>
+</form>

@@ -1,0 +1,77 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a> &gt; <a href="#/curAcc" class="current"> curAcc管理</a>
+</div>
+<div>
+	<div class="table-query">
+		<!-- Table Layout -->
+		<div class="basic_query">
+			<form class=" table-query-form" novalidate>
+				<table class="query_table">
+					<tr>
+						<td><label for="curAccId" class="control-label">curAccId：</label></td>
+						<td><input class="form-control" type="text" id="curAccId" ng-model="searchParams.curAccId"/></td>
+						<td><label for="curId" class="control-label">curId：</label></td>
+						<td><input class="form-control" type="text" id="curId" ng-model="searchParams.curId"/></td>
+						<td><label for="curCode" class="control-label">curCode：</label></td>
+						<td><input class="form-control" type="text" id="curCode" ng-model="searchParams.curCode"/></td>
+					</tr>
+					<tr>
+						<td><label for="curQty" class="control-label">curQty：</label></td>
+						<td><input class="form-control" type="text" id="curQty" ng-model="searchParams.curQty"/></td>
+						<td><label for="accId" class="control-label">accId：</label></td>
+						<td><input class="form-control" type="text" id="accId" ng-model="searchParams.accId"/></td>
+						<td><label for="accName" class="control-label">accName：</label></td>
+						<td><input class="form-control" type="text" id="accName" ng-model="searchParams.accName"/></td>
+					</tr>
+				</table>
+				<div class="text-right table-query-btn mt10">
+					<input type="submit" value="查询" ng-click="queryList()" class="btn btn-sm btn-primary">
+					<a href="#/curAcc/add" class="btn btn-sm btn-danger">添加</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="table-result mt20">
+		<table class="table table-striped text-center" st-pipe="callServer" st-table="displayed">
+			<thead>
+				<tr>
+					<th st-sort="CUR_ACC_ID">curAccId</th>
+					<th st-sort="CUR_ID">curId</th>
+					<th st-sort="CUR_CODE">curCode</th>
+					<th st-sort="CUR_QTY">curQty</th>
+					<th st-sort="ACC_ID">accId</th>
+					<th st-sort="ACC_NAME">accName</th>
+					<th>操作</th>
+                </tr>
+			</thead>
+			<tbody ng-show="!isLoading">
+				<tr ng-repeat="row in displayed">
+					<td>{{row.curAccId}}</td>
+					<td>{{row.curId}}</td>
+					<td>{{row.curCode}}</td>
+					<td>{{row.curQty}}</td>
+					<td>{{row.accId}}</td>
+					<td>{{row.accName}}</td>
+					<td>
+						<a class="btn-txt btn-txt-green" href="#/curAcc/modify/{{row.curAccId}}">修改</a>
+                        <a class="btn-txt btn-txt-red" ng-click="remove(row.curAccId)">删除</a>
+					</td>
+                </tr>
+			</tbody>
+
+			<!-- TEMP end -->
+			<tbody ng-show="isLoading">
+				<tr>
+					<td colspan="7" class="text-center">Loading ... </td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="text-center" st-pagination="" st-items-by-page="20" colspan="7">
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>

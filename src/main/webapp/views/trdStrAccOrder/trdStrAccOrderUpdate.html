@@ -1,0 +1,63 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/trdStrAccOrder"> trdStrAccOrder管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 更新trdStrAccOrder</a>
+</div>
+<form class="table-query-form" on-validated="update();" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="trdStrOrderId" class="control-label">trdStrOrderId：</label></td>
+			<td><input class="form-control" type="text" id="trdStrOrderId" ng-model="data.trdStrOrderId"/></td>
+			<td><label for="trdStrInstanceId" class="control-label">trdStrInstanceId：</label></td>
+			<td><input class="form-control" type="text" id="trdStrInstanceId" ng-model="data.trdStrInstanceId"/></td>
+		</tr>
+		<tr>
+			<td><label for="trdStrEntityId" class="control-label">trdStrEntityId：</label></td>
+			<td><input class="form-control" type="text" id="trdStrEntityId" ng-model="data.trdStrEntityId"/></td>
+			<td><label for="trdStrTempId" class="control-label">trdStrTempId：</label></td>
+			<td><input class="form-control" type="text" id="trdStrTempId" ng-model="data.trdStrTempId"/></td>
+		</tr>
+		<tr>
+			<td><label for="userId" class="control-label">userId：</label></td>
+			<td><input class="form-control" type="text" id="userId" ng-model="data.userId"/></td>
+			<td><label for="accId" class="control-label">accId：</label></td>
+			<td><input class="form-control" type="text" id="accId" ng-model="data.accId"/></td>
+		</tr>
+		<tr>
+			<td><label for="tcId" class="control-label">tcId：</label></td>
+			<td><input class="form-control" type="text" id="tcId" ng-model="data.tcId"/></td>
+			<td><label for="tcName" class="control-label">tcName：</label></td>
+			<td><input class="form-control" type="text" id="tcName" ng-model="data.tcName"/></td>
+		</tr>
+		<tr>
+			<td><label for="curPairId" class="control-label">curPairId：</label></td>
+			<td><input class="form-control" type="text" id="curPairId" ng-model="data.curPairId"/></td>
+			<td><label for="curPairName" class="control-label">curPairName：</label></td>
+			<td><input class="form-control" type="text" id="curPairName" ng-model="data.curPairName"/></td>
+		</tr>
+		<tr>
+			<td><label for="contractTypeName" class="control-label">contractTypeName：</label></td>
+			<td><input class="form-control" type="text" id="contractTypeName" ng-model="data.contractTypeName"/></td>
+			<td><label for="trdStrOrderType" class="control-label">trdStrOrderType：</label></td>
+			<td><input class="form-control" type="text" id="trdStrOrderType" ng-model="data.trdStrOrderType"/></td>
+		</tr>
+		<tr>
+			<td><label for="askBid" class="control-label">askBid：</label></td>
+			<td><input class="form-control" type="text" id="askBid" ng-model="data.askBid"/></td>
+			<td><label for="tradeType" class="control-label">tradeType：</label></td>
+			<td><input class="form-control" type="text" id="tradeType" ng-model="data.tradeType"/></td>
+		</tr>
+		<tr>
+			<td><label for="price" class="control-label">price：</label></td>
+			<td><input class="form-control" type="text" id="price" ng-model="data.price"/></td>
+			<td><label for="quantity" class="control-label">quantity：</label></td>
+			<td><input class="form-control" type="text" id="quantity" ng-model="data.quantity"/></td>
+		</tr>
+	</table>
+
+	<div class="text-right table-query-btn mt10">
+		<input type="submit" class="btn btn-sm btn-primary" value="保存">
+		<a href="#/trdStrAccOrder" class="btn btn-sm btn-success">返回</a>
+	</div>
+</form>

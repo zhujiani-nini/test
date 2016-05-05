@@ -1,0 +1,67 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/snapEntity"> snapEntity管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 更新snapEntity</a>
+</div>
+<form class="table-query-form" on-validated="update();" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="identifyCode" class="control-label">identifyCode：</label></td>
+			<td><input class="form-control" type="text" id="identifyCode" ng-model="data.identifyCode"/></td>
+			<td><label for="entityName" class="control-label">entityName：</label></td>
+			<td><input class="form-control" type="text" id="entityName" ng-model="data.entityName"/></td>
+		</tr>
+		<tr>
+			<td><label for="tcId" class="control-label">tcId：</label></td>
+			<td><input class="form-control" type="text" id="tcId" ng-model="data.tcId"/></td>
+			<td><label for="tc" class="control-label">tc：</label></td>
+			<td><input class="form-control" type="text" id="tc" ng-model="data.tc"/></td>
+		</tr>
+		<tr>
+			<td><label for="curPair" class="control-label">curPair：</label></td>
+			<td><input class="form-control" type="text" id="curPair" ng-model="data.curPair"/></td>
+			<td><label for="curPairId" class="control-label">curPairId：</label></td>
+			<td><input class="form-control" type="text" id="curPairId" ng-model="data.curPairId"/></td>
+		</tr>
+		<tr>
+			<td><label for="snapType" class="control-label">snapType：</label></td>
+			<td><input class="form-control" type="text" id="snapType" ng-model="data.snapType"/></td>
+			<td><label for="commodityType" class="control-label">commodityType：</label></td>
+			<td><input class="form-control" type="text" id="commodityType" ng-model="data.commodityType"/></td>
+		</tr>
+		<tr>
+			<td><label for="futureType" class="control-label">futureType：</label></td>
+			<td><input class="form-control" type="text" id="futureType" ng-model="data.futureType"/></td>
+			<td><label for="snapStrId" class="control-label">snapStrId：</label></td>
+			<td><input class="form-control" type="text" id="snapStrId" ng-model="data.snapStrId"/></td>
+		</tr>
+		<tr>
+			<td><label for="snapEntityDesc" class="control-label">snapEntityDesc：</label></td>
+			<td><input class="form-control" type="text" id="snapEntityDesc" ng-model="data.snapEntityDesc"/></td>
+			<td><label for="status" class="control-label">status：</label></td>
+			<td><input class="form-control" type="text" id="status" ng-model="data.status"/></td>
+		</tr>
+		<tr>
+			<td><label for="enableModify" class="control-label">enableModify：</label></td>
+			<td><input class="form-control" type="text" id="enableModify" ng-model="data.enableModify"/></td>
+			<td><label for="releaseStatus" class="control-label">releaseStatus：</label></td>
+			<td><input class="form-control" type="text" id="releaseStatus" ng-model="data.releaseStatus"/></td>
+		</tr>
+		<tr>
+			<td><label for="exchangerNames" class="control-label">exchangerNames：</label></td>
+			<td><input class="form-control" type="text" id="exchangerNames" ng-model="data.exchangerNames"/></td>
+			<td><label for="lastStopTime" class="control-label">lastStopTime：</label></td>
+			<td><input class="form-control" type="text" id="lastStopTime" ng-model="data.lastStopTime"/></td>
+		</tr>
+		<tr>
+			<td><label for="lastDownTime" class="control-label">lastDownTime：</label></td>
+			<td><input class="form-control" type="text" id="lastDownTime" ng-model="data.lastDownTime"/></td>
+		</tr>
+	</table>
+
+	<div class="text-right table-query-btn mt10">
+		<input type="submit" class="btn btn-sm btn-primary" value="保存">
+		<a href="#/snapEntity" class="btn btn-sm btn-success">返回</a>
+	</div>
+</form>

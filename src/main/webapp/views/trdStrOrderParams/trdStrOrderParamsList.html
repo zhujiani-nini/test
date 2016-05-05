@@ -1,0 +1,73 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a> &gt; <a href="#/trdStrOrderParams" class="current"> trdStrOrderParams管理</a>
+</div>
+<div>
+	<div class="table-query">
+		<!-- Table Layout -->
+		<div class="basic_query">
+			<form class=" table-query-form" novalidate>
+				<table class="query_table">
+					<tr>
+						<td><label for="trdStrInstanceId" class="control-label">trdStrInstanceId：</label></td>
+						<td><input class="form-control" type="text" id="trdStrInstanceId" ng-model="searchParams.trdStrInstanceId"/></td>
+						<td><label for="strOrderId" class="control-label">strOrderId：</label></td>
+						<td><input class="form-control" type="text" id="strOrderId" ng-model="searchParams.strOrderId"/></td>
+						<td><label for="paramName" class="control-label">paramName：</label></td>
+						<td><input class="form-control" type="text" id="paramName" ng-model="searchParams.paramName"/></td>
+					</tr>
+					<tr>
+						<td><label for="paramValue" class="control-label">paramValue：</label></td>
+						<td><input class="form-control" type="text" id="paramValue" ng-model="searchParams.paramValue"/></td>
+						<td><label for="createTimeMills" class="control-label">createTimeMills：</label></td>
+						<td><input class="form-control" type="text" id="createTimeMills" ng-model="searchParams.createTimeMills"/></td>
+					</tr>
+				</table>
+				<div class="text-right table-query-btn mt10">
+					<input type="submit" value="查询" ng-click="queryList()" class="btn btn-sm btn-primary">
+					<a href="#/trdStrOrderParams/add" class="btn btn-sm btn-danger">添加</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="table-result mt20">
+		<table class="table table-striped text-center" st-pipe="callServer" st-table="displayed">
+			<thead>
+				<tr>
+					<th st-sort="TRD_STR_INSTANCE_ID">trdStrInstanceId</th>
+					<th st-sort="STR_ORDER_ID">strOrderId</th>
+					<th st-sort="PARAM_NAME">paramName</th>
+					<th st-sort="PARAM_VALUE">paramValue</th>
+					<th st-sort="CREATE_TIME_MILLS">createTimeMills</th>
+					<th>操作</th>
+                </tr>
+			</thead>
+			<tbody ng-show="!isLoading">
+				<tr ng-repeat="row in displayed">
+					<td>{{row.trdStrInstanceId}}</td>
+					<td>{{row.strOrderId}}</td>
+					<td>{{row.paramName}}</td>
+					<td>{{row.paramValue}}</td>
+					<td>{{row.createTimeMills}}</td>
+					<td>
+						<a class="btn-txt btn-txt-green" href="#/trdStrOrderParams/modify/{{row.}}">修改</a>
+                        <a class="btn-txt btn-txt-red" ng-click="remove(row.)">删除</a>
+					</td>
+                </tr>
+			</tbody>
+
+			<!-- TEMP end -->
+			<tbody ng-show="isLoading">
+				<tr>
+					<td colspan="6" class="text-center">Loading ... </td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="text-center" st-pagination="" st-items-by-page="20" colspan="6">
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>

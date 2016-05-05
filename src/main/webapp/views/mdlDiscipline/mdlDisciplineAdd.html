@@ -1,0 +1,36 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/mdlDiscipline"> mdlDiscipline管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 添加mdlDiscipline</a>
+</div>
+<form class="table-query-form" on-validated="add()" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="trdStrMdlId" class="control-label">trdStrMdlId：</label></td>
+			<td><input class="form-control" type="text" id="trdStrMdlId" ng-model="data.trdStrMdlId"/></td>
+			<td><label for="requestType" class="control-label">requestType：</label></td>
+			<td><input class="form-control" type="text" id="requestType" ng-model="data.requestType"/></td>
+		</tr>
+		<tr>
+			<td><label for="tempTcName" class="control-label">tempTcName：</label></td>
+			<td><input class="form-control" type="text" id="tempTcName" ng-model="data.tempTcName"/></td>
+			<td><label for="tempCommodityType" class="control-label">tempCommodityType：</label></td>
+			<td><input class="form-control" type="text" id="tempCommodityType" ng-model="data.tempCommodityType"/></td>
+		</tr>
+		<tr>
+			<td><label for="tempCurPair" class="control-label">tempCurPair：</label></td>
+			<td><input class="form-control" type="text" id="tempCurPair" ng-model="data.tempCurPair"/></td>
+			<td><label for="snapStrategyId" class="control-label">snapStrategyId：</label></td>
+			<td><input class="form-control" type="text" id="snapStrategyId" ng-model="data.snapStrategyId"/></td>
+		</tr>
+	</table>
+
+    <div class="text-right table-query-btn mt10">
+        <input type="submit" class="btn btn-sm btn-primary" value="保存">
+        <a href="#/mdlDiscipline" class="btn btn-sm btn-success">返回</a>
+    </div>
+</form>
+
+
+

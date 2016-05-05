@@ -1,0 +1,37 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/fundPool"> fundPool管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 更新fundPool</a>
+</div>
+<form class="table-query-form" on-validated="update();" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="fundPoolName" class="control-label">fundPoolName：</label></td>
+			<td><input class="form-control" type="text" id="fundPoolName" ng-model="data.fundPoolName"/></td>
+			<td><label for="curId" class="control-label">curId：</label></td>
+			<td><input class="form-control" type="text" id="curId" ng-model="data.curId"/></td>
+		</tr>
+		<tr>
+			<td><label for="isShared" class="control-label">isShared：</label></td>
+			<td><input class="form-control" type="text" id="isShared" ng-model="data.isShared"/></td>
+			<td><label for="fundPoolTypeId" class="control-label">fundPoolTypeId：</label></td>
+			<td><input class="form-control" type="text" id="fundPoolTypeId" ng-model="data.fundPoolTypeId"/></td>
+		</tr>
+		<tr>
+			<td><label for="balanceAvailable" class="control-label">balanceAvailable：</label></td>
+			<td><input class="form-control" type="text" id="balanceAvailable" ng-model="data.balanceAvailable"/></td>
+			<td><label for="actualBalance" class="control-label">actualBalance：</label></td>
+			<td><input class="form-control" type="text" id="actualBalance" ng-model="data.actualBalance"/></td>
+		</tr>
+		<tr>
+			<td><label for="coe" class="control-label">coe：</label></td>
+			<td><input class="form-control" type="text" id="coe" ng-model="data.coe"/></td>
+		</tr>
+	</table>
+
+	<div class="text-right table-query-btn mt10">
+		<input type="submit" class="btn btn-sm btn-primary" value="保存">
+		<a href="#/fundPool" class="btn btn-sm btn-success">返回</a>
+	</div>
+</form>

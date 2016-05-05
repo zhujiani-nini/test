@@ -1,0 +1,79 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/tickStatus"> tickStatus管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 更新tickStatus</a>
+</div>
+<form class="table-query-form" on-validated="update();" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="tickInitStaId" class="control-label">tickInitStaId：</label></td>
+			<td><input class="form-control" type="text" id="tickInitStaId" ng-model="data.tickInitStaId"/></td>
+			<td><label for="tickAmount" class="control-label">tickAmount：</label></td>
+			<td><input class="form-control" type="text" id="tickAmount" ng-model="data.tickAmount"/></td>
+		</tr>
+		<tr>
+			<td><label for="askBid" class="control-label">askBid：</label></td>
+			<td><input class="form-control" type="text" id="askBid" ng-model="data.askBid"/></td>
+			<td><label for="tickStatus" class="control-label">tickStatus：</label></td>
+			<td><input class="form-control" type="text" id="tickStatus" ng-model="data.tickStatus"/></td>
+		</tr>
+		<tr>
+			<td><label for="tickPer" class="control-label">tickPer：</label></td>
+			<td><input class="form-control" type="text" id="tickPer" ng-model="data.tickPer"/></td>
+			<td><label for="avgPrice" class="control-label">avgPrice：</label></td>
+			<td><input class="form-control" type="text" id="avgPrice" ng-model="data.avgPrice"/></td>
+		</tr>
+		<tr>
+			<td><label for="accOrderId" class="control-label">accOrderId：</label></td>
+			<td><input class="form-control" type="text" id="accOrderId" ng-model="data.accOrderId"/></td>
+			<td><label for="strOrderId" class="control-label">strOrderId：</label></td>
+			<td><input class="form-control" type="text" id="strOrderId" ng-model="data.strOrderId"/></td>
+		</tr>
+		<tr>
+			<td><label for="strInstanceId" class="control-label">strInstanceId：</label></td>
+			<td><input class="form-control" type="text" id="strInstanceId" ng-model="data.strInstanceId"/></td>
+			<td><label for="strEntityId" class="control-label">strEntityId：</label></td>
+			<td><input class="form-control" type="text" id="strEntityId" ng-model="data.strEntityId"/></td>
+		</tr>
+		<tr>
+			<td><label for="strTempId" class="control-label">strTempId：</label></td>
+			<td><input class="form-control" type="text" id="strTempId" ng-model="data.strTempId"/></td>
+			<td><label for="curPairId" class="control-label">curPairId：</label></td>
+			<td><input class="form-control" type="text" id="curPairId" ng-model="data.curPairId"/></td>
+		</tr>
+		<tr>
+			<td><label for="curPairName" class="control-label">curPairName：</label></td>
+			<td><input class="form-control" type="text" id="curPairName" ng-model="data.curPairName"/></td>
+			<td><label for="orderType" class="control-label">orderType：</label></td>
+			<td><input class="form-control" type="text" id="orderType" ng-model="data.orderType"/></td>
+		</tr>
+		<tr>
+			<td><label for="contractType" class="control-label">contractType：</label></td>
+			<td><input class="form-control" type="text" id="contractType" ng-model="data.contractType"/></td>
+			<td><label for="tcRetTickId" class="control-label">tcRetTickId：</label></td>
+			<td><input class="form-control" type="text" id="tcRetTickId" ng-model="data.tcRetTickId"/></td>
+		</tr>
+		<tr>
+			<td><label for="tcId" class="control-label">tcId：</label></td>
+			<td><input class="form-control" type="text" id="tcId" ng-model="data.tcId"/></td>
+			<td><label for="tcName" class="control-label">tcName：</label></td>
+			<td><input class="form-control" type="text" id="tcName" ng-model="data.tcName"/></td>
+		</tr>
+		<tr>
+			<td><label for="userId" class="control-label">userId：</label></td>
+			<td><input class="form-control" type="text" id="userId" ng-model="data.userId"/></td>
+			<td><label for="tickPrice" class="control-label">tickPrice：</label></td>
+			<td><input class="form-control" type="text" id="tickPrice" ng-model="data.tickPrice"/></td>
+		</tr>
+		<tr>
+			<td><label for="tickQuantity" class="control-label">tickQuantity：</label></td>
+			<td><input class="form-control" type="text" id="tickQuantity" ng-model="data.tickQuantity"/></td>
+		</tr>
+	</table>
+
+	<div class="text-right table-query-btn mt10">
+		<input type="submit" class="btn btn-sm btn-primary" value="保存">
+		<a href="#/tickStatus" class="btn btn-sm btn-success">返回</a>
+	</div>
+</form>

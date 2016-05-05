@@ -1,0 +1,59 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a> &gt; <a href="#/usrStrIndicatorParamUsrStrIndicatorRelate" class="current"> usrStrIndicatorParamUsrStrIndicatorRelate管理</a>
+</div>
+<div>
+	<div class="table-query">
+		<!-- Table Layout -->
+		<div class="basic_query">
+			<form class=" table-query-form" novalidate>
+				<table class="query_table">
+					<tr>
+						<td><label for="usrStrIndicatorParamId" class="control-label">usrStrIndicatorParamId：</label></td>
+						<td><input class="form-control" type="text" id="usrStrIndicatorParamId" ng-model="searchParams.usrStrIndicatorParamId"/></td>
+						<td><label for="usrTrdStrIndicatorId" class="control-label">usrTrdStrIndicatorId：</label></td>
+						<td><input class="form-control" type="text" id="usrTrdStrIndicatorId" ng-model="searchParams.usrTrdStrIndicatorId"/></td>
+					</tr>
+				</table>
+				<div class="text-right table-query-btn mt10">
+					<input type="submit" value="查询" ng-click="queryList()" class="btn btn-sm btn-primary">
+					<a href="#/usrStrIndicatorParamUsrStrIndicatorRelate/add" class="btn btn-sm btn-danger">添加</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="table-result mt20">
+		<table class="table table-striped text-center" st-pipe="callServer" st-table="displayed">
+			<thead>
+				<tr>
+					<th st-sort="USR_STR_INDICATOR_PARAM_ID">usrStrIndicatorParamId</th>
+					<th st-sort="USR_TRD_STR_INDICATOR_ID">usrTrdStrIndicatorId</th>
+					<th>操作</th>
+                </tr>
+			</thead>
+			<tbody ng-show="!isLoading">
+				<tr ng-repeat="row in displayed">
+					<td>{{row.usrStrIndicatorParamId}}</td>
+					<td>{{row.usrTrdStrIndicatorId}}</td>
+					<td>
+						<a class="btn-txt btn-txt-green" href="#/usrStrIndicatorParamUsrStrIndicatorRelate/modify/{{row.}}">修改</a>
+                        <a class="btn-txt btn-txt-red" ng-click="remove(row.)">删除</a>
+					</td>
+                </tr>
+			</tbody>
+
+			<!-- TEMP end -->
+			<tbody ng-show="isLoading">
+				<tr>
+					<td colspan="3" class="text-center">Loading ... </td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="text-center" st-pagination="" st-items-by-page="20" colspan="3">
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>

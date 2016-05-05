@@ -1,0 +1,69 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a> &gt; <a href="#/trdStrInstanceDist" class="current"> trdStrInstanceDist管理</a>
+</div>
+<div>
+	<div class="table-query">
+		<!-- Table Layout -->
+		<div class="basic_query">
+			<form class=" table-query-form" novalidate>
+				<table class="query_table">
+					<tr>
+						<td><label for="trdStrInstanceDistId" class="control-label">trdStrInstanceDistId：</label></td>
+						<td><input class="form-control" type="text" id="trdStrInstanceDistId" ng-model="searchParams.trdStrInstanceDistId"/></td>
+						<td><label for="trdStrInstanceId" class="control-label">trdStrInstanceId：</label></td>
+						<td><input class="form-control" type="text" id="trdStrInstanceId" ng-model="searchParams.trdStrInstanceId"/></td>
+						<td><label for="userId" class="control-label">userId：</label></td>
+						<td><input class="form-control" type="text" id="userId" ng-model="searchParams.userId"/></td>
+					</tr>
+					<tr>
+						<td><label for="instanceDistLimit" class="control-label">instanceDistLimit：</label></td>
+						<td><input class="form-control" type="text" id="instanceDistLimit" ng-model="searchParams.instanceDistLimit"/></td>
+					</tr>
+				</table>
+				<div class="text-right table-query-btn mt10">
+					<input type="submit" value="查询" ng-click="queryList()" class="btn btn-sm btn-primary">
+					<a href="#/trdStrInstanceDist/add" class="btn btn-sm btn-danger">添加</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="table-result mt20">
+		<table class="table table-striped text-center" st-pipe="callServer" st-table="displayed">
+			<thead>
+				<tr>
+					<th st-sort="TRD_STR_INSTANCE_DIST_ID">trdStrInstanceDistId</th>
+					<th st-sort="TRD_STR_INSTANCE_ID">trdStrInstanceId</th>
+					<th st-sort="USER_ID">userId</th>
+					<th st-sort="INSTANCE_DIST_LIMIT">instanceDistLimit</th>
+					<th>操作</th>
+                </tr>
+			</thead>
+			<tbody ng-show="!isLoading">
+				<tr ng-repeat="row in displayed">
+					<td>{{row.trdStrInstanceDistId}}</td>
+					<td>{{row.trdStrInstanceId}}</td>
+					<td>{{row.userId}}</td>
+					<td>{{row.instanceDistLimit}}</td>
+					<td>
+						<a class="btn-txt btn-txt-green" href="#/trdStrInstanceDist/modify/{{row.trdStrInstanceDistId}}">修改</a>
+                        <a class="btn-txt btn-txt-red" ng-click="remove(row.trdStrInstanceDistId)">删除</a>
+					</td>
+                </tr>
+			</tbody>
+
+			<!-- TEMP end -->
+			<tbody ng-show="isLoading">
+				<tr>
+					<td colspan="5" class="text-center">Loading ... </td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="text-center" st-pagination="" st-items-by-page="20" colspan="5">
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>

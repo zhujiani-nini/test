@@ -1,0 +1,36 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/publicPool"> publicPool管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 添加publicPool</a>
+</div>
+<form class="table-query-form" on-validated="add()" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="publicPoolName" class="control-label">publicPoolName：</label></td>
+			<td><input class="form-control" type="text" id="publicPoolName" ng-model="data.publicPoolName"/></td>
+			<td><label for="curTypeId" class="control-label">curTypeId：</label></td>
+			<td><input class="form-control" type="text" id="curTypeId" ng-model="data.curTypeId"/></td>
+		</tr>
+		<tr>
+			<td><label for="isShared" class="control-label">isShared：</label></td>
+			<td><input class="form-control" type="text" id="isShared" ng-model="data.isShared"/></td>
+			<td><label for="publicPoolTypeId" class="control-label">publicPoolTypeId：</label></td>
+			<td><input class="form-control" type="text" id="publicPoolTypeId" ng-model="data.publicPoolTypeId"/></td>
+		</tr>
+		<tr>
+			<td><label for="amount" class="control-label">amount：</label></td>
+			<td><input class="form-control" type="text" id="amount" ng-model="data.amount"/></td>
+			<td><label for="lastAmt" class="control-label">lastAmt：</label></td>
+			<td><input class="form-control" type="text" id="lastAmt" ng-model="data.lastAmt"/></td>
+		</tr>
+	</table>
+
+    <div class="text-right table-query-btn mt10">
+        <input type="submit" class="btn btn-sm btn-primary" value="保存">
+        <a href="#/publicPool" class="btn btn-sm btn-success">返回</a>
+    </div>
+</form>
+
+
+

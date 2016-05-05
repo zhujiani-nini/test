@@ -1,0 +1,91 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a> &gt; <a href="#/usrTrdStrIndicatorParam" class="current"> usrTrdStrIndicatorParam管理</a>
+</div>
+<div>
+	<div class="table-query">
+		<!-- Table Layout -->
+		<div class="basic_query">
+			<form class=" table-query-form" novalidate>
+				<table class="query_table">
+					<tr>
+						<td><label for="paramId" class="control-label">paramId：</label></td>
+						<td><input class="form-control" type="text" id="paramId" ng-model="searchParams.paramId"/></td>
+						<td><label for="usrId" class="control-label">usrId：</label></td>
+						<td><input class="form-control" type="text" id="usrId" ng-model="searchParams.usrId"/></td>
+						<td><label for="paramName" class="control-label">paramName：</label></td>
+						<td><input class="form-control" type="text" id="paramName" ng-model="searchParams.paramName"/></td>
+					</tr>
+					<tr>
+						<td><label for="paramType" class="control-label">paramType：</label></td>
+						<td><input class="form-control" type="text" id="paramType" ng-model="searchParams.paramType"/></td>
+						<td><label for="paramValue" class="control-label">paramValue：</label></td>
+						<td><input class="form-control" type="text" id="paramValue" ng-model="searchParams.paramValue"/></td>
+						<td><label for="paramDefValue" class="control-label">paramDefValue：</label></td>
+						<td><input class="form-control" type="text" id="paramDefValue" ng-model="searchParams.paramDefValue"/></td>
+					</tr>
+					<tr>
+						<td><label for="paramMax" class="control-label">paramMax：</label></td>
+						<td><input class="form-control" type="text" id="paramMax" ng-model="searchParams.paramMax"/></td>
+						<td><label for="paramMin" class="control-label">paramMin：</label></td>
+						<td><input class="form-control" type="text" id="paramMin" ng-model="searchParams.paramMin"/></td>
+						<td><label for="paramShowType" class="control-label">paramShowType：</label></td>
+						<td><input class="form-control" type="text" id="paramShowType" ng-model="searchParams.paramShowType"/></td>
+					</tr>
+				</table>
+				<div class="text-right table-query-btn mt10">
+					<input type="submit" value="查询" ng-click="queryList()" class="btn btn-sm btn-primary">
+					<a href="#/usrTrdStrIndicatorParam/add" class="btn btn-sm btn-danger">添加</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="table-result mt20">
+		<table class="table table-striped text-center" st-pipe="callServer" st-table="displayed">
+			<thead>
+				<tr>
+					<th st-sort="PARAM_ID">paramId</th>
+					<th st-sort="USR_ID">usrId</th>
+					<th st-sort="PARAM_NAME">paramName</th>
+					<th st-sort="PARAM_TYPE">paramType</th>
+					<th st-sort="PARAM_VALUE">paramValue</th>
+					<th st-sort="PARAM_DEF_VALUE">paramDefValue</th>
+					<th st-sort="PARAM_MAX">paramMax</th>
+					<th st-sort="PARAM_MIN">paramMin</th>
+					<th st-sort="PARAM_SHOW_TYPE">paramShowType</th>
+					<th>操作</th>
+                </tr>
+			</thead>
+			<tbody ng-show="!isLoading">
+				<tr ng-repeat="row in displayed">
+					<td>{{row.paramId}}</td>
+					<td>{{row.usrId}}</td>
+					<td>{{row.paramName}}</td>
+					<td>{{row.paramType}}</td>
+					<td>{{row.paramValue}}</td>
+					<td>{{row.paramDefValue}}</td>
+					<td>{{row.paramMax}}</td>
+					<td>{{row.paramMin}}</td>
+					<td>{{row.paramShowType}}</td>
+					<td>
+						<a class="btn-txt btn-txt-green" href="#/usrTrdStrIndicatorParam/modify/{{row.paramId}}">修改</a>
+                        <a class="btn-txt btn-txt-red" ng-click="remove(row.paramId)">删除</a>
+					</td>
+                </tr>
+			</tbody>
+
+			<!-- TEMP end -->
+			<tbody ng-show="isLoading">
+				<tr>
+					<td colspan="10" class="text-center">Loading ... </td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="text-center" st-pagination="" st-items-by-page="20" colspan="10">
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>

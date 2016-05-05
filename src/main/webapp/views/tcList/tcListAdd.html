@@ -1,0 +1,24 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/tcList"> tcList管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 添加tcList</a>
+</div>
+<form class="table-query-form" on-validated="add()" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="tcName" class="control-label">tcName：</label></td>
+			<td><input class="form-control" type="text" id="tcName" ng-model="data.tcName"/></td>
+			<td><label for="tcUrl" class="control-label">tcUrl：</label></td>
+			<td><input class="form-control" type="text" id="tcUrl" ng-model="data.tcUrl"/></td>
+		</tr>
+	</table>
+
+    <div class="text-right table-query-btn mt10">
+        <input type="submit" class="btn btn-sm btn-primary" value="保存">
+        <a href="#/tcList" class="btn btn-sm btn-success">返回</a>
+    </div>
+</form>
+
+
+

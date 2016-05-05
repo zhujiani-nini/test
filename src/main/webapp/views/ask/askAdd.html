@@ -1,0 +1,40 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/ask"> ask管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 添加ask</a>
+</div>
+<form class="table-query-form" on-validated="add()" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="snapId" class="control-label">snapId：</label></td>
+			<td><input class="form-control" type="text" id="snapId" ng-model="data.snapId"/></td>
+			<td><label for="tcId" class="control-label">tcId：</label></td>
+			<td><input class="form-control" type="text" id="tcId" ng-model="data.tcId"/></td>
+		</tr>
+		<tr>
+			<td><label for="price" class="control-label">price：</label></td>
+			<td><input class="form-control" type="text" id="price" ng-model="data.price"/></td>
+			<td><label for="quantity" class="control-label">quantity：</label></td>
+			<td><input class="form-control" type="text" id="quantity" ng-model="data.quantity"/></td>
+		</tr>
+		<tr>
+			<td><label for="date" class="control-label">date：</label></td>
+			<td><input class="form-control" type="text" id="date" ng-model="data.date"/></td>
+			<td><label for="curId" class="control-label">curId：</label></td>
+			<td><input class="form-control" type="text" id="curId" ng-model="data.curId"/></td>
+		</tr>
+		<tr>
+			<td><label for="curName" class="control-label">curName：</label></td>
+			<td><input class="form-control" type="text" id="curName" ng-model="data.curName"/></td>
+		</tr>
+	</table>
+
+    <div class="text-right table-query-btn mt10">
+        <input type="submit" class="btn btn-sm btn-primary" value="保存">
+        <a href="#/ask" class="btn btn-sm btn-success">返回</a>
+    </div>
+</form>
+
+
+

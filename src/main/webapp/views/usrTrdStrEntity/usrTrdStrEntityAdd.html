@@ -1,0 +1,70 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/usrTrdStrEntity"> usrTrdStrEntity管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 添加usrTrdStrEntity</a>
+</div>
+<form class="table-query-form" on-validated="add()" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="defTimeGap" class="control-label">defTimeGap：</label></td>
+			<td><input class="form-control" type="text" id="defTimeGap" ng-model="data.defTimeGap"/></td>
+			<td><label for="defThrehold" class="control-label">defThrehold：</label></td>
+			<td><input class="form-control" type="text" id="defThrehold" ng-model="data.defThrehold"/></td>
+		</tr>
+		<tr>
+			<td><label for="defThreholdUnit" class="control-label">defThreholdUnit：</label></td>
+			<td><input class="form-control" type="text" id="defThreholdUnit" ng-model="data.defThreholdUnit"/></td>
+			<td><label for="limitMax" class="control-label">limitMax：</label></td>
+			<td><input class="form-control" type="text" id="limitMax" ng-model="data.limitMax"/></td>
+		</tr>
+		<tr>
+			<td><label for="limitMin" class="control-label">limitMin：</label></td>
+			<td><input class="form-control" type="text" id="limitMin" ng-model="data.limitMin"/></td>
+			<td><label for="entityName" class="control-label">entityName：</label></td>
+			<td><input class="form-control" type="text" id="entityName" ng-model="data.entityName"/></td>
+		</tr>
+		<tr>
+			<td><label for="entityType" class="control-label">entityType：</label></td>
+			<td><input class="form-control" type="text" id="entityType" ng-model="data.entityType"/></td>
+			<td><label for="entityStatus" class="control-label">entityStatus：</label></td>
+			<td><input class="form-control" type="text" id="entityStatus" ng-model="data.entityStatus"/></td>
+		</tr>
+		<tr>
+			<td><label for="trdStrModId" class="control-label">trdStrModId：</label></td>
+			<td><input class="form-control" type="text" id="trdStrModId" ng-model="data.trdStrModId"/></td>
+			<td><label for="entityRecLvl" class="control-label">entityRecLvl：</label></td>
+			<td><input class="form-control" type="text" id="entityRecLvl" ng-model="data.entityRecLvl"/></td>
+		</tr>
+		<tr>
+			<td><label for="className" class="control-label">className：</label></td>
+			<td><input class="form-control" type="text" id="className" ng-model="data.className"/></td>
+			<td><label for="userId" class="control-label">userId：</label></td>
+			<td><input class="form-control" type="text" id="userId" ng-model="data.userId"/></td>
+		</tr>
+		<tr>
+			<td><label for="isPublished" class="control-label">isPublished：</label></td>
+			<td><input class="form-control" type="text" id="isPublished" ng-model="data.isPublished"/></td>
+			<td><label for="isShared" class="control-label">isShared：</label></td>
+			<td><input class="form-control" type="text" id="isShared" ng-model="data.isShared"/></td>
+		</tr>
+		<tr>
+			<td><label for="isDefault" class="control-label">isDefault：</label></td>
+			<td><input class="form-control" type="text" id="isDefault" ng-model="data.isDefault"/></td>
+			<td><label for="identifyCode" class="control-label">identifyCode：</label></td>
+			<td><input class="form-control" type="text" id="identifyCode" ng-model="data.identifyCode"/></td>
+		</tr>
+		<tr>
+			<td><label for="description" class="control-label">description：</label></td>
+			<td><input class="form-control" type="text" id="description" ng-model="data.description"/></td>
+		</tr>
+	</table>
+
+    <div class="text-right table-query-btn mt10">
+        <input type="submit" class="btn btn-sm btn-primary" value="保存">
+        <a href="#/usrTrdStrEntity" class="btn btn-sm btn-success">返回</a>
+    </div>
+</form>
+
+
+

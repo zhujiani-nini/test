@@ -1,0 +1,105 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a> &gt; <a href="#/trdStrMdl" class="current"> trdStrMdl管理</a>
+</div>
+<div>
+	<div class="table-query">
+		<!-- Table Layout -->
+		<div class="basic_query">
+			<form class=" table-query-form" novalidate>
+				<table class="query_table">
+					<tr>
+						<td><label for="modId" class="control-label">modId：</label></td>
+						<td><input class="form-control" type="text" id="modId" ng-model="searchParams.modId"/></td>
+						<td><label for="modName" class="control-label">modName：</label></td>
+						<td><input class="form-control" type="text" id="modName" ng-model="searchParams.modName"/></td>
+						<td><label for="modCode" class="control-label">modCode：</label></td>
+						<td><input class="form-control" type="text" id="modCode" ng-model="searchParams.modCode"/></td>
+					</tr>
+					<tr>
+						<td><label for="modType" class="control-label">modType：</label></td>
+						<td><input class="form-control" type="text" id="modType" ng-model="searchParams.modType"/></td>
+						<td><label for="modeRecLvl" class="control-label">modeRecLvl：</label></td>
+						<td><input class="form-control" type="text" id="modeRecLvl" ng-model="searchParams.modeRecLvl"/></td>
+						<td><label for="report" class="control-label">report：</label></td>
+						<td><input class="form-control" type="text" id="report" ng-model="searchParams.report"/></td>
+					</tr>
+					<tr>
+						<td><label for="reportPicturePath" class="control-label">reportPicturePath：</label></td>
+						<td><input class="form-control" type="text" id="reportPicturePath" ng-model="searchParams.reportPicturePath"/></td>
+						<td><label for="modDesc" class="control-label">modDesc：</label></td>
+						<td><input class="form-control" type="text" id="modDesc" ng-model="searchParams.modDesc"/></td>
+						<td><label for="trdStrDescPicturePath" class="control-label">trdStrDescPicturePath：</label></td>
+						<td><input class="form-control" type="text" id="trdStrDescPicturePath" ng-model="searchParams.trdStrDescPicturePath"/></td>
+					</tr>
+					<tr>
+						<td><label for="isShared" class="control-label">isShared：</label></td>
+						<td><input class="form-control" type="text" id="isShared" ng-model="searchParams.isShared"/></td>
+						<td><label for="description" class="control-label">description：</label></td>
+						<td><input class="form-control" type="text" id="description" ng-model="searchParams.description"/></td>
+						<td><label for="enableModify" class="control-label">enableModify：</label></td>
+						<td><input class="form-control" type="text" id="enableModify" ng-model="searchParams.enableModify"/></td>
+					</tr>
+				</table>
+				<div class="text-right table-query-btn mt10">
+					<input type="submit" value="查询" ng-click="queryList()" class="btn btn-sm btn-primary">
+					<a href="#/trdStrMdl/add" class="btn btn-sm btn-danger">添加</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="table-result mt20">
+		<table class="table table-striped text-center" st-pipe="callServer" st-table="displayed">
+			<thead>
+				<tr>
+					<th st-sort="MOD_ID">modId</th>
+					<th st-sort="MOD_NAME">modName</th>
+					<th st-sort="MOD_CODE">modCode</th>
+					<th st-sort="MOD_TYPE">modType</th>
+					<th st-sort="MODE_REC_LVL">modeRecLvl</th>
+					<th st-sort="REPORT">report</th>
+					<th st-sort="REPORT_PICTURE_PATH">reportPicturePath</th>
+					<th st-sort="MOD_DESC">modDesc</th>
+					<th st-sort="TRD_STR_DESC_PICTURE_PATH">trdStrDescPicturePath</th>
+					<th st-sort="IS_SHARED">isShared</th>
+					<th st-sort="DESCRIPTION">description</th>
+					<th st-sort="ENABLE_MODIFY">enableModify</th>
+					<th>操作</th>
+                </tr>
+			</thead>
+			<tbody ng-show="!isLoading">
+				<tr ng-repeat="row in displayed">
+					<td>{{row.modId}}</td>
+					<td>{{row.modName}}</td>
+					<td>{{row.modCode}}</td>
+					<td>{{row.modType}}</td>
+					<td>{{row.modeRecLvl}}</td>
+					<td>{{row.report}}</td>
+					<td>{{row.reportPicturePath}}</td>
+					<td>{{row.modDesc}}</td>
+					<td>{{row.trdStrDescPicturePath}}</td>
+					<td>{{row.isShared}}</td>
+					<td>{{row.description}}</td>
+					<td>{{row.enableModify}}</td>
+					<td>
+						<a class="btn-txt btn-txt-green" href="#/trdStrMdl/modify/{{row.modId}}">修改</a>
+                        <a class="btn-txt btn-txt-red" ng-click="remove(row.modId)">删除</a>
+					</td>
+                </tr>
+			</tbody>
+
+			<!-- TEMP end -->
+			<tbody ng-show="isLoading">
+				<tr>
+					<td colspan="13" class="text-center">Loading ... </td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="text-center" st-pagination="" st-items-by-page="20" colspan="13">
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>

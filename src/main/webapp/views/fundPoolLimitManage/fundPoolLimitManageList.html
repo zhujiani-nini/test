@@ -1,0 +1,87 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a> &gt; <a href="#/fundPoolLimitManage" class="current"> fundPoolLimitManage管理</a>
+</div>
+<div>
+	<div class="table-query">
+		<!-- Table Layout -->
+		<div class="basic_query">
+			<form class=" table-query-form" novalidate>
+				<table class="query_table">
+					<tr>
+						<td><label for="limitManageId" class="control-label">limitManageId：</label></td>
+						<td><input class="form-control" type="text" id="limitManageId" ng-model="searchParams.limitManageId"/></td>
+						<td><label for="fundPoolId" class="control-label">fundPoolId：</label></td>
+						<td><input class="form-control" type="text" id="fundPoolId" ng-model="searchParams.fundPoolId"/></td>
+						<td><label for="limitType" class="control-label">limitType：</label></td>
+						<td><input class="form-control" type="text" id="limitType" ng-model="searchParams.limitType"/></td>
+					</tr>
+					<tr>
+						<td><label for="limitActivateTime" class="control-label">limitActivateTime：</label></td>
+						<td><input class="form-control" type="text" id="limitActivateTime" ng-model="searchParams.limitActivateTime"/></td>
+						<td><label for="limitOp" class="control-label">limitOp：</label></td>
+						<td><input class="form-control" type="text" id="limitOp" ng-model="searchParams.limitOp"/></td>
+						<td><label for="limitExpireTime" class="control-label">limitExpireTime：</label></td>
+						<td><input class="form-control" type="text" id="limitExpireTime" ng-model="searchParams.limitExpireTime"/></td>
+					</tr>
+					<tr>
+						<td><label for="limitAmt" class="control-label">limitAmt：</label></td>
+						<td><input class="form-control" type="text" id="limitAmt" ng-model="searchParams.limitAmt"/></td>
+						<td><label for="userId" class="control-label">userId：</label></td>
+						<td><input class="form-control" type="text" id="userId" ng-model="searchParams.userId"/></td>
+					</tr>
+				</table>
+				<div class="text-right table-query-btn mt10">
+					<input type="submit" value="查询" ng-click="queryList()" class="btn btn-sm btn-primary">
+					<a href="#/fundPoolLimitManage/add" class="btn btn-sm btn-danger">添加</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="table-result mt20">
+		<table class="table table-striped text-center" st-pipe="callServer" st-table="displayed">
+			<thead>
+				<tr>
+					<th st-sort="LIMIT_MANAGE_ID">limitManageId</th>
+					<th st-sort="FUND_POOL_ID">fundPoolId</th>
+					<th st-sort="LIMIT_TYPE">limitType</th>
+					<th st-sort="LIMIT_ACTIVATE_TIME">limitActivateTime</th>
+					<th st-sort="LIMIT_OP">limitOp</th>
+					<th st-sort="LIMIT_EXPIRE_TIME">limitExpireTime</th>
+					<th st-sort="LIMIT_AMT">limitAmt</th>
+					<th st-sort="USER_ID">userId</th>
+					<th>操作</th>
+                </tr>
+			</thead>
+			<tbody ng-show="!isLoading">
+				<tr ng-repeat="row in displayed">
+					<td>{{row.limitManageId}}</td>
+					<td>{{row.fundPoolId}}</td>
+					<td>{{row.limitType}}</td>
+					<td>{{row.limitActivateTime}}</td>
+					<td>{{row.limitOp}}</td>
+					<td>{{row.limitExpireTime}}</td>
+					<td>{{row.limitAmt}}</td>
+					<td>{{row.userId}}</td>
+					<td>
+						<a class="btn-txt btn-txt-green" href="#/fundPoolLimitManage/modify/{{row.limitManageId}}">修改</a>
+                        <a class="btn-txt btn-txt-red" ng-click="remove(row.limitManageId)">删除</a>
+					</td>
+                </tr>
+			</tbody>
+
+			<!-- TEMP end -->
+			<tbody ng-show="isLoading">
+				<tr>
+					<td colspan="9" class="text-center">Loading ... </td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="text-center" st-pagination="" st-items-by-page="20" colspan="9">
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>

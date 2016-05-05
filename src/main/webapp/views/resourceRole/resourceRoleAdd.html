@@ -1,0 +1,24 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/resourceRole"> resourceRole管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 添加resourceRole</a>
+</div>
+<form class="table-query-form" on-validated="add()" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="resourceId" class="control-label">resourceId：</label></td>
+			<td><input class="form-control" type="text" id="resourceId" ng-model="data.resourceId"/></td>
+			<td><label for="roleId" class="control-label">roleId：</label></td>
+			<td><input class="form-control" type="text" id="roleId" ng-model="data.roleId"/></td>
+		</tr>
+	</table>
+
+    <div class="text-right table-query-btn mt10">
+        <input type="submit" class="btn btn-sm btn-primary" value="保存">
+        <a href="#/resourceRole" class="btn btn-sm btn-success">返回</a>
+    </div>
+</form>
+
+
+

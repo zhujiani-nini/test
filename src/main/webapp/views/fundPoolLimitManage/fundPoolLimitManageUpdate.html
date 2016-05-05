@@ -1,0 +1,37 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/fundPoolLimitManage"> fundPoolLimitManage管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 更新fundPoolLimitManage</a>
+</div>
+<form class="table-query-form" on-validated="update();" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="fundPoolId" class="control-label">fundPoolId：</label></td>
+			<td><input class="form-control" type="text" id="fundPoolId" ng-model="data.fundPoolId"/></td>
+			<td><label for="limitType" class="control-label">limitType：</label></td>
+			<td><input class="form-control" type="text" id="limitType" ng-model="data.limitType"/></td>
+		</tr>
+		<tr>
+			<td><label for="limitActivateTime" class="control-label">limitActivateTime：</label></td>
+			<td><input class="form-control" type="text" id="limitActivateTime" ng-model="data.limitActivateTime"/></td>
+			<td><label for="limitOp" class="control-label">limitOp：</label></td>
+			<td><input class="form-control" type="text" id="limitOp" ng-model="data.limitOp"/></td>
+		</tr>
+		<tr>
+			<td><label for="limitExpireTime" class="control-label">limitExpireTime：</label></td>
+			<td><input class="form-control" type="text" id="limitExpireTime" ng-model="data.limitExpireTime"/></td>
+			<td><label for="limitAmt" class="control-label">limitAmt：</label></td>
+			<td><input class="form-control" type="text" id="limitAmt" ng-model="data.limitAmt"/></td>
+		</tr>
+		<tr>
+			<td><label for="userId" class="control-label">userId：</label></td>
+			<td><input class="form-control" type="text" id="userId" ng-model="data.userId"/></td>
+		</tr>
+	</table>
+
+	<div class="text-right table-query-btn mt10">
+		<input type="submit" class="btn btn-sm btn-primary" value="保存">
+		<a href="#/fundPoolLimitManage" class="btn btn-sm btn-success">返回</a>
+	</div>
+</form>

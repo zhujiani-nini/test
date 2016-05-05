@@ -1,0 +1,33 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/curPair"> curPair管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 更新curPair</a>
+</div>
+<form class="table-query-form" on-validated="update();" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="settleCurId" class="control-label">settleCurId：</label></td>
+			<td><input class="form-control" type="text" id="settleCurId" ng-model="data.settleCurId"/></td>
+			<td><label for="commodityCurId" class="control-label">commodityCurId：</label></td>
+			<td><input class="form-control" type="text" id="commodityCurId" ng-model="data.commodityCurId"/></td>
+		</tr>
+		<tr>
+			<td><label for="contractTypeId" class="control-label">contractTypeId：</label></td>
+			<td><input class="form-control" type="text" id="contractTypeId" ng-model="data.contractTypeId"/></td>
+			<td><label for="contractTypeName" class="control-label">contractTypeName：</label></td>
+			<td><input class="form-control" type="text" id="contractTypeName" ng-model="data.contractTypeName"/></td>
+		</tr>
+		<tr>
+			<td><label for="curPairCode" class="control-label">curPairCode：</label></td>
+			<td><input class="form-control" type="text" id="curPairCode" ng-model="data.curPairCode"/></td>
+			<td><label for="curPairDesc" class="control-label">curPairDesc：</label></td>
+			<td><input class="form-control" type="text" id="curPairDesc" ng-model="data.curPairDesc"/></td>
+		</tr>
+	</table>
+
+	<div class="text-right table-query-btn mt10">
+		<input type="submit" class="btn btn-sm btn-primary" value="保存">
+		<a href="#/curPair" class="btn btn-sm btn-success">返回</a>
+	</div>
+</form>

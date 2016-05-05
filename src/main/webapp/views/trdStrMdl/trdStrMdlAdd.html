@@ -1,0 +1,52 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/trdStrMdl"> trdStrMdl管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 添加trdStrMdl</a>
+</div>
+<form class="table-query-form" on-validated="add()" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="modName" class="control-label">modName：</label></td>
+			<td><input class="form-control" type="text" id="modName" ng-model="data.modName"/></td>
+			<td><label for="modCode" class="control-label">modCode：</label></td>
+			<td><input class="form-control" type="text" id="modCode" ng-model="data.modCode"/></td>
+		</tr>
+		<tr>
+			<td><label for="modType" class="control-label">modType：</label></td>
+			<td><input class="form-control" type="text" id="modType" ng-model="data.modType"/></td>
+			<td><label for="modeRecLvl" class="control-label">modeRecLvl：</label></td>
+			<td><input class="form-control" type="text" id="modeRecLvl" ng-model="data.modeRecLvl"/></td>
+		</tr>
+		<tr>
+			<td><label for="report" class="control-label">report：</label></td>
+			<td><input class="form-control" type="text" id="report" ng-model="data.report"/></td>
+			<td><label for="reportPicturePath" class="control-label">reportPicturePath：</label></td>
+			<td><input class="form-control" type="text" id="reportPicturePath" ng-model="data.reportPicturePath"/></td>
+		</tr>
+		<tr>
+			<td><label for="modDesc" class="control-label">modDesc：</label></td>
+			<td><input class="form-control" type="text" id="modDesc" ng-model="data.modDesc"/></td>
+			<td><label for="trdStrDescPicturePath" class="control-label">trdStrDescPicturePath：</label></td>
+			<td><input class="form-control" type="text" id="trdStrDescPicturePath" ng-model="data.trdStrDescPicturePath"/></td>
+		</tr>
+		<tr>
+			<td><label for="isShared" class="control-label">isShared：</label></td>
+			<td><input class="form-control" type="text" id="isShared" ng-model="data.isShared"/></td>
+			<td><label for="description" class="control-label">description：</label></td>
+			<td><input class="form-control" type="text" id="description" ng-model="data.description"/></td>
+		</tr>
+		<tr>
+			<td><label for="enableModify" class="control-label">enableModify：</label></td>
+			<td><input class="form-control" type="text" id="enableModify" ng-model="data.enableModify"/></td>
+		</tr>
+	</table>
+
+    <div class="text-right table-query-btn mt10">
+        <input type="submit" class="btn btn-sm btn-primary" value="保存">
+        <a href="#/trdStrMdl" class="btn btn-sm btn-success">返回</a>
+    </div>
+</form>
+
+
+

@@ -1,0 +1,42 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/strIndicatorParam"> strIndicatorParam管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 添加strIndicatorParam</a>
+</div>
+<form class="table-query-form" on-validated="add()" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="strIndicatorId" class="control-label">strIndicatorId：</label></td>
+			<td><input class="form-control" type="text" id="strIndicatorId" ng-model="data.strIndicatorId"/></td>
+			<td><label for="paramName" class="control-label">paramName：</label></td>
+			<td><input class="form-control" type="text" id="paramName" ng-model="data.paramName"/></td>
+		</tr>
+		<tr>
+			<td><label for="paramTypeId" class="control-label">paramTypeId：</label></td>
+			<td><input class="form-control" type="text" id="paramTypeId" ng-model="data.paramTypeId"/></td>
+			<td><label for="paramValue" class="control-label">paramValue：</label></td>
+			<td><input class="form-control" type="text" id="paramValue" ng-model="data.paramValue"/></td>
+		</tr>
+		<tr>
+			<td><label for="paramDefValue" class="control-label">paramDefValue：</label></td>
+			<td><input class="form-control" type="text" id="paramDefValue" ng-model="data.paramDefValue"/></td>
+			<td><label for="paramMax" class="control-label">paramMax：</label></td>
+			<td><input class="form-control" type="text" id="paramMax" ng-model="data.paramMax"/></td>
+		</tr>
+		<tr>
+			<td><label for="paramMin" class="control-label">paramMin：</label></td>
+			<td><input class="form-control" type="text" id="paramMin" ng-model="data.paramMin"/></td>
+			<td><label for="paramShowType" class="control-label">paramShowType：</label></td>
+			<td><input class="form-control" type="text" id="paramShowType" ng-model="data.paramShowType"/></td>
+		</tr>
+	</table>
+
+    <div class="text-right table-query-btn mt10">
+        <input type="submit" class="btn btn-sm btn-primary" value="保存">
+        <a href="#/strIndicatorParam" class="btn btn-sm btn-success">返回</a>
+    </div>
+</form>
+
+
+

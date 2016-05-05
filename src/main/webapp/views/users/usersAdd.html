@@ -1,0 +1,58 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/users"> users管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 添加users</a>
+</div>
+<form class="table-query-form" on-validated="add()" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="enable" class="control-label">enable：</label></td>
+			<td><input class="form-control" type="text" id="enable" ng-model="data.enable"/></td>
+			<td><label for="userName" class="control-label">userName：</label></td>
+			<td><input class="form-control" type="text" id="userName" ng-model="data.userName"/></td>
+		</tr>
+		<tr>
+			<td><label for="alias" class="control-label">alias：</label></td>
+			<td><input class="form-control" type="text" id="alias" ng-model="data.alias"/></td>
+			<td><label for="deptName" class="control-label">deptName：</label></td>
+			<td><input class="form-control" type="text" id="deptName" ng-model="data.deptName"/></td>
+		</tr>
+		<tr>
+			<td><label for="jobNumber" class="control-label">jobNumber：</label></td>
+			<td><input class="form-control" type="text" id="jobNumber" ng-model="data.jobNumber"/></td>
+			<td><label for="extension" class="control-label">extension：</label></td>
+			<td><input class="form-control" type="text" id="extension" ng-model="data.extension"/></td>
+		</tr>
+		<tr>
+			<td><label for="password" class="control-label">password：</label></td>
+			<td><input class="form-control" type="text" id="password" ng-model="data.password"/></td>
+			<td><label for="type" class="control-label">type：</label></td>
+			<td><input class="form-control" type="text" id="type" ng-model="data.type"/></td>
+		</tr>
+		<tr>
+			<td><label for="email" class="control-label">email：</label></td>
+			<td><input class="form-control" type="text" id="email" ng-model="data.email"/></td>
+			<td><label for="mobile" class="control-label">mobile：</label></td>
+			<td><input class="form-control" type="text" id="mobile" ng-model="data.mobile"/></td>
+		</tr>
+		<tr>
+			<td><label for="lastTime" class="control-label">lastTime：</label></td>
+			<td><input class="form-control" type="text" id="lastTime" ng-model="data.lastTime"/></td>
+			<td><label for="lastIp" class="control-label">lastIp：</label></td>
+			<td><input class="form-control" type="text" id="lastIp" ng-model="data.lastIp"/></td>
+		</tr>
+		<tr>
+			<td><label for="regTime" class="control-label">regTime：</label></td>
+			<td><input class="form-control" type="text" id="regTime" ng-model="data.regTime"/></td>
+		</tr>
+	</table>
+
+    <div class="text-right table-query-btn mt10">
+        <input type="submit" class="btn btn-sm btn-primary" value="保存">
+        <a href="#/users" class="btn btn-sm btn-success">返回</a>
+    </div>
+</form>
+
+
+

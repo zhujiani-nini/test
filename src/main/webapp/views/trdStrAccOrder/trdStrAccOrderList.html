@@ -1,0 +1,129 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a> &gt; <a href="#/trdStrAccOrder" class="current"> trdStrAccOrder管理</a>
+</div>
+<div>
+	<div class="table-query">
+		<!-- Table Layout -->
+		<div class="basic_query">
+			<form class=" table-query-form" novalidate>
+				<table class="query_table">
+					<tr>
+						<td><label for="id" class="control-label">id：</label></td>
+						<td><input class="form-control" type="text" id="id" ng-model="searchParams.id"/></td>
+						<td><label for="trdStrOrderId" class="control-label">trdStrOrderId：</label></td>
+						<td><input class="form-control" type="text" id="trdStrOrderId" ng-model="searchParams.trdStrOrderId"/></td>
+						<td><label for="trdStrInstanceId" class="control-label">trdStrInstanceId：</label></td>
+						<td><input class="form-control" type="text" id="trdStrInstanceId" ng-model="searchParams.trdStrInstanceId"/></td>
+					</tr>
+					<tr>
+						<td><label for="trdStrEntityId" class="control-label">trdStrEntityId：</label></td>
+						<td><input class="form-control" type="text" id="trdStrEntityId" ng-model="searchParams.trdStrEntityId"/></td>
+						<td><label for="trdStrTempId" class="control-label">trdStrTempId：</label></td>
+						<td><input class="form-control" type="text" id="trdStrTempId" ng-model="searchParams.trdStrTempId"/></td>
+						<td><label for="userId" class="control-label">userId：</label></td>
+						<td><input class="form-control" type="text" id="userId" ng-model="searchParams.userId"/></td>
+					</tr>
+					<tr>
+						<td><label for="accId" class="control-label">accId：</label></td>
+						<td><input class="form-control" type="text" id="accId" ng-model="searchParams.accId"/></td>
+						<td><label for="tcId" class="control-label">tcId：</label></td>
+						<td><input class="form-control" type="text" id="tcId" ng-model="searchParams.tcId"/></td>
+						<td><label for="tcName" class="control-label">tcName：</label></td>
+						<td><input class="form-control" type="text" id="tcName" ng-model="searchParams.tcName"/></td>
+					</tr>
+					<tr>
+						<td><label for="curPairId" class="control-label">curPairId：</label></td>
+						<td><input class="form-control" type="text" id="curPairId" ng-model="searchParams.curPairId"/></td>
+						<td><label for="curPairName" class="control-label">curPairName：</label></td>
+						<td><input class="form-control" type="text" id="curPairName" ng-model="searchParams.curPairName"/></td>
+						<td><label for="contractTypeName" class="control-label">contractTypeName：</label></td>
+						<td><input class="form-control" type="text" id="contractTypeName" ng-model="searchParams.contractTypeName"/></td>
+					</tr>
+					<tr>
+						<td><label for="trdStrOrderType" class="control-label">trdStrOrderType：</label></td>
+						<td><input class="form-control" type="text" id="trdStrOrderType" ng-model="searchParams.trdStrOrderType"/></td>
+						<td><label for="askBid" class="control-label">askBid：</label></td>
+						<td><input class="form-control" type="text" id="askBid" ng-model="searchParams.askBid"/></td>
+						<td><label for="tradeType" class="control-label">tradeType：</label></td>
+						<td><input class="form-control" type="text" id="tradeType" ng-model="searchParams.tradeType"/></td>
+					</tr>
+					<tr>
+						<td><label for="price" class="control-label">price：</label></td>
+						<td><input class="form-control" type="text" id="price" ng-model="searchParams.price"/></td>
+						<td><label for="quantity" class="control-label">quantity：</label></td>
+						<td><input class="form-control" type="text" id="quantity" ng-model="searchParams.quantity"/></td>
+					</tr>
+				</table>
+				<div class="text-right table-query-btn mt10">
+					<input type="submit" value="查询" ng-click="queryList()" class="btn btn-sm btn-primary">
+					<a href="#/trdStrAccOrder/add" class="btn btn-sm btn-danger">添加</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="table-result mt20">
+		<table class="table table-striped text-center" st-pipe="callServer" st-table="displayed">
+			<thead>
+				<tr>
+					<th st-sort="ID">id</th>
+					<th st-sort="TRD_STR_ORDER_ID">trdStrOrderId</th>
+					<th st-sort="TRD_STR_INSTANCE_ID">trdStrInstanceId</th>
+					<th st-sort="TRD_STR_ENTITY_ID">trdStrEntityId</th>
+					<th st-sort="TRD_STR_TEMP_ID">trdStrTempId</th>
+					<th st-sort="USER_ID">userId</th>
+					<th st-sort="ACC_ID">accId</th>
+					<th st-sort="TC_ID">tcId</th>
+					<th st-sort="TC_NAME">tcName</th>
+					<th st-sort="CUR_PAIR_ID">curPairId</th>
+					<th st-sort="CUR_PAIR_NAME">curPairName</th>
+					<th st-sort="CONTRACT_TYPE_NAME">contractTypeName</th>
+					<th st-sort="TRD_STR_ORDER_TYPE">trdStrOrderType</th>
+					<th st-sort="ASK_BID">askBid</th>
+					<th st-sort="TRADE_TYPE">tradeType</th>
+					<th st-sort="PRICE">price</th>
+					<th st-sort="QUANTITY">quantity</th>
+					<th>操作</th>
+                </tr>
+			</thead>
+			<tbody ng-show="!isLoading">
+				<tr ng-repeat="row in displayed">
+					<td>{{row.id}}</td>
+					<td>{{row.trdStrOrderId}}</td>
+					<td>{{row.trdStrInstanceId}}</td>
+					<td>{{row.trdStrEntityId}}</td>
+					<td>{{row.trdStrTempId}}</td>
+					<td>{{row.userId}}</td>
+					<td>{{row.accId}}</td>
+					<td>{{row.tcId}}</td>
+					<td>{{row.tcName}}</td>
+					<td>{{row.curPairId}}</td>
+					<td>{{row.curPairName}}</td>
+					<td>{{row.contractTypeName}}</td>
+					<td>{{row.trdStrOrderType}}</td>
+					<td>{{row.askBid}}</td>
+					<td>{{row.tradeType}}</td>
+					<td>{{row.price}}</td>
+					<td>{{row.quantity}}</td>
+					<td>
+						<a class="btn-txt btn-txt-green" href="#/trdStrAccOrder/modify/{{row.id}}">修改</a>
+                        <a class="btn-txt btn-txt-red" ng-click="remove(row.id)">删除</a>
+					</td>
+                </tr>
+			</tbody>
+
+			<!-- TEMP end -->
+			<tbody ng-show="isLoading">
+				<tr>
+					<td colspan="18" class="text-center">Loading ... </td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="text-center" st-pagination="" st-items-by-page="20" colspan="18">
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>

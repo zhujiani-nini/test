@@ -1,0 +1,83 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a> &gt; <a href="#/tcBalance" class="current"> tcBalance管理</a>
+</div>
+<div>
+	<div class="table-query">
+		<!-- Table Layout -->
+		<div class="basic_query">
+			<form class=" table-query-form" novalidate>
+				<table class="query_table">
+					<tr>
+						<td><label for="id" class="control-label">id：</label></td>
+						<td><input class="form-control" type="text" id="id" ng-model="searchParams.id"/></td>
+						<td><label for="tcId" class="control-label">tcId：</label></td>
+						<td><input class="form-control" type="text" id="tcId" ng-model="searchParams.tcId"/></td>
+						<td><label for="curId" class="control-label">curId：</label></td>
+						<td><input class="form-control" type="text" id="curId" ng-model="searchParams.curId"/></td>
+					</tr>
+					<tr>
+						<td><label for="curLimitMin" class="control-label">curLimitMin：</label></td>
+						<td><input class="form-control" type="text" id="curLimitMin" ng-model="searchParams.curLimitMin"/></td>
+						<td><label for="adjustState" class="control-label">adjustState：</label></td>
+						<td><input class="form-control" type="text" id="adjustState" ng-model="searchParams.adjustState"/></td>
+						<td><label for="curAmt" class="control-label">curAmt：</label></td>
+						<td><input class="form-control" type="text" id="curAmt" ng-model="searchParams.curAmt"/></td>
+					</tr>
+					<tr>
+						<td><label for="description" class="control-label">description：</label></td>
+						<td><input class="form-control" type="text" id="description" ng-model="searchParams.description"/></td>
+					</tr>
+				</table>
+				<div class="text-right table-query-btn mt10">
+					<input type="submit" value="查询" ng-click="queryList()" class="btn btn-sm btn-primary">
+					<a href="#/tcBalance/add" class="btn btn-sm btn-danger">添加</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="table-result mt20">
+		<table class="table table-striped text-center" st-pipe="callServer" st-table="displayed">
+			<thead>
+				<tr>
+					<th st-sort="ID">id</th>
+					<th st-sort="TC_ID">tcId</th>
+					<th st-sort="CUR_ID">curId</th>
+					<th st-sort="CUR_LIMIT_MIN">curLimitMin</th>
+					<th st-sort="ADJUST_STATE">adjustState</th>
+					<th st-sort="CUR_AMT">curAmt</th>
+					<th st-sort="DESCRIPTION">description</th>
+					<th>操作</th>
+                </tr>
+			</thead>
+			<tbody ng-show="!isLoading">
+				<tr ng-repeat="row in displayed">
+					<td>{{row.id}}</td>
+					<td>{{row.tcId}}</td>
+					<td>{{row.curId}}</td>
+					<td>{{row.curLimitMin}}</td>
+					<td>{{row.adjustState}}</td>
+					<td>{{row.curAmt}}</td>
+					<td>{{row.description}}</td>
+					<td>
+						<a class="btn-txt btn-txt-green" href="#/tcBalance/modify/{{row.id}}">修改</a>
+                        <a class="btn-txt btn-txt-red" ng-click="remove(row.id)">删除</a>
+					</td>
+                </tr>
+			</tbody>
+
+			<!-- TEMP end -->
+			<tbody ng-show="isLoading">
+				<tr>
+					<td colspan="8" class="text-center">Loading ... </td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="text-center" st-pagination="" st-items-by-page="20" colspan="8">
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>

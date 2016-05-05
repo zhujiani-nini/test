@@ -1,0 +1,21 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/groups"> groups管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 更新groups</a>
+</div>
+<form class="table-query-form" on-validated="update();" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="groupName" class="control-label">groupName：</label></td>
+			<td><input class="form-control" type="text" id="groupName" ng-model="data.groupName"/></td>
+			<td><label for="groupDesc" class="control-label">groupDesc：</label></td>
+			<td><input class="form-control" type="text" id="groupDesc" ng-model="data.groupDesc"/></td>
+		</tr>
+	</table>
+
+	<div class="text-right table-query-btn mt10">
+		<input type="submit" class="btn btn-sm btn-primary" value="保存">
+		<a href="#/groups" class="btn btn-sm btn-success">返回</a>
+	</div>
+</form>

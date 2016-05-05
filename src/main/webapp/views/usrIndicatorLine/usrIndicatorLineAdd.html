@@ -1,0 +1,30 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/usrIndicatorLine"> usrIndicatorLine管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 添加usrIndicatorLine</a>
+</div>
+<form class="table-query-form" on-validated="add()" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="usrIndicatorLineName" class="control-label">usrIndicatorLineName：</label></td>
+			<td><input class="form-control" type="text" id="usrIndicatorLineName" ng-model="data.usrIndicatorLineName"/></td>
+			<td><label for="usrIndicatorLineColor" class="control-label">usrIndicatorLineColor：</label></td>
+			<td><input class="form-control" type="text" id="usrIndicatorLineColor" ng-model="data.usrIndicatorLineColor"/></td>
+		</tr>
+		<tr>
+			<td><label for="usrIndicatorLinePeriod" class="control-label">usrIndicatorLinePeriod：</label></td>
+			<td><input class="form-control" type="text" id="usrIndicatorLinePeriod" ng-model="data.usrIndicatorLinePeriod"/></td>
+			<td><label for="indicatorBindColorPlanId" class="control-label">indicatorBindColorPlanId：</label></td>
+			<td><input class="form-control" type="text" id="indicatorBindColorPlanId" ng-model="data.indicatorBindColorPlanId"/></td>
+		</tr>
+	</table>
+
+    <div class="text-right table-query-btn mt10">
+        <input type="submit" class="btn btn-sm btn-primary" value="保存">
+        <a href="#/usrIndicatorLine" class="btn btn-sm btn-success">返回</a>
+    </div>
+</form>
+
+
+

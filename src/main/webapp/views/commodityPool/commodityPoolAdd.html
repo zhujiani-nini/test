@@ -1,0 +1,28 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/commodityPool"> commodityPool管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 添加commodityPool</a>
+</div>
+<form class="table-query-form" on-validated="add()" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="curId" class="control-label">curId：</label></td>
+			<td><input class="form-control" type="text" id="curId" ng-model="data.curId"/></td>
+			<td><label for="amount" class="control-label">amount：</label></td>
+			<td><input class="form-control" type="text" id="amount" ng-model="data.amount"/></td>
+		</tr>
+		<tr>
+			<td><label for="commodityPoolTypeId" class="control-label">commodityPoolTypeId：</label></td>
+			<td><input class="form-control" type="text" id="commodityPoolTypeId" ng-model="data.commodityPoolTypeId"/></td>
+		</tr>
+	</table>
+
+    <div class="text-right table-query-btn mt10">
+        <input type="submit" class="btn btn-sm btn-primary" value="保存">
+        <a href="#/commodityPool" class="btn btn-sm btn-success">返回</a>
+    </div>
+</form>
+
+
+

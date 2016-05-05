@@ -1,0 +1,33 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a>
+	&gt; <a href="#/tcBalance"> tcBalance管理</a>
+	&gt; <a href="javascript:void(0)" class="current"> 更新tcBalance</a>
+</div>
+<form class="table-query-form" on-validated="update();" novalidate jq-validation>
+	<h3 class="view_sub_title">基本信息</h3>
+	<table class="query_table">
+		<tr>
+			<td><label for="tcId" class="control-label">tcId：</label></td>
+			<td><input class="form-control" type="text" id="tcId" ng-model="data.tcId"/></td>
+			<td><label for="curId" class="control-label">curId：</label></td>
+			<td><input class="form-control" type="text" id="curId" ng-model="data.curId"/></td>
+		</tr>
+		<tr>
+			<td><label for="curLimitMin" class="control-label">curLimitMin：</label></td>
+			<td><input class="form-control" type="text" id="curLimitMin" ng-model="data.curLimitMin"/></td>
+			<td><label for="adjustState" class="control-label">adjustState：</label></td>
+			<td><input class="form-control" type="text" id="adjustState" ng-model="data.adjustState"/></td>
+		</tr>
+		<tr>
+			<td><label for="curAmt" class="control-label">curAmt：</label></td>
+			<td><input class="form-control" type="text" id="curAmt" ng-model="data.curAmt"/></td>
+			<td><label for="description" class="control-label">description：</label></td>
+			<td><input class="form-control" type="text" id="description" ng-model="data.description"/></td>
+		</tr>
+	</table>
+
+	<div class="text-right table-query-btn mt10">
+		<input type="submit" class="btn btn-sm btn-primary" value="保存">
+		<a href="#/tcBalance" class="btn btn-sm btn-success">返回</a>
+	</div>
+</form>

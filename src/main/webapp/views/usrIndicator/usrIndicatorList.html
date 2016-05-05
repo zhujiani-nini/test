@@ -1,0 +1,87 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a> &gt; <a href="#/usrIndicator" class="current"> usrIndicator管理</a>
+</div>
+<div>
+	<div class="table-query">
+		<!-- Table Layout -->
+		<div class="basic_query">
+			<form class=" table-query-form" novalidate>
+				<table class="query_table">
+					<tr>
+						<td><label for="usrIndicatorId" class="control-label">usrIndicatorId：</label></td>
+						<td><input class="form-control" type="text" id="usrIndicatorId" ng-model="searchParams.usrIndicatorId"/></td>
+						<td><label for="originalIndicatorId" class="control-label">originalIndicatorId：</label></td>
+						<td><input class="form-control" type="text" id="originalIndicatorId" ng-model="searchParams.originalIndicatorId"/></td>
+						<td><label for="usrIndicatorName" class="control-label">usrIndicatorName：</label></td>
+						<td><input class="form-control" type="text" id="usrIndicatorName" ng-model="searchParams.usrIndicatorName"/></td>
+					</tr>
+					<tr>
+						<td><label for="originalIndicatorName" class="control-label">originalIndicatorName：</label></td>
+						<td><input class="form-control" type="text" id="originalIndicatorName" ng-model="searchParams.originalIndicatorName"/></td>
+						<td><label for="indicatorTypeId" class="control-label">indicatorTypeId：</label></td>
+						<td><input class="form-control" type="text" id="indicatorTypeId" ng-model="searchParams.indicatorTypeId"/></td>
+						<td><label for="usrId" class="control-label">usrId：</label></td>
+						<td><input class="form-control" type="text" id="usrId" ng-model="searchParams.usrId"/></td>
+					</tr>
+					<tr>
+						<td><label for="indicatorFomula" class="control-label">indicatorFomula：</label></td>
+						<td><input class="form-control" type="text" id="indicatorFomula" ng-model="searchParams.indicatorFomula"/></td>
+						<td><label for="isMainIndicator" class="control-label">isMainIndicator：</label></td>
+						<td><input class="form-control" type="text" id="isMainIndicator" ng-model="searchParams.isMainIndicator"/></td>
+					</tr>
+				</table>
+				<div class="text-right table-query-btn mt10">
+					<input type="submit" value="查询" ng-click="queryList()" class="btn btn-sm btn-primary">
+					<a href="#/usrIndicator/add" class="btn btn-sm btn-danger">添加</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="table-result mt20">
+		<table class="table table-striped text-center" st-pipe="callServer" st-table="displayed">
+			<thead>
+				<tr>
+					<th st-sort="USR_INDICATOR_ID">usrIndicatorId</th>
+					<th st-sort="ORIGINAL_INDICATOR_ID">originalIndicatorId</th>
+					<th st-sort="USR_INDICATOR_NAME">usrIndicatorName</th>
+					<th st-sort="ORIGINAL_INDICATOR_NAME">originalIndicatorName</th>
+					<th st-sort="INDICATOR_TYPE_ID">indicatorTypeId</th>
+					<th st-sort="USR_ID">usrId</th>
+					<th st-sort="INDICATOR_FOMULA">indicatorFomula</th>
+					<th st-sort="IS_MAIN_INDICATOR">isMainIndicator</th>
+					<th>操作</th>
+                </tr>
+			</thead>
+			<tbody ng-show="!isLoading">
+				<tr ng-repeat="row in displayed">
+					<td>{{row.usrIndicatorId}}</td>
+					<td>{{row.originalIndicatorId}}</td>
+					<td>{{row.usrIndicatorName}}</td>
+					<td>{{row.originalIndicatorName}}</td>
+					<td>{{row.indicatorTypeId}}</td>
+					<td>{{row.usrId}}</td>
+					<td>{{row.indicatorFomula}}</td>
+					<td>{{row.isMainIndicator}}</td>
+					<td>
+						<a class="btn-txt btn-txt-green" href="#/usrIndicator/modify/{{row.usrIndicatorId}}">修改</a>
+                        <a class="btn-txt btn-txt-red" ng-click="remove(row.usrIndicatorId)">删除</a>
+					</td>
+                </tr>
+			</tbody>
+
+			<!-- TEMP end -->
+			<tbody ng-show="isLoading">
+				<tr>
+					<td colspan="9" class="text-center">Loading ... </td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="text-center" st-pagination="" st-items-by-page="20" colspan="9">
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>

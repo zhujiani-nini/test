@@ -1,0 +1,189 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a> &gt; <a href="#/trdAccInfo" class="current"> trdAccInfo管理</a>
+</div>
+<div>
+	<div class="table-query">
+		<!-- Table Layout -->
+		<div class="basic_query">
+			<form class=" table-query-form" novalidate>
+				<table class="query_table">
+					<tr>
+						<td><label for="accInfoId" class="control-label">accInfoId：</label></td>
+						<td><input class="form-control" type="text" id="accInfoId" ng-model="searchParams.accInfoId"/></td>
+						<td><label for="uuid" class="control-label">uuid：</label></td>
+						<td><input class="form-control" type="text" id="uuid" ng-model="searchParams.uuid"/></td>
+						<td><label for="accName" class="control-label">accName：</label></td>
+						<td><input class="form-control" type="text" id="accName" ng-model="searchParams.accName"/></td>
+					</tr>
+					<tr>
+						<td><label for="accPwd" class="control-label">accPwd：</label></td>
+						<td><input class="form-control" type="text" id="accPwd" ng-model="searchParams.accPwd"/></td>
+						<td><label for="tcId" class="control-label">tcId：</label></td>
+						<td><input class="form-control" type="text" id="tcId" ng-model="searchParams.tcId"/></td>
+						<td><label for="tcName" class="control-label">tcName：</label></td>
+						<td><input class="form-control" type="text" id="tcName" ng-model="searchParams.tcName"/></td>
+					</tr>
+					<tr>
+						<td><label for="mobile" class="control-label">mobile：</label></td>
+						<td><input class="form-control" type="text" id="mobile" ng-model="searchParams.mobile"/></td>
+						<td><label for="apiKey" class="control-label">apiKey：</label></td>
+						<td><input class="form-control" type="text" id="apiKey" ng-model="searchParams.apiKey"/></td>
+						<td><label for="priKey" class="control-label">priKey：</label></td>
+						<td><input class="form-control" type="text" id="priKey" ng-model="searchParams.priKey"/></td>
+					</tr>
+					<tr>
+						<td><label for="regEmail" class="control-label">regEmail：</label></td>
+						<td><input class="form-control" type="text" id="regEmail" ng-model="searchParams.regEmail"/></td>
+						<td><label for="emailPwd" class="control-label">emailPwd：</label></td>
+						<td><input class="form-control" type="text" id="emailPwd" ng-model="searchParams.emailPwd"/></td>
+						<td><label for="locked" class="control-label">locked：</label></td>
+						<td><input class="form-control" type="text" id="locked" ng-model="searchParams.locked"/></td>
+					</tr>
+					<tr>
+						<td><label for="trdAccOrderId" class="control-label">trdAccOrderId：</label></td>
+						<td><input class="form-control" type="text" id="trdAccOrderId" ng-model="searchParams.trdAccOrderId"/></td>
+						<td><label for="tickOrderId" class="control-label">tickOrderId：</label></td>
+						<td><input class="form-control" type="text" id="tickOrderId" ng-model="searchParams.tickOrderId"/></td>
+						<td><label for="trdStrOrderId" class="control-label">trdStrOrderId：</label></td>
+						<td><input class="form-control" type="text" id="trdStrOrderId" ng-model="searchParams.trdStrOrderId"/></td>
+					</tr>
+					<tr>
+						<td><label for="trdStrInstanceId" class="control-label">trdStrInstanceId：</label></td>
+						<td><input class="form-control" type="text" id="trdStrInstanceId" ng-model="searchParams.trdStrInstanceId"/></td>
+						<td><label for="userId" class="control-label">userId：</label></td>
+						<td><input class="form-control" type="text" id="userId" ng-model="searchParams.userId"/></td>
+						<td><label for="curId" class="control-label">curId：</label></td>
+						<td><input class="form-control" type="text" id="curId" ng-model="searchParams.curId"/></td>
+					</tr>
+					<tr>
+						<td><label for="settleCurId" class="control-label">settleCurId：</label></td>
+						<td><input class="form-control" type="text" id="settleCurId" ng-model="searchParams.settleCurId"/></td>
+						<td><label for="accCurAmt" class="control-label">accCurAmt：</label></td>
+						<td><input class="form-control" type="text" id="accCurAmt" ng-model="searchParams.accCurAmt"/></td>
+						<td><label for="curAmt" class="control-label">curAmt：</label></td>
+						<td><input class="form-control" type="text" id="curAmt" ng-model="searchParams.curAmt"/></td>
+					</tr>
+					<tr>
+						<td><label for="frozenAccCurAmt" class="control-label">frozenAccCurAmt：</label></td>
+						<td><input class="form-control" type="text" id="frozenAccCurAmt" ng-model="searchParams.frozenAccCurAmt"/></td>
+						<td><label for="frozenAccCur" class="control-label">frozenAccCur：</label></td>
+						<td><input class="form-control" type="text" id="frozenAccCur" ng-model="searchParams.frozenAccCur"/></td>
+						<td><label for="accRightCurTypeId" class="control-label">accRightCurTypeId：</label></td>
+						<td><input class="form-control" type="text" id="accRightCurTypeId" ng-model="searchParams.accRightCurTypeId"/></td>
+					</tr>
+					<tr>
+						<td><label for="accRights" class="control-label">accRights：</label></td>
+						<td><input class="form-control" type="text" id="accRights" ng-model="searchParams.accRights"/></td>
+						<td><label for="keepDepositCurId" class="control-label">keepDepositCurId：</label></td>
+						<td><input class="form-control" type="text" id="keepDepositCurId" ng-model="searchParams.keepDepositCurId"/></td>
+						<td><label for="keepContractAmt" class="control-label">keepContractAmt：</label></td>
+						<td><input class="form-control" type="text" id="keepContractAmt" ng-model="searchParams.keepContractAmt"/></td>
+					</tr>
+					<tr>
+						<td><label for="accGroupId" class="control-label">accGroupId：</label></td>
+						<td><input class="form-control" type="text" id="accGroupId" ng-model="searchParams.accGroupId"/></td>
+						<td><label for="accType" class="control-label">accType：</label></td>
+						<td><input class="form-control" type="text" id="accType" ng-model="searchParams.accType"/></td>
+						<td><label for="description" class="control-label">description：</label></td>
+						<td><input class="form-control" type="text" id="description" ng-model="searchParams.description"/></td>
+					</tr>
+				</table>
+				<div class="text-right table-query-btn mt10">
+					<input type="submit" value="查询" ng-click="queryList()" class="btn btn-sm btn-primary">
+					<a href="#/trdAccInfo/add" class="btn btn-sm btn-danger">添加</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="table-result mt20">
+		<table class="table table-striped text-center" st-pipe="callServer" st-table="displayed">
+			<thead>
+				<tr>
+					<th st-sort="ACC_INFO_ID">accInfoId</th>
+					<th st-sort="UUID">uuid</th>
+					<th st-sort="ACC_NAME">accName</th>
+					<th st-sort="ACC_PWD">accPwd</th>
+					<th st-sort="TC_ID">tcId</th>
+					<th st-sort="TC_NAME">tcName</th>
+					<th st-sort="MOBILE">mobile</th>
+					<th st-sort="API_KEY">apiKey</th>
+					<th st-sort="PRI_KEY">priKey</th>
+					<th st-sort="REG_EMAIL">regEmail</th>
+					<th st-sort="EMAIL_PWD">emailPwd</th>
+					<th st-sort="LOCKED">locked</th>
+					<th st-sort="TRD_ACC_ORDER_ID">trdAccOrderId</th>
+					<th st-sort="TICK_ORDER_ID">tickOrderId</th>
+					<th st-sort="TRD_STR_ORDER_ID">trdStrOrderId</th>
+					<th st-sort="TRD_STR_INSTANCE_ID">trdStrInstanceId</th>
+					<th st-sort="USER_ID">userId</th>
+					<th st-sort="CUR_ID">curId</th>
+					<th st-sort="SETTLE_CUR_ID">settleCurId</th>
+					<th st-sort="ACC_CUR_AMT">accCurAmt</th>
+					<th st-sort="CUR_AMT">curAmt</th>
+					<th st-sort="FROZEN_ACC_CUR_AMT">frozenAccCurAmt</th>
+					<th st-sort="FROZEN_ACC_CUR">frozenAccCur</th>
+					<th st-sort="ACC_RIGHT_CUR_TYPE_ID">accRightCurTypeId</th>
+					<th st-sort="ACC_RIGHTS">accRights</th>
+					<th st-sort="KEEP_DEPOSIT_CUR_ID">keepDepositCurId</th>
+					<th st-sort="KEEP_CONTRACT_AMT">keepContractAmt</th>
+					<th st-sort="ACC_GROUP_ID">accGroupId</th>
+					<th st-sort="ACC_TYPE">accType</th>
+					<th st-sort="DESCRIPTION">description</th>
+					<th>操作</th>
+                </tr>
+			</thead>
+			<tbody ng-show="!isLoading">
+				<tr ng-repeat="row in displayed">
+					<td>{{row.accInfoId}}</td>
+					<td>{{row.uuid}}</td>
+					<td>{{row.accName}}</td>
+					<td>{{row.accPwd}}</td>
+					<td>{{row.tcId}}</td>
+					<td>{{row.tcName}}</td>
+					<td>{{row.mobile}}</td>
+					<td>{{row.apiKey}}</td>
+					<td>{{row.priKey}}</td>
+					<td>{{row.regEmail}}</td>
+					<td>{{row.emailPwd}}</td>
+					<td>{{row.locked}}</td>
+					<td>{{row.trdAccOrderId}}</td>
+					<td>{{row.tickOrderId}}</td>
+					<td>{{row.trdStrOrderId}}</td>
+					<td>{{row.trdStrInstanceId}}</td>
+					<td>{{row.userId}}</td>
+					<td>{{row.curId}}</td>
+					<td>{{row.settleCurId}}</td>
+					<td>{{row.accCurAmt}}</td>
+					<td>{{row.curAmt}}</td>
+					<td>{{row.frozenAccCurAmt}}</td>
+					<td>{{row.frozenAccCur}}</td>
+					<td>{{row.accRightCurTypeId}}</td>
+					<td>{{row.accRights}}</td>
+					<td>{{row.keepDepositCurId}}</td>
+					<td>{{row.keepContractAmt}}</td>
+					<td>{{row.accGroupId}}</td>
+					<td>{{row.accType}}</td>
+					<td>{{row.description}}</td>
+					<td>
+						<a class="btn-txt btn-txt-green" href="#/trdAccInfo/modify/{{row.accInfoId}}">修改</a>
+                        <a class="btn-txt btn-txt-red" ng-click="remove(row.accInfoId)">删除</a>
+					</td>
+                </tr>
+			</tbody>
+
+			<!-- TEMP end -->
+			<tbody ng-show="isLoading">
+				<tr>
+					<td colspan="31" class="text-center">Loading ... </td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="text-center" st-pagination="" st-items-by-page="20" colspan="31">
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>

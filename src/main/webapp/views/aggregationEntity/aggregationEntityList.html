@@ -1,0 +1,91 @@
+<div class="sys_path">
+	<a href="/"> 首页 </a> &gt; <a href="#/aggregationEntity" class="current"> aggregationEntity管理</a>
+</div>
+<div>
+	<div class="table-query">
+		<!-- Table Layout -->
+		<div class="basic_query">
+			<form class=" table-query-form" novalidate>
+				<table class="query_table">
+					<tr>
+						<td><label for="id" class="control-label">id：</label></td>
+						<td><input class="form-control" type="text" id="id" ng-model="searchParams.id"/></td>
+						<td><label for="entityName" class="control-label">entityName：</label></td>
+						<td><input class="form-control" type="text" id="entityName" ng-model="searchParams.entityName"/></td>
+						<td><label for="identifyCode" class="control-label">identifyCode：</label></td>
+						<td><input class="form-control" type="text" id="identifyCode" ng-model="searchParams.identifyCode"/></td>
+					</tr>
+					<tr>
+						<td><label for="tcId" class="control-label">tcId：</label></td>
+						<td><input class="form-control" type="text" id="tcId" ng-model="searchParams.tcId"/></td>
+						<td><label for="aggregationStrategyId" class="control-label">aggregationStrategyId：</label></td>
+						<td><input class="form-control" type="text" id="aggregationStrategyId" ng-model="searchParams.aggregationStrategyId"/></td>
+						<td><label for="curPairId" class="control-label">curPairId：</label></td>
+						<td><input class="form-control" type="text" id="curPairId" ng-model="searchParams.curPairId"/></td>
+					</tr>
+					<tr>
+						<td><label for="description" class="control-label">description：</label></td>
+						<td><input class="form-control" type="text" id="description" ng-model="searchParams.description"/></td>
+						<td><label for="releaseStatus" class="control-label">releaseStatus：</label></td>
+						<td><input class="form-control" type="text" id="releaseStatus" ng-model="searchParams.releaseStatus"/></td>
+						<td><label for="enableModify" class="control-label">enableModify：</label></td>
+						<td><input class="form-control" type="text" id="enableModify" ng-model="searchParams.enableModify"/></td>
+					</tr>
+				</table>
+				<div class="text-right table-query-btn mt10">
+					<input type="submit" value="查询" ng-click="queryList()" class="btn btn-sm btn-primary">
+					<a href="#/aggregationEntity/add" class="btn btn-sm btn-danger">添加</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="table-result mt20">
+		<table class="table table-striped text-center" st-pipe="callServer" st-table="displayed">
+			<thead>
+				<tr>
+					<th st-sort="ID">id</th>
+					<th st-sort="ENTITY_NAME">entityName</th>
+					<th st-sort="IDENTIFY_CODE">identifyCode</th>
+					<th st-sort="TC_ID">tcId</th>
+					<th st-sort="AGGREGATION_STRATEGY_ID">aggregationStrategyId</th>
+					<th st-sort="CUR_PAIR_ID">curPairId</th>
+					<th st-sort="DESCRIPTION">description</th>
+					<th st-sort="RELEASE_STATUS">releaseStatus</th>
+					<th st-sort="ENABLE_MODIFY">enableModify</th>
+					<th>操作</th>
+                </tr>
+			</thead>
+			<tbody ng-show="!isLoading">
+				<tr ng-repeat="row in displayed">
+					<td>{{row.id}}</td>
+					<td>{{row.entityName}}</td>
+					<td>{{row.identifyCode}}</td>
+					<td>{{row.tcId}}</td>
+					<td>{{row.aggregationStrategyId}}</td>
+					<td>{{row.curPairId}}</td>
+					<td>{{row.description}}</td>
+					<td>{{row.releaseStatus}}</td>
+					<td>{{row.enableModify}}</td>
+					<td>
+						<a class="btn-txt btn-txt-green" href="#/aggregationEntity/modify/{{row.id}}">修改</a>
+                        <a class="btn-txt btn-txt-red" ng-click="remove(row.id)">删除</a>
+					</td>
+                </tr>
+			</tbody>
+
+			<!-- TEMP end -->
+			<tbody ng-show="isLoading">
+				<tr>
+					<td colspan="10" class="text-center">Loading ... </td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td class="text-center" st-pagination="" st-items-by-page="20" colspan="10">
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>
