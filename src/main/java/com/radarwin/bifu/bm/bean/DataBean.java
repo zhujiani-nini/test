@@ -1,5 +1,9 @@
 package com.radarwin.bifu.bm.bean;
 
+import com.radarwin.bifu.bm.util.DateConvertUtil;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -12,6 +16,7 @@ public class DataBean {
     private String info;
     private Double longindx;
     private Double shortindx;
+    private Long timestamp;
 
     public Long getId() {
         return id;
@@ -64,7 +69,17 @@ public class DataBean {
         this.shortindx = shortindx;
     }
 
+    public Long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Long timestamp) {
+        this.timestamp = timestamp;
+    }
+
     public static void main(String[] args) {
+//        DateConvertUtil.dateToTimestamp("2016-08-24 16:38:00.0");
+        DateConvertUtil.dateToTimestamp("1970-01-01 08:00:00.0");
 
     }
 }

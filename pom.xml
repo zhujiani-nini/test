@@ -20,7 +20,7 @@
         <dependency>
             <groupId>com.radarwin</groupId>
             <artifactId>com.radarwin.framework</artifactId>
-            <version>1.0.7</version>
+            <version>1.0.10</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -128,14 +128,17 @@
         <profile>
             <id>dev</id>
             <properties>
-                <jdbc.host>172.16.1.115:3306</jdbc.host>
-                <jdbc.database>bitrees</jdbc.database>
-                <jdbc.user>rw_bitrees</jdbc.user>
-                <jdbc.password>Abcd1234</jdbc.password>
+                <jdbc.host>172.16.1.103:3306</jdbc.host>
+                <jdbc.database>exchange</jdbc.database>
+                <jdbc.database.bitrees>bitrees</jdbc.database.bitrees>
+                <jdbc.user>root</jdbc.user>
+                <jdbc.password>123456</jdbc.password>
 
-                <!--         短信配置         -->
-                <sms.userName>radarwintest</sms.userName>
-                <sms.password>5E5BC90F0C5600FCF10D13C85CE5</sms.password>
+                <!--        redis 内存服务器      -->
+                <cache.enable>1</cache.enable>
+                <!--<cache.redis.host>172.16.1.171:7000</cache.redis.host>-->
+                <cache.redis.host>172.16.1.107:7000</cache.redis.host>
+                <cache.redis.enableCluster>1</cache.redis.enableCluster>
             </properties>
         </profile>
 

@@ -2,6 +2,7 @@ package com.radarwin.bifu.bm.dao.impl;
 
 import com.radarwin.bifu.bm.bean.DataBean;
 import com.radarwin.bifu.bm.dao.SynchronizeDataDao;
+import com.radarwin.bifu.bm.util.DateConvertUtil;
 import com.radarwin.framework.dao.impl.*;
 import com.radarwin.framework.util.DateUtil;
 import com.radarwin.framework.util.PropertyReader;
@@ -35,6 +36,7 @@ public class SynchronizeDataDaoImpl implements SynchronizeDataDao {
     private DbHelper dbHelper;
 
     private String databaseName = PropertyReader.get("jdbc_database", "jdbc.properties");
+    private String bitreesDatabaseName = PropertyReader.get("jdbc_database_bitrees", "jdbc.properties");
 
     @Override
     public DataBean getLast(String tbl) {
@@ -46,28 +48,24 @@ public class SynchronizeDataDaoImpl implements SynchronizeDataDao {
         Map<String, Object> m = list.get(0);
         String prefix = tbl.split("_")[0];
         DataBean dataBean = new DataBean();
-        if (prefix.equals("bti")) {
-            dataBean.setId(Long.valueOf(m.get("id").toString()));
-            dataBean.setDate(DateUtil.convertToDate(m.get("date").toString(), DateUtil.YYYY_MM_DD_HH_MM_SS));
-            dataBean.setIndx(Double.valueOf(m.get("indx").toString()));
-            dataBean.setInfo(String.valueOf(m.get("info")));
-            return dataBean;
-        } else if (prefix.equals("lsi")) {
-            dataBean.setId(Long.valueOf(m.get("id").toString()));
-            dataBean.setDate(DateUtil.convertToDate(m.get("date").toString(), DateUtil.YYYY_MM_DD_HH_MM_SS));
-            dataBean.setIndx(Double.valueOf(m.get("indx").toString()));
+        dataBean.setId(Long.valueOf(m.get("id").toString()));
+        dataBean.setDate(DateUtil.convertToDate(m.get("date").toString(), DateUtil.YYYY_MM_DD_HH_MM_SS));
+        String str =DateConvertUtil.dateToTimestamp(m.get("date").toString());
+        if (str == null) {
+            dataBean.setTimestamp(0l);
+        } else {
+            dataBean.setTimestamp(Long.valueOf(DateConvertUtil.dateToTimestamp(m.get("date").toString())));
+        }
+        dataBean.setIndx(Double.valueOf(m.get("indx").toString()));
+        if (prefix.equals("lsi")) {
             dataBean.setLongindx(Double.valueOf(m.get("longindx").toString()));
             dataBean.setShortindx(Double.valueOf(m.get("shortindx").toString()));
             dataBean.setInfo(String.valueOf(m.get("info")));
-            return dataBean;
-        } else if (prefix.equals("newbie")) {
-            dataBean.setId(Long.valueOf(m.get("id").toString()));
-            dataBean.setDate(DateUtil.convertToDate(m.get("date").toString(), DateUtil.YYYY_MM_DD_HH_MM_SS));
-            dataBean.setIndx(Double.valueOf(m.get("indx").toString()));
-            dataBean.setInfo(String.valueOf(m.get("info")));
-            return dataBean;
         }
-        return null;
+        if (prefix.equals("bti")) {
+            dataBean.setInfo(String.valueOf(m.get("info")));
+        }
+        return dataBean;
     }
 
     @Override
@@ -75,10 +73,10 @@ public class SynchronizeDataDaoImpl implements SynchronizeDataDao {
         StringBuilder sql = new StringBuilder("SELECT * from " + tbl + " WHERE 1=1 ");
         if (date != null) {
             String d = DateUtil.convertToString(date, DateUtil.YYYY_MM_DD_HH_MM_SS);
-            sql.append(" and date = '" + d + "'");
+            sql.append(" and date = '").append(d).append("'");
         }
-        List list = jdbcTemplateB.queryForList(sql.toString());
-        return list;
+
+        return jdbcTemplateB.queryForList(sql.toString());
     }
 
     @Override
@@ -88,8 +86,7 @@ public class SynchronizeDataDaoImpl implements SynchronizeDataDao {
             String d = DateUtil.convertToString(date, DateUtil.YYYY_MM_DD_HH_MM_SS);
             sql.append(" and date > '" + d + "'");
         }
-        List list = jdbcTemplateB.queryForList(sql.toString());
-        return list;
+        return jdbcTemplateB.queryForList(sql.toString());
     }
 
     @Override
@@ -110,7 +107,7 @@ public class SynchronizeDataDaoImpl implements SynchronizeDataDao {
         sb.append("CREATE TABLE `" + tbl + "` (");
         sb.append(" `id` bigint(20) NOT NULL AUTO_INCREMENT,");
 
-        List<Map<String, Object>> list = jdbcTemplateB.queryForList("select * from information_schema.`COLUMNS` where TABLE_NAME LIKE '" + tbl + "'");
+        List<Map<String, Object>> list = jdbcTemplateB.queryForList(String.format("select * from information_schema.`COLUMNS` where TABLE_NAME LIKE '%s'", tbl));
         for (Map<String, Object> m : list) {
             String columnName = String.valueOf(m.get("COLUMN_NAME"));
             String columnType = String.valueOf(m.get("COLUMN_TYPE"));
@@ -175,15 +172,25 @@ public class SynchronizeDataDaoImpl implements SynchronizeDataDao {
         Double shortIndx = dataBean.getShortindx();
         String date = DateUtil.convertToString(dataBean.getDate(), DateUtil.YYYY_MM_DD_HH_MM_SS);
         String info = dataBean.getInfo();
+        Long timestamp = dataBean.getTimestamp();
 
         StringBuilder sql = null;
         String prefix = tbl.split("_")[0];
         if (prefix.equals("bti")) {
-            sql = new StringBuilder("update " + tbl + " set indx=" + indx + ",date='" + date + "' ,info= " + info + " where id =" + id);
+            sql = new StringBuilder(
+                    "update " + tbl + " set indx=" +
+                            indx + ",date='" + date + "' ,info= '" + info + "',timestamp= " + timestamp +
+                            " where id =" + id);
         } else if (prefix.equals("lsi")) {
-            sql = new StringBuilder("update " + tbl + " set indx=" + indx + ",date='" + date + "' ,shortIndx= " + shortIndx + " ,longIndx= " + longIndx + " ,info='" + info + "'  where id =" + id);
+            sql = new StringBuilder(
+                    "update " + tbl + " set indx=" +
+                            indx + ",date='" + date + "' ,shortIndx= " + shortIndx + " ,longIndx= " + longIndx + " ,info='" + info + "',timestamp= " + timestamp +
+                            "  where id =" + id);
         } else if (prefix.equals("newbie")) {
-            sql = new StringBuilder("update " + tbl + " set indx=" + indx + ",date='" + date + "'  where id =" + id);
+            sql = new StringBuilder(
+                    "update " + tbl + " set indx=" +
+                            indx + ",date='" + date + "',timestamp= " + timestamp +
+                            "  where id =" + id);
         }
         jdbcTemplate.update(sql.toString());
     }
@@ -195,15 +202,25 @@ public class SynchronizeDataDaoImpl implements SynchronizeDataDao {
         Double shortIndx = dataBean.getShortindx();
         String date = DateUtil.convertToString(dataBean.getDate(), DateUtil.YYYY_MM_DD_HH_MM_SS);
         String info = dataBean.getInfo();
+        Long timestamp = dataBean.getTimestamp();
 
         StringBuilder sql = null;
         String prefix = tbl.split("_")[0];
         if (prefix.equals("bti")) {
-            sql = new StringBuilder("insert into " + tbl + " (date,indx,info) values (' " + date + " ',  " + indx + " ,' " + info + "') ");
+            sql = new StringBuilder(
+                    "insert into " + tbl +
+                            " (date,indx,info,timestamp) values (' " +
+                            date + " ',  " + indx + " ,' " + info + "'," + timestamp + ") ");
         } else if (prefix.equals("lsi")) {
-            sql = new StringBuilder("insert into " + tbl + " (date,indx,info,longIndx,shortIndx) values (' " + date + "' ,  " + indx + " ,' " + info + " ',  " + longIndx + ",  " + shortIndx + ") ");
+            sql = new StringBuilder(
+                    "insert into " + tbl +
+                            " (date,indx,info,longIndx,shortIndx,timestamp) values (' " +
+                            date + "' ,  " + indx + " ,' " + info + " ',  " + longIndx + ",  " + shortIndx + "," + timestamp + ") ");
         } else if (prefix.equals("newbie")) {
-            sql = new StringBuilder("insert into " + tbl + " (date,indx) values (' " + date + " ',  " + indx + ") ");
+            sql = new StringBuilder(
+                    "insert into " + tbl +
+                            " (date,indx,timestamp) values (' " +
+                            date + " ',  " + indx + "," + timestamp + ") ");
         }
         jdbcTemplate.execute(sql.toString());
     }
@@ -213,14 +230,14 @@ public class SynchronizeDataDaoImpl implements SynchronizeDataDao {
      *
      * @return tableNames
      */
-    public List getAllTableNames() throws SQLException {
-        List tableNames = new ArrayList();
+    public List<String> getAllTableNames() throws SQLException {
+        List<String> tableNames = new ArrayList<>();
         ResultSet rest = null;
         try {
             this.connectionB = this.jdbcTemplateB.getDataSource().getConnection();
             DatabaseMetaData dbmd = this.connectionB.getMetaData();
             // 表名列表
-            rest = dbmd.getTables(this.databaseName, null, null, new String[]{"TABLE"});
+            rest = dbmd.getTables(this.bitreesDatabaseName, null, null, new String[]{"TABLE"});
             // 输出 table_name
             while (rest.next()) {
                 tableNames.add(rest.getString("TABLE_NAME"));

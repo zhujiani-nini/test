@@ -1,9 +1,13 @@
 import com.radarwin.bifu.bm.bean.DataBean;
 import com.radarwin.bifu.bm.service.SynchronizeDataService;
+import com.radarwin.framework.cache.RedisCache;
 import org.springframework.beans.factory.annotation.Autowired;
+import redis.clients.jedis.JedisPubSub;
 
 
+import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by test on 2015/12/23.
@@ -34,17 +38,25 @@ public class Test extends BaseTest {
 
     @org.junit.Test
     public void getLast() {
-        Object o = synchronizeDataService.getLast("bti_15");
-        System.out.println(o);
+        RedisCache.getInstance().publish("test536325353256","rrrrrr");
     }
 
     @org.junit.Test
-    public void tete(){
-        try {
-            Thread.sleep(Integer.MAX_VALUE);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    public void tete() {
+//        RedisCache.getInstance().publish("test536325353256","11113311");
+        RedisCache.getInstance().subscribe(new JedisPubSub() {
+            @Override
+            public void onMessage(String channel, String message) {
+                super.onMessage(channel, message);
+                System.out.println(message);
+            }
+
+            @Override
+            public void onSubscribe(String channel, int subscribedChannels) {
+                super.onSubscribe(channel, subscribedChannels);
+                System.out.println(channel);
+            }
+        },"bti_1");
     }
 }
 

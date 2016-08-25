@@ -25,17 +25,16 @@ public class SynchronizeDataTask {
     private SynchronizeDataService synchronizeDataService;
 
     /**
-     * 每隔五分钟抓取
+     * 每隔一分钟抓取
      */
     @Scheduled(cron = "0 0/1 * * * ?")
+//    @Scheduled(cron u= "0/10 * * * * ?")
     public void syn() {
-        logger.info("running SynchronizeData......");
         List<String> list = synchronizeDataService.handleTableList();
         for (String tbl : list) {
             DataBean d = synchronizeDataService.getLast(tbl);
             if (d == null) {
                 synchronizeDataService.initTable(tbl);
-                logger.info(tbl + "no Data");
             } else {
                 synchronizeDataService.addNewData(d, tbl);
             }
@@ -43,14 +42,6 @@ public class SynchronizeDataTask {
     }
 
     public static void main(String[] args) {
-        System.out.println("+++++++++++++fefew++++++");
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath*:*/applicationContext*.xml");
-//        while (true) {
-//            try {
-//                Thread.sleep(Long.MAX_VALUE);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//        }
     }
 }

@@ -3,7 +3,10 @@ package com.radarwin.bifu.bm.service.impl;
 import com.radarwin.bifu.bm.bean.*;
 import com.radarwin.bifu.bm.dao.SynchronizeDataDao;
 import com.radarwin.bifu.bm.service.SynchronizeDataService;
+import com.radarwin.bifu.bm.util.DateConvertUtil;
+import com.radarwin.framework.cache.RedisCache;
 import com.radarwin.framework.util.DateUtil;
+import com.radarwin.framework.util.JsonUtil;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,6 +17,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * Created by ryan on 2016/4/20.
@@ -28,7 +32,7 @@ public class SynchronizeDataServiceImpl implements SynchronizeDataService {
 
     @Override
     public List<String> handleTableList() {
-        List<String> handleList = new ArrayList();
+        List<String> handleList = new ArrayList<>();
         try {
             List sourceList = synchronizeDataDao.getAllTableNames();
             for (Object obj : sourceList) {
@@ -69,6 +73,12 @@ public class SynchronizeDataServiceImpl implements SynchronizeDataService {
                 dataBean.setInfo(String.valueOf(changeMap.get("info")));
                 dataBean.setIndx(Double.valueOf(changeMap.get("indx").toString()));
                 dataBean.setDate(DateUtil.convertToDate(changeMap.get("date").toString(), DateUtil.YYYY_MM_DD_HH_MM_SS));
+                String str = DateConvertUtil.dateToTimestamp(changeMap.get("date").toString());
+                if (str == null) {
+                    dataBean.setTimestamp(0l);
+                } else {
+                    dataBean.setTimestamp(Long.valueOf(DateConvertUtil.dateToTimestamp(changeMap.get("date").toString())));
+                }
                 synchronizeDataDao.save(dataBean, tbl);
             }
             return true;
@@ -81,6 +91,7 @@ public class SynchronizeDataServiceImpl implements SynchronizeDataService {
     @Override
     public boolean addNewData(DataBean dataBean, String tbl) {
         try {
+            Double local = dataBean.getIndx();
             List<Map<String, Object>> hasList = this.getWithDateList(dataBean, tbl);
             if (hasList.size() == 1) {
                 Map<String, Object> m = hasList.get(0);
@@ -90,8 +101,17 @@ public class SynchronizeDataServiceImpl implements SynchronizeDataService {
                 }
                 dataBean.setIndx(Double.valueOf(m.get("indx").toString()));
                 dataBean.setInfo(String.valueOf(m.get("info")));
-//                dataBean.setDate(DateUtil.convertToDate(m.get("date").toString(), DateUtil.YYYY_MM_DD_HH_MM_SS));
-                synchronizeDataDao.update(dataBean, tbl);
+                String str = DateConvertUtil.dateToTimestamp(m.get("date").toString());
+                if (str == null) {
+                    dataBean.setTimestamp(0l);
+                } else {
+                    dataBean.setTimestamp(Long.valueOf(DateConvertUtil.dateToTimestamp(m.get("date").toString())));
+                }
+                if (dataBean.getIndx().compareTo(local) != 0) {
+                    RedisCache.getInstance().publish(tbl, JsonUtil.objectToJson(dataBean));
+                    synchronizeDataDao.update(dataBean, tbl);
+                }
+
             }
             List<Map<String, Object>> list = synchronizeDataDao.getListByDate(dataBean.getDate(), tbl);
             for (int i = 0; i < list.size(); i++) {
@@ -103,6 +123,13 @@ public class SynchronizeDataServiceImpl implements SynchronizeDataService {
                 dataBean.setIndx(Double.valueOf(changeMap.get("indx").toString()));
                 dataBean.setInfo(String.valueOf(changeMap.get("info")));
                 dataBean.setDate(DateUtil.convertToDate(changeMap.get("date").toString(), DateUtil.YYYY_MM_DD_HH_MM_SS));
+                String str = DateConvertUtil.dateToTimestamp(changeMap.get("date").toString());
+                if (str == null) {
+                    dataBean.setTimestamp(0l);
+                } else {
+                    dataBean.setTimestamp(Long.valueOf(DateConvertUtil.dateToTimestamp(changeMap.get("date").toString())));
+                }
+                RedisCache.getInstance().publish(tbl, JsonUtil.objectToJson(dataBean));
                 synchronizeDataDao.save(dataBean, tbl);
             }
             if (list.size() > 0) {
@@ -119,4 +146,5 @@ public class SynchronizeDataServiceImpl implements SynchronizeDataService {
     private List<Map<String, Object>> getWithDateList(DataBean dataBean, String tbl) {
         return synchronizeDataDao.getWithDate(dataBean.getDate(), tbl);
     }
+
 }
