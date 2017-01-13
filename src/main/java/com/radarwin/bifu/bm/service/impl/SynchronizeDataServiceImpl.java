@@ -116,6 +116,7 @@ public class SynchronizeDataServiceImpl implements SynchronizeDataService {
             List<Map<String, Object>> list = synchronizeDataDao.getListByDate(dataBean.getDate(), tbl);
             for (int i = 0; i < list.size(); i++) {
                 Map<String, Object> changeMap = list.get(i);
+                dataBean = new DataBean();
                 if (changeMap.containsKey("longIndx")) {
                     dataBean.setLongindx(Double.valueOf(changeMap.get("longIndx").toString()));
                     dataBean.setShortindx(Double.valueOf(changeMap.get("shortIndx").toString()));

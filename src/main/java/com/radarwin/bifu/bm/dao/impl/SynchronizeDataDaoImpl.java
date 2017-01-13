@@ -33,9 +33,6 @@ public class SynchronizeDataDaoImpl implements SynchronizeDataDao {
 
     private Connection connectionB;
 
-    private DbHelper dbHelper;
-
-    private String databaseName = PropertyReader.get("jdbc_database", "jdbc.properties");
     private String bitreesDatabaseName = PropertyReader.get("jdbc_database_bitrees", "jdbc.properties");
 
     @Override
@@ -116,46 +113,6 @@ public class SynchronizeDataDaoImpl implements SynchronizeDataDao {
         sb.append(" PRIMARY KEY (`id`),");
         sb.append(" UNIQUE KEY `date` (`date`) USING BTREE ");
         sb.append(") ENGINE=InnoDB DEFAULT CHARSET=utf8;");
-
-        try {
-            this.jdbcTemplate.update(sb.toString());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void createNewTable(String[] coloumnName, int[] coloumnType, String tableName) {
-        String prefix = tableName.split("_")[0];
-        StringBuffer sb = new StringBuffer("");
-        if (prefix.equals("bti")) {
-            sb.append("CREATE TABLE `" + tableName + "` (");
-            sb.append(" `id` bigint(20) NOT NULL AUTO_INCREMENT,");
-            sb.append(" `date` datetime NOT NULL, ");
-            sb.append(" `indx` int(10) unsigned NOT NULL DEFAULT '0', ");
-            sb.append(" `info` varchar(100) DEFAULT NULL, ");
-            sb.append(" PRIMARY KEY (`id`),");
-            sb.append(" UNIQUE KEY `date` (`date`) USING BTREE ");
-            sb.append(") ENGINE=InnoDB DEFAULT CHARSET=utf8;");
-        } else if (prefix.equals("lsi")) {
-            sb.append("CREATE TABLE `" + tableName + "` (");
-            sb.append(" `id` bigint(20) NOT NULL AUTO_INCREMENT,");
-            sb.append(" `date` datetime NOT NULL, ");
-            sb.append(" `indx` int(10) unsigned NOT NULL DEFAULT '0', ");
-            sb.append(" `info` varchar(100) DEFAULT NULL, ");
-            sb.append(" `longIndx` float(6,3) NOT NULL DEFAULT '0.000', ");
-            sb.append(" `shortIndx` float(6,3) NOT NULL DEFAULT '0.000', ");
-            sb.append(" PRIMARY KEY (`id`),");
-            sb.append(" UNIQUE KEY `date` (`date`) USING BTREE ");
-            sb.append(") ENGINE=InnoDB DEFAULT CHARSET=utf8;");
-        } else if (prefix.equals("newbie")) {
-            sb.append("CREATE TABLE `" + tableName + "` (");
-            sb.append(" `id` bigint(20) NOT NULL AUTO_INCREMENT,");
-            sb.append(" `date` datetime NOT NULL, ");
-            sb.append(" `indx` int(10) unsigned NOT NULL DEFAULT '0', ");
-            sb.append(" PRIMARY KEY (`id`),");
-            sb.append(" UNIQUE KEY `date` (`date`) USING BTREE ");
-            sb.append(") ENGINE=InnoDB DEFAULT CHARSET=utf8;");
-        }
 
         try {
             this.jdbcTemplate.update(sb.toString());

@@ -27,8 +27,8 @@ public class SynchronizeDataTask {
     /**
      * 每隔一分钟抓取
      */
-    @Scheduled(cron = "0 0/1 * * * ?")
-//    @Scheduled(cron u= "0/10 * * * * ?")
+//    @Scheduled(cron = "0 0/1 * * * ?")
+//    @Scheduled(cron= "0/10 * * * * ?")
     public void syn() {
         List<String> list = synchronizeDataService.handleTableList();
         for (String tbl : list) {
