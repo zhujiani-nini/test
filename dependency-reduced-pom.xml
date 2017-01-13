@@ -82,12 +82,14 @@
     <profile>
       <id>dev</id>
       <properties>
-        <sms.password>5E5BC90F0C5600FCF10D13C85CE5</sms.password>
-        <jdbc.database>bitrees</jdbc.database>
-        <sms.userName>radarwintest</sms.userName>
-        <jdbc.user>rw_bitrees</jdbc.user>
-        <jdbc.password>Abcd1234</jdbc.password>
-        <jdbc.host>172.16.1.115:3306</jdbc.host>
+        <jdbc.database>exchange</jdbc.database>
+        <cache.redis.host>172.16.1.107:7000</cache.redis.host>
+        <cache.redis.enableCluster>1</cache.redis.enableCluster>
+        <jdbc.user>root</jdbc.user>
+        <jdbc.password>123456</jdbc.password>
+        <cache.enable>1</cache.enable>
+        <jdbc.database.bitrees>bitrees</jdbc.database.bitrees>
+        <jdbc.host>172.16.1.103:3306</jdbc.host>
       </properties>
     </profile>
     <profile>
