@@ -57,7 +57,7 @@ public class SynchronizeDataDaoImpl implements SynchronizeDataDao {
         if (prefix.equals("lsi")) {
             dataBean.setLongindx(Double.valueOf(m.get("longindx").toString()));
             dataBean.setShortindx(Double.valueOf(m.get("shortindx").toString()));
-            dataBean.setInfo(String.valueOf(m.get("info")));
+            dataBean.setInfo(String.valueOf(m.get("info ")));
         }
         if (prefix.equals("bti")) {
             dataBean.setInfo(String.valueOf(m.get("info")));
